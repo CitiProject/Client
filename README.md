@@ -50,11 +50,11 @@ The target market for the app are people on vacation or that are unfamiliar with
 
 ## Authors
 
-* **Tushar Sharma**
-* **Darrell Shi**
-* **Kinshuk Juneja**
-* **Vishal Gill**
-* **Nadeem Mahmood**
+* Tushar Sharma
+* Darrell Shi
+* Kinshuk Juneja
+* Vishal Gill
+* Nadeem Mahmood
 
 ## License
 
