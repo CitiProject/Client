@@ -96,6 +96,7 @@
 				TargetAttributes = {
 					5B6044DC1D8B389400D7EAE9 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4MR49B8559;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -258,7 +259,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4MR49B8559;
 				INFOPLIST_FILE = Citi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cs490.Citi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,7 +273,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4MR49B8559;
 				INFOPLIST_FILE = Citi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cs490.Citi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
