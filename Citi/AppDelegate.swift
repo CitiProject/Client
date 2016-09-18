@@ -16,7 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+        let credentialsProvider = AWSCognitoCredentialsProvider(
+            regionType: AWSRegionType.usEast1,
+            identityPoolId: "us-west-2_94JiDOJOG")
+        let configuration = AWSServiceConfiguration(
+            region: AWSRegionType.usEast1,
+            credentialsProvider: credentialsProvider)
+        AWSServiceManager.default().defaultServiceConfiguration = configuration
+        
+        
         // Override point for customization after application launch.
         return true
     }
