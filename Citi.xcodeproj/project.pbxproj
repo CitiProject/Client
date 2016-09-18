@@ -106,12 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B6044EF1D8B389400D7EAE9 /* Build configuration list for PBXNativeTarget "Citi" */;
 			buildPhases = (
-				6D16C3BF198004B8F9631F13 /* Check Pods Manifest.lock */,
+				6D16C3BF198004B8F9631F13 /* [CP] Check Pods Manifest.lock */,
 				5B6044D91D8B389400D7EAE9 /* Sources */,
 				5B6044DA1D8B389400D7EAE9 /* Frameworks */,
 				5B6044DB1D8B389400D7EAE9 /* Resources */,
-				78B709E867663B0D2300E859 /* Embed Pods Frameworks */,
-				EB3900252276556CC9EA2386 /* Copy Pods Resources */,
+				78B709E867663B0D2300E859 /* [CP] Embed Pods Frameworks */,
+				EB3900252276556CC9EA2386 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,7 +134,6 @@
 				TargetAttributes = {
 					5B6044DC1D8B389400D7EAE9 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 4MR49B8559;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -172,14 +171,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6D16C3BF198004B8F9631F13 /* Check Pods Manifest.lock */ = {
+		6D16C3BF198004B8F9631F13 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,14 +186,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		78B709E867663B0D2300E859 /* Embed Pods Frameworks */ = {
+		78B709E867663B0D2300E859 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,14 +201,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Citi/Pods-Citi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB3900252276556CC9EA2386 /* Copy Pods Resources */ = {
+		EB3900252276556CC9EA2386 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,7 +350,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4MR49B8559;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Citi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -367,7 +366,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4MR49B8559;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Citi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
