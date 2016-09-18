@@ -8,20 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */; };
-		5B6044E31D8B389400D7EAE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E21D8B389400D7EAE9 /* ViewController.swift */; };
+		5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */; };
 		5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E41D8B389400D7EAE9 /* Main.storyboard */; };
 		5B6044E81D8B389400D7EAE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E71D8B389400D7EAE9 /* Assets.xcassets */; };
 		5B6044EB1D8B389400D7EAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E91D8B389400D7EAE9 /* LaunchScreen.storyboard */; };
+		5B6045061D8F0A1800D7EAE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6045051D8F0A1800D7EAE9 /* RegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5B6044DD1D8B389400D7EAE9 /* Citi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Citi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B6044E21D8B389400D7EAE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B6044E51D8B389400D7EAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B6044E71D8B389400D7EAE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B6044EA1D8B389400D7EAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B6044EC1D8B389400D7EAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B6045051D8F0A1800D7EAE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +56,23 @@
 		5B6044DF1D8B389400D7EAE9 /* Citi */ = {
 			isa = PBXGroup;
 			children = (
+				5B6045071D8F0A2700D7EAE9 /* ViewControllers */,
 				5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */,
-				5B6044E21D8B389400D7EAE9 /* ViewController.swift */,
 				5B6044E41D8B389400D7EAE9 /* Main.storyboard */,
 				5B6044E71D8B389400D7EAE9 /* Assets.xcassets */,
 				5B6044E91D8B389400D7EAE9 /* LaunchScreen.storyboard */,
 				5B6044EC1D8B389400D7EAE9 /* Info.plist */,
 			);
 			path = Citi;
+			sourceTree = "<group>";
+		};
+		5B6045071D8F0A2700D7EAE9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
+				5B6045051D8F0A1800D7EAE9 /* RegisterViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B6044E31D8B389400D7EAE9 /* ViewController.swift in Sources */,
+				5B6045061D8F0A1800D7EAE9 /* RegisterViewController.swift in Sources */,
+				5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */,
 				5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +314,7 @@
 				5B6044F11D8B389400D7EAE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
