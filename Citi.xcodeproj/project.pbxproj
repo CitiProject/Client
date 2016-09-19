@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0C13FA61269A7B1709209401 /* Pods_Citi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBB57C9ED56E7906FB1EA3 /* Pods_Citi.framework */; };
+		5377FCFB6A61DF37A2303345 /* Pods_Citi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68822A89C1F97C58D0170F67 /* Pods_Citi.framework */; };
 		5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */; };
 		5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */; };
 		5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E41D8B389400D7EAE9 /* Main.storyboard */; };
@@ -17,9 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2AC6DB38FEC27314E1EC5CDA /* Pods-Citi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.release.xcconfig"; sourceTree = "<group>"; };
-		47BBB57C9ED56E7906FB1EA3 /* Pods_Citi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		54EA3CC7BC88EC25D437F736 /* Pods-Citi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.debug.xcconfig"; sourceTree = "<group>"; };
+		20EE182AAEF7BE068B4B8FA8 /* Pods-Citi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.release.xcconfig"; sourceTree = "<group>"; };
 		5B6044DD1D8B389400D7EAE9 /* Citi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Citi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +26,8 @@
 		5B6044EA1D8B389400D7EAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B6044EC1D8B389400D7EAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5B6045051D8F0A1800D7EAE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.debug.xcconfig"; sourceTree = "<group>"; };
+		68822A89C1F97C58D0170F67 /* Pods_Citi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,19 +35,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C13FA61269A7B1709209401 /* Pods_Citi.framework in Frameworks */,
+				5377FCFB6A61DF37A2303345 /* Pods_Citi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		358269FE33E869E53B2219E3 /* Frameworks */ = {
+		25CD90E4940EF70C56C9B528 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				47BBB57C9ED56E7906FB1EA3 /* Pods_Citi.framework */,
+				60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */,
+				20EE182AAEF7BE068B4B8FA8 /* Pods-Citi.release.xcconfig */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		5B6044D41D8B389400D7EAE9 = {
@@ -55,8 +56,8 @@
 			children = (
 				5B6044DF1D8B389400D7EAE9 /* Citi */,
 				5B6044DE1D8B389400D7EAE9 /* Products */,
-				D001C2A0AC375AA537283B1C /* Pods */,
-				358269FE33E869E53B2219E3 /* Frameworks */,
+				25CD90E4940EF70C56C9B528 /* Pods */,
+				CF26602F4810E8C9B840D75B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,13 +91,12 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		D001C2A0AC375AA537283B1C /* Pods */ = {
+		CF26602F4810E8C9B840D75B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54EA3CC7BC88EC25D437F736 /* Pods-Citi.debug.xcconfig */,
-				2AC6DB38FEC27314E1EC5CDA /* Pods-Citi.release.xcconfig */,
+				68822A89C1F97C58D0170F67 /* Pods_Citi.framework */,
 			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,12 +106,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5B6044EF1D8B389400D7EAE9 /* Build configuration list for PBXNativeTarget "Citi" */;
 			buildPhases = (
-				6D16C3BF198004B8F9631F13 /* [CP] Check Pods Manifest.lock */,
+				DA4A3B70DD1ADA1872F6B0BF /* [CP] Check Pods Manifest.lock */,
 				5B6044D91D8B389400D7EAE9 /* Sources */,
 				5B6044DA1D8B389400D7EAE9 /* Frameworks */,
 				5B6044DB1D8B389400D7EAE9 /* Resources */,
-				78B709E867663B0D2300E859 /* [CP] Embed Pods Frameworks */,
-				EB3900252276556CC9EA2386 /* [CP] Copy Pods Resources */,
+				793A5D14C5D0E605B70671BE /* [CP] Embed Pods Frameworks */,
+				112042B8EDAC8B6A12984F22 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -171,22 +171,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6D16C3BF198004B8F9631F13 /* [CP] Check Pods Manifest.lock */ = {
+		112042B8EDAC8B6A12984F22 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Citi/Pods-Citi-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		78B709E867663B0D2300E859 /* [CP] Embed Pods Frameworks */ = {
+		793A5D14C5D0E605B70671BE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -201,19 +201,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Citi/Pods-Citi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB3900252276556CC9EA2386 /* [CP] Copy Pods Resources */ = {
+		DA4A3B70DD1ADA1872F6B0BF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Citi/Pods-Citi-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -292,10 +292,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -336,9 +338,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -346,32 +350,36 @@
 		};
 		5B6044F01D8B389400D7EAE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 54EA3CC7BC88EC25D437F736 /* Pods-Citi.debug.xcconfig */;
+			baseConfigurationReference = 60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
 				INFOPLIST_FILE = Citi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cs490.Citi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		5B6044F11D8B389400D7EAE9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AC6DB38FEC27314E1EC5CDA /* Pods-Citi.release.xcconfig */;
+			baseConfigurationReference = 20EE182AAEF7BE068B4B8FA8 /* Pods-Citi.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
 				INFOPLIST_FILE = Citi/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cs490.Citi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
