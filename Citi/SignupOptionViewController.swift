@@ -9,6 +9,7 @@
 import UIKit
 
 class SignupOptionViewController: UIViewController {
+    @IBOutlet weak var optionSegmentedControl: UISegmentedControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,13 @@ class SignupOptionViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onNext(_ sender: AnyObject) {
+        if optionSegmentedControl.selectedSegmentIndex == 0 { // tourist
+            performSegue(withIdentifier: "TouristSegue", sender: nil)
+        } else { // tour guide or both
+            performSegue(withIdentifier: "TourGuideSegue", sender: nil)
+        }
+    }
 
     /*
     // MARK: - Navigation
