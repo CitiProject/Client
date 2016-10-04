@@ -1,14 +1,14 @@
 //
-//  RegisterViewController.swift
+//  SignupOptionViewController.swift
 //  Citi
 //
-//  Created by Darrell Shi on 9/18/16.
+//  Created by Darrell Shi on 10/4/16.
 //  Copyright © 2016 Citi. All rights reserved.
 //
 
 import UIKit
 
-class RegisterViewController: UIViewController {
+class SignupOptionViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
