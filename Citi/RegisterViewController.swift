@@ -7,19 +7,21 @@
 //
 
 import UIKit
+import GoogleMaps
+import CoreLocation
+import MapKit
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        //Your map initiation code
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
 
     /*

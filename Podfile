@@ -22,5 +22,7 @@ target 'Citi' do
     pod 'AWSSimpleDB'
     pod 'AWSSNS'
     pod 'AWSSQS'
+    pod 'GoogleMaps'
+    pod 'GooglePlaces'
 end
 
