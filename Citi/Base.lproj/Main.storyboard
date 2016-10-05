@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IMG_6944" translatesAutoresizingMaskIntoConstraints="NO" id="eyj-rE-nLX"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Developed the city at night iphone 6 wallpapers" translatesAutoresizingMaskIntoConstraints="NO" id="eyj-rE-nLX"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yn7-Qk-k0h">
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -99,6 +99,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IMG_6944" width="576" height="1024"/>
+        <image name="Developed the city at night iphone 6 wallpapers" width="750" height="1334"/>
     </resources>
 </document>
