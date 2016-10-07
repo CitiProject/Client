@@ -7,25 +7,43 @@
 //
 
 import UIKit
+import CoreData
 import AWSCore
+import AWSCognitoIdentityProvider
+
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, AWSCognitoIdentityInteractiveAuthenticationDelegate{
 
     var window: UIWindow?
+    var pool: AWSCognitoIdentityUserPool?
+    var user: AWSCognitoIdentityUser?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let credentialsProvider = AWSCognitoCredentialsProvider(
             regionType: AWSRegionType.usEast1,
-            identityPoolId: "us-west-2_94JiDOJOG")
+            identityPoolId: "us-east-1:7fb95e03-4940-417c-a8e9-8020f88b25b6")
         let configuration = AWSServiceConfiguration(
             region: AWSRegionType.usEast1,
             credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
+        //create and register user pool
+        let userPoolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: "57d2o255pe5p54hrhg8lb8p6ec", clientSecret: "i9eak0j8pdg1q9j9jnqok3qipp971otc71s5l5oh5grcjrg579d", poolId: "us-east-1_FJzTqCTMi")
+        AWSCognitoIdentityUserPool.registerCognitoIdentityUserPool(with: userPoolConfiguration, forKey: "Citi Users")
         
+        self.pool = AWSCognitoIdentityUserPool(forKey: "Citi Users")
+        self.pool!.delegate = self
+        self.user = self.pool!.currentUser()
+
+        //redirect to initial view controllers
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = mainStoryboard.instantiateViewController(withIdentifier: "SignUpViewController")
         
-        // Override point for customization after application launch.
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
 
@@ -45,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

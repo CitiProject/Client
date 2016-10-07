@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		0C13FA61269A7B1709209401 /* Pods_Citi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47BBB57C9ED56E7906FB1EA3 /* Pods_Citi.framework */; };
 		5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */; };
-		5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */; };
 		5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E41D8B389400D7EAE9 /* Main.storyboard */; };
 		5B6044E81D8B389400D7EAE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E71D8B389400D7EAE9 /* Assets.xcassets */; };
 		5B6044EB1D8B389400D7EAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E91D8B389400D7EAE9 /* LaunchScreen.storyboard */; };
-		5B6045061D8F0A1800D7EAE9 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6045051D8F0A1800D7EAE9 /* RegisterViewController.swift */; };
+		C952983E1DA70CAE005B77AE /* Confirmed.swift in Sources */ = {isa = PBXBuildFile; fileRef = C952983D1DA70CAE005B77AE /* Confirmed.swift */; };
 		C9D44BED1DA080FB005CB1E2 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D44BEC1DA080FB005CB1E2 /* SignInViewController.swift */; };
 		C9D44BEF1DA08137005CB1E2 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D44BEE1DA08137005CB1E2 /* SignUpViewController.swift */; };
+		C9D44BF31DA58525005CB1E2 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D44BF21DA58525005CB1E2 /* LoggedInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,14 +24,14 @@
 		54EA3CC7BC88EC25D437F736 /* Pods-Citi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.debug.xcconfig"; sourceTree = "<group>"; };
 		5B6044DD1D8B389400D7EAE9 /* Citi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Citi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5B6044E51D8B389400D7EAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5B6044E71D8B389400D7EAE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B6044EA1D8B389400D7EAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B6044EC1D8B389400D7EAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5B6045051D8F0A1800D7EAE9 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		C952983D1DA70CAE005B77AE /* Confirmed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Confirmed.swift; sourceTree = "<group>"; };
 		C9D44BEC1DA080FB005CB1E2 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		C9D44BEE1DA08137005CB1E2 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C9D44BF21DA58525005CB1E2 /* LoggedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,10 +88,10 @@
 		5B6045071D8F0A2700D7EAE9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
 				C9D44BEC1DA080FB005CB1E2 /* SignInViewController.swift */,
 				C9D44BEE1DA08137005CB1E2 /* SignUpViewController.swift */,
-				5B6045051D8F0A1800D7EAE9 /* RegisterViewController.swift */,
+				C9D44BF21DA58525005CB1E2 /* LoggedInViewController.swift */,
+				C952983D1DA70CAE005B77AE /* Confirmed.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -229,9 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B6045061D8F0A1800D7EAE9 /* RegisterViewController.swift in Sources */,
-				5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */,
+				C952983E1DA70CAE005B77AE /* Confirmed.swift in Sources */,
 				5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */,
+				C9D44BF31DA58525005CB1E2 /* LoggedInViewController.swift in Sources */,
 				C9D44BED1DA080FB005CB1E2 /* SignInViewController.swift in Sources */,
 				C9D44BEF1DA08137005CB1E2 /* SignUpViewController.swift in Sources */,
 			);
