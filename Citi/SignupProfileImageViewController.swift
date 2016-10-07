@@ -64,7 +64,7 @@ class SignupProfileImageViewController: UIViewController {
 //        }
     }
     
-    func resizeImage(image: UIImage, newSize: CGSize) -> UIImage {
+    func resizeImage(_ image: UIImage, newSize: CGSize) -> UIImage {
         let frame = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
         let resizeImageView = UIImageView(frame: frame)
         resizeImageView.contentMode = UIViewContentMode.scaleAspectFill

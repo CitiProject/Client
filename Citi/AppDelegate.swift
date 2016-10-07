@@ -8,6 +8,8 @@
 
 import UIKit
 import AWSCore
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         
+        GMSServices.provideAPIKey("AIzaSyCxTvFZZCOAbefTC8JyTbrQxX_4_IHjgX8")
+        GMSPlacesClient.provideAPIKey("AIzaSyCxTvFZZCOAbefTC8JyTbrQxX_4_IHjgX8")
         
         // Override point for customization after application launch.
         return true

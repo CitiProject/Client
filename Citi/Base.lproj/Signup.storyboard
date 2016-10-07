@@ -388,7 +388,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7DG-iY-feP" kind="show" id="JsS-Fz-Ez5"/>
+                                    <segue destination="7DG-iY-feP" kind="presentation" id="JsS-Fz-Ez5"/>
                                 </connections>
                             </button>
                         </subviews>
