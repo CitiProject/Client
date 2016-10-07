@@ -94,7 +94,7 @@ class SignupProfileImageViewController: UIViewController {
     @IBAction func onGetStarted(_ sender: AnyObject) {
         user?.bio = shortBioTextView.text
         
-        let pool = AWSCognitoIdentityUserPool(forKey: "Citi User")
+        let pool = AWSCognitoIdentityUserPool(forKey: "Citi Users")
         
         var attributes = [AWSCognitoIdentityUserAttributeType]()
         let email = AWSCognitoIdentityUserAttributeType()
@@ -112,8 +112,6 @@ class SignupProfileImageViewController: UIViewController {
                 print(error.localizedDescription)
             case let (_, result?) where result.user.confirmedStatus != .confirmed :
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "toLoggedIn", sender: self)
-                    //need help performing segue to verifaction page
                 }
             default:
                 DispatchQueue.main.async { print("default") }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import AWSCore
 import GoogleMaps
 import GooglePlaces
@@ -22,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , AWSCognitoIdentityIntera
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let credentialsProvider = AWSCognitoCredentialsProvider(
             regionType: AWSRegionType.usEast1,
-            identityPoolId: "us-east-1_FJzTqCTMi")
+            identityPoolId: "us-east-1:7fb95e03-4940-417c-a8e9-8020f88b25b6")
         let configuration = AWSServiceConfiguration(
             region: AWSRegionType.usEast1,
             credentialsProvider: credentialsProvider)
