@@ -24,6 +24,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="onNext:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="7An-KB-OUt"/>
                                     <segue destination="Yr4-rk-qP0" kind="show" id="cVm-wA-fU3"/>
                                 </connections>
                             </button>
