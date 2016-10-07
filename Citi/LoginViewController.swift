@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
             (task:AWSTask!) -> AnyObject! in
             
             if task.error != nil {
-                let alert = UIAlertController.init(title: "Error", message: "Cannot login", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController.init(title: "Error", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
