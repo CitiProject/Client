@@ -34,7 +34,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kJY-Ay-Afo"/>
-                                    <segue destination="ywr-VS-fKp" kind="modal" id="A4v-Jm-uWr"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.80000000000000004" contentMode="scaleToFill" placeholderIntrinsicWidth="311" placeholderIntrinsicHeight="52" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" id="b6a-fj-3Tf">
@@ -75,6 +74,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="b6a-fj-3Tf" id="iyL-pp-QYz"/>
                         <outlet property="userinfoTextField" destination="pSO-bU-hta" id="vQA-z2-bDo"/>
+                        <segue destination="ywr-VS-fKp" kind="push" identifier="ToMapView" id="zRK-AZ-Ngw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -84,7 +84,9 @@
         <!--Map-->
         <scene sceneID="XAF-WW-oqU">
             <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="ywr-VS-fKp" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Map" id="ywr-VS-fKp" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="BxM-CY-Kfr"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYw-eo-igi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="405" y="42.243333333333332"/>
