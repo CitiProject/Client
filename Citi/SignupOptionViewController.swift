@@ -11,6 +11,8 @@ import UIKit
 class SignupOptionViewController: UIViewController {
     @IBOutlet weak var optionSegmentedControl: UISegmentedControl!
 
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,14 +32,25 @@ class SignupOptionViewController: UIViewController {
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        switch optionSegmentedControl.selectedSegmentIndex {
+        case 0:
+            user?.userType = UserType.tourist
+        case 1:
+            user?.userType = UserType.tour_guide
+        case 2:
+            user?.userType = UserType.both
+        default:
+            user?.userType = UserType.tourist
+        }
+        
+        let view = segue.destination as! SignupProfileImageViewController
+        view.user = user
     }
-    */
+    
 
 }

@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
+import AWSCognito
 
 class SignupProfileImageViewController: UIViewController {
     @IBOutlet weak var shortBioTextView: UITextView!
     @IBOutlet weak var profileImageView: UIImageView!
 
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -64,7 +68,7 @@ class SignupProfileImageViewController: UIViewController {
 //        }
     }
     
-    func resizeImage(image: UIImage, newSize: CGSize) -> UIImage {
+    func resizeImage(_ image: UIImage, newSize: CGSize) -> UIImage {
         let frame = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
         let resizeImageView = UIImageView(frame: frame)
         resizeImageView.contentMode = UIViewContentMode.scaleAspectFill
@@ -87,6 +91,39 @@ class SignupProfileImageViewController: UIViewController {
     }
     */
 
+    @IBAction func onGetStarted(_ sender: AnyObject) {
+        user?.bio = shortBioTextView.text
+        
+        let pool = AWSCognitoIdentityUserPool(forKey: "Citi User")
+        
+        var attributes = [AWSCognitoIdentityUserAttributeType]()
+        let email = AWSCognitoIdentityUserAttributeType()
+        email?.name = "email"
+        email?.value = user?.email
+        
+        
+        attributes.append(email!)
+        pool.signUp((user?.email!)!, password: (user?.password!)!, userAttributes: attributes, validationData: nil).continue ({ (task) -> Any? in
+            print("task.error", task.error)
+            print("task.result", task.result)
+            switch (task.error, task.result) {
+            case let (error?, _):
+                DispatchQueue.main.async { print("error") }
+                print(error.localizedDescription)
+            case let (_, result?) where result.user.confirmedStatus != .confirmed :
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "toLoggedIn", sender: self)
+                    //need help performing segue to verifaction page
+                }
+            default:
+                DispatchQueue.main.async { print("default") }
+            }
+            
+            return nil
+        })
+        
+    }
+    
 }
 
 extension SignupProfileImageViewController: UITextViewDelegate {

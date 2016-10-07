@@ -39,15 +39,17 @@ class SignupEmailViewController: UIViewController {
     
     
     @IBAction func onNext(_ sender: AnyObject) {
-        var attributes = [AWSCognitoIdentityUserAttributeType]()
-        let email = AWSCognitoIdentityUserAttributeType()
-        email?.name = EMAIL_KEY
-        email?.value = emailTextField.text
-        
-        attributes.append(email!)
-        pool?.signUp(emailTextField.text!, password: passwordTextField.text!, userAttributes: attributes, validationData: nil)
         
         
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let user = User()
+        user.email = emailTextField.text
+        user.password = passwordTextField.text
+        let view = segue.destination as! SignupNameViewController
+        view.user = user
     }
 
     /*
