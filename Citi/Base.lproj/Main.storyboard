@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mY1-4v-tZE">
@@ -59,7 +59,7 @@
                         <viewControllerLayoutGuide type="bottom" id="Svy-dw-4TK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="vef-yY-xyt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59s-kh-MEZ">
@@ -78,7 +78,7 @@
             </objects>
             <point key="canvasLocation" x="705" y="38"/>
         </scene>
-        <!--Map View Controller-->
+        <!--Title-->
         <scene sceneID="1Ig-72-bVB">
             <objects>
                 <viewController id="gco-2n-7IJ" customClass="MapViewController" customModule="Citi" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,21 +87,41 @@
                         <viewControllerLayoutGuide type="bottom" id="MrG-GV-Ujt"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="AB8-ag-KtK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3UR-ak-Tl3" customClass="GMSMapView">
-                                <frame key="frameInset" minY="20" width="414" height="716"/>
+                                <frame key="frameInset" minY="64" width="375" height="559"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9d1-nQ-Kn6">
+                                <frame key="frameInset" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Search For Ride" width="350" id="dJT-jw-Lzi"/>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afG-DY-vZd">
+                                <frame key="frameInset" minY="20" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="CITI" id="afy-AU-pt8">
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="nkg-0Z-53P"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="Mpv-H6-4RJ"/>
+                    <connections>
+                        <outlet property="mapView" destination="3UR-ak-Tl3" id="dh8-CQ-S0t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JSD-dm-6DA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1401.449275362319" y="37.5"/>
+            <point key="canvasLocation" x="1400.8" y="37.331334332833585"/>
         </scene>
     </scenes>
 </document>
