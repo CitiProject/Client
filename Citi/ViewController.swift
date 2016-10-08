@@ -1,30 +1,25 @@
 //
-//  SignupNameViewController.swift
+//  ViewController.swift
 //  Citi
 //
-//  Created by Darrell Shi on 10/4/16.
+//  Created by Darrell Shi on 10/8/16.
 //  Copyright © 2016 Citi. All rights reserved.
 //
 
 import UIKit
-import AWSCognito
 import AWSCognitoIdentityProvider
+import AWSCognito
 
-class SignupNameViewController: UIViewController {
-    @IBOutlet weak var fullnameTextField: UITextField!
-    @IBOutlet weak var preferredNameTextField: UITextField!
-    @IBOutlet weak var phoneNumTextField: UITextField!
-    
-    var user: User?
-    
+class ViewController: UIViewController {
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fullnameTextField.delegate = self
-        preferredNameTextField.delegate = self
-        phoneNumTextField.delegate = self
+        // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -36,24 +31,17 @@ class SignupNameViewController: UIViewController {
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
-    
-    @IBAction func onNext(_ sender: AnyObject) {
-        // TODO check input
-        
+
+    @IBAction func ButtonPressed(_ sender: AnyObject) {
         var attributes = [AWSCognitoIdentityUserAttributeType]()
         let fullname = AWSCognitoIdentityUserAttributeType()!
         fullname.name = "name"
-        fullname.value = fullnameTextField.text!
+        fullname.value = nameTextField.text!
         attributes.append(fullname)
-        
-        let preferredName = AWSCognitoIdentityUserAttributeType()!
-        preferredName.name = "preferred username"
-        preferredName.value = preferredNameTextField.text!
-        attributes.append(preferredName)
         
         let phoneNum = AWSCognitoIdentityUserAttributeType()!
         phoneNum.name = "phone number"
-        phoneNum.value = phoneNumTextField.text!
+        phoneNum.value = phoneNumberTextField.text!
         attributes.append(phoneNum)
         
         currUser.update(attributes).continue(with: .default(), with: { (task) -> Any? in
@@ -61,35 +49,24 @@ class SignupNameViewController: UIViewController {
                 self.showAlert(title: "success", message: nil)
             } else {
                 self.showAlert(title: "failure", message: nil)
+                print(task.error)
+                print(task.error.debugDescription)
+                print(task.error?.localizedDescription)
             }
             return nil
             }
         )
     }
 
+    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        user?.name = fullnameTextField.text
-        user?.preferredName = preferredNameTextField.text
-        user?.phoneNumber = phoneNumTextField.text
-        let view = segue.destination as! SignupOptionViewController
-        view.user = user
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
-    
+    */
 
-}
-
-extension SignupNameViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == fullnameTextField {
-            preferredNameTextField.becomeFirstResponder()
-        } else if textField == preferredNameTextField {
-            phoneNumTextField.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-        }
-        return true
-    }
 }

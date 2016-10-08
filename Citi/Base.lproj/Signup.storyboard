@@ -271,6 +271,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="onNext:" destination="Yr4-rk-qP0" eventType="touchUpInside" id="qeX-bd-JFi"/>
                                     <segue destination="L2G-jJ-Gpa" kind="show" id="jy6-4s-zba"/>
                                 </connections>
                             </button>

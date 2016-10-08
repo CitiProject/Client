@@ -27,7 +27,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Title" id="Q7d-gW-KYZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="9Ka-a3-VhY"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="9Ka-a3-VhY">
+                                            <connections>
+                                                <segue destination="NDA-NF-qN0" kind="show" id="LjE-Ez-K3b"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="fy9-5C-Rvl">
                                             <connections>
                                                 <segue destination="aF9-2m-tGH" kind="presentation" id="V0E-EO-jEP"/>
@@ -53,6 +57,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bo-DQ-2zA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="333.60000000000002" y="-240.62968515742131"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Kaf-ch-oKX">
+            <objects>
+                <viewController id="NDA-NF-qN0" customClass="ViewController" customModule="Citi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1O2-mv-Ck3"/>
+                        <viewControllerLayoutGuide type="bottom" id="4KU-yn-jfg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3l2-HJ-c00">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="phv-C6-beo">
+                                <frame key="frameInset" minX="100" minY="178" width="175" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="phone number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GKN-Y8-pxI">
+                                <frame key="frameInset" minX="100" minY="249" width="175" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEL-y7-AWU">
+                                <frame key="frameInset" minX="164" minY="351" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="ButtonPressed:" destination="NDA-NF-qN0" eventType="touchUpInside" id="7ZZ-qZ-WHq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameTextField" destination="phv-C6-beo" id="e9L-AX-6vz"/>
+                        <outlet property="phoneNumberTextField" destination="GKN-Y8-pxI" id="YSL-Gg-psF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qdQ-cn-Lnw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175.19999999999999" y="487.10644677661173"/>
         </scene>
         <!--Main-->
         <scene sceneID="6KT-DE-E2a">

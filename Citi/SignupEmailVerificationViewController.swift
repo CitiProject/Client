@@ -27,10 +27,7 @@ class SignupEmailVerificationViewController: UIViewController {
     }
     
     @IBAction func onVerify(_ sender: AnyObject) {
-        let userPool = AWSCognitoIdentityUserPool(forKey: poolKey)
-        let user = userPool.getUser(self.user!.email!)
-        
-        user.confirmSignUp(verificationTextField.text!).continue(with: AWSExecutor.mainThread(), with: { (task: AWSTask!) -> Any? in
+        currUser.confirmSignUp(verificationTextField.text!).continue(with: AWSExecutor.mainThread(), with: { (task: AWSTask!) -> Any? in
             if task.error == nil {
                 let alert = UIAlertController.init(title: "Success", message: "Email verified", preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
@@ -40,6 +37,10 @@ class SignupEmailVerificationViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
             } else {
                 print(task.error.debugDescription)
+                let alert = UIAlertController.init(title: "Failure", message: "Verification code incorrect", preferredStyle: UIAlertControllerStyle.alert)
+                let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
             }
             return nil
             }

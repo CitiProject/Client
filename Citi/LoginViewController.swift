@@ -22,6 +22,8 @@ class LoginViewController: UIViewController {
         userinfoTextField.delegate = self
         passwordTextField.delegate = self
         
+        pool.delegate = self
+        
        // passwordAuthenticationCompletion = AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>()
     }
 
@@ -64,7 +66,7 @@ class LoginViewController: UIViewController {
         let userPool = AWSCognitoIdentityUserPool(forKey: poolKey)
         let user = userPool.getUser(userinfoTextField.text!)
         
-        user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil).continue(with: AWSExecutor.mainThread(), with: {
+        user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil).continue(with: AWSExecutor.default(), with: {
             (task:AWSTask!) -> AnyObject! in
             
             if task.error != nil {
@@ -74,6 +76,7 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 print(task.error)
             } else {
+                currUser = pool.getUser(self.userinfoTextField.text!)
                 let alert = UIAlertController.init(title: "Success!", message: "logged in", preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
                     self.performSegue(withIdentifier: "ToMapView", sender: nil)
@@ -120,4 +123,16 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
+}
+
+extension LoginViewController: AWSCognitoIdentityInteractiveAuthenticationDelegate {
+    /*
+    func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
+        <#code#>
+    }
+    
+    func startCustomAuthentication() -> AWSCognitoIdentityCustomAuthentication {
+        <#code#>
+    }
+ */
 }

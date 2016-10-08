@@ -20,12 +20,13 @@ let appClientId = "57d2o255pe5p54hrhg8lb8p6ec"
 let appClientSecret = "i9eak0j8pdg1q9j9jnqok3qipp971otc71s5l5oh5grcjrg579d"
 let APIKey = "AIzaSyCxTvFZZCOAbefTC8JyTbrQxX_4_IHjgX8"
 
+var pool: AWSCognitoIdentityUserPool!
+var currUser: AWSCognitoIdentityUser!
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate , AWSCognitoIdentityInteractiveAuthenticationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    var pool: AWSCognitoIdentityUserPool?
-    var user: AWSCognitoIdentityUser?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let credentialsProvider = AWSCognitoCredentialsProvider(
@@ -40,9 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate , AWSCognitoIdentityIntera
         let userPoolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: appClientId, clientSecret: appClientSecret, poolId: poolId)
         AWSCognitoIdentityUserPool.registerCognitoIdentityUserPool(with: userPoolConfiguration, forKey: poolKey)
         
-        self.pool = AWSCognitoIdentityUserPool(forKey: poolKey)
-        self.pool!.delegate = self
-        self.user = self.pool!.currentUser()
+        pool = AWSCognitoIdentityUserPool(forKey: poolKey)
         
         GMSServices.provideAPIKey(APIKey)
         GMSPlacesClient.provideAPIKey(APIKey)
@@ -75,4 +74,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate , AWSCognitoIdentityIntera
 
 
 }
-

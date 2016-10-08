@@ -15,8 +15,6 @@ class SignupEmailViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfTextField: UITextField!
     
-    var pool: AWSCognitoIdentityUserPool?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,8 +22,6 @@ class SignupEmailViewController: UIViewController {
         passwordTextField.delegate = self
         passwordConfTextField.delegate = self
         
-        pool = AWSCognitoIdentityUserPool(forKey: poolId)
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,8 +68,6 @@ class SignupEmailViewController: UIViewController {
             return
         }
         
-        let pool = AWSCognitoIdentityUserPool(forKey: poolKey)
-        
         var attributes = [AWSCognitoIdentityUserAttributeType]()
         let email = AWSCognitoIdentityUserAttributeType()!
         email.name = "email"
@@ -89,6 +83,8 @@ class SignupEmailViewController: UIViewController {
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
             } else {
+                currUser = pool.getUser(self.emailTextField.text!)
+                
                 let alert = UIAlertController.init(title: "Welcome to Citi!", message: "Now please verify your email address", preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
                     self.performSegue(withIdentifier: "ShowEmailVerification", sender: nil)
