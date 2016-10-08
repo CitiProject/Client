@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         //passwordAuthenticationCompletion!.setResult(AWSCognitoIdentityPasswordAuthenticationDetails.init(username: "darrell@ms.com", password: "Abcd1234"))
         
         
-        let userPool = AWSCognitoIdentityUserPool(forKey: "Citi Users")
+        let userPool = AWSCognitoIdentityUserPool(forKey: poolKey)
         let user = userPool.getUser(userinfoTextField.text!)
         
         user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil).continue(with: AWSExecutor.mainThread(), with: {

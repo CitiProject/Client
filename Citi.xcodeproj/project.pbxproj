@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5377FCFB6A61DF37A2303345 /* Pods_Citi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68822A89C1F97C58D0170F67 /* Pods_Citi.framework */; };
+		5B03A8391DA9366600928141 /* SignupEmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03A8381DA9366600928141 /* SignupEmailVerificationViewController.swift */; };
 		5B1B3DBD1DA7481C00B7ECAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B3DBC1DA7481C00B7ECAF /* User.swift */; };
 		5B3119BB1DA3E96F00DCF408 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3119B91DA3E96F00DCF408 /* Signup.storyboard */; };
 		5B3119BD1DA3ECFF00DCF408 /* SignupEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		20EE182AAEF7BE068B4B8FA8 /* Pods-Citi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.release.xcconfig"; sourceTree = "<group>"; };
+		5B03A8381DA9366600928141 /* SignupEmailVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupEmailVerificationViewController.swift; sourceTree = "<group>"; };
 		5B1B3DBC1DA7481C00B7ECAF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B3119BA1DA3E96F00DCF408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Signup.storyboard; sourceTree = "<group>"; };
 		5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupEmailViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */,
+				5B03A8381DA9366600928141 /* SignupEmailVerificationViewController.swift */,
 				5B3119C11DA3F3F900DCF408 /* SignupNameViewController.swift */,
 				5B3119C31DA3F42300DCF408 /* SignupOptionViewController.swift */,
 				5B3119C51DA3F45500DCF408 /* SignupProfileImageViewController.swift */,
@@ -278,6 +281,7 @@
 				5B3119C41DA3F42300DCF408 /* SignupOptionViewController.swift in Sources */,
 				5B3119C21DA3F3F900DCF408 /* SignupNameViewController.swift in Sources */,
 				D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */,
+				5B03A8391DA9366600928141 /* SignupEmailVerificationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

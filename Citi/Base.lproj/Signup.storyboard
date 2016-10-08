@@ -20,12 +20,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Developed the city at night iphone 6 wallpapers" translatesAutoresizingMaskIntoConstraints="NO" id="psX-9w-GIr"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eWr-re-y7u">
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Next">
+                                <state key="normal" title="Register">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="onNext:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="7An-KB-OUt"/>
-                                    <segue destination="Yr4-rk-qP0" kind="show" id="cVm-wA-fU3"/>
+                                    <action selector="onRegister:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="weg-wN-OFi"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password again" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ly-Dd-aqB">
@@ -46,7 +45,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tup-st-faK">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -93,6 +92,7 @@
                         <outlet property="emailTextField" destination="KpM-RT-z4b" id="JOg-x8-ZBq"/>
                         <outlet property="passwordConfTextField" destination="5Ly-Dd-aqB" id="VGJ-ha-ORd"/>
                         <outlet property="passwordTextField" destination="Tup-st-faK" id="c8u-F5-L72"/>
+                        <segue destination="ObF-Be-NAL" kind="presentation" identifier="ShowEmailVerification" id="QQC-pH-ubi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aen-0f-36K" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -344,6 +344,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4y1-Ic-7n7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="809" y="-3"/>
+        </scene>
+        <!--Signup Email Verification View Controller-->
+        <scene sceneID="d6S-z5-gwo">
+            <objects>
+                <viewController id="ObF-Be-NAL" customClass="SignupEmailVerificationViewController" customModule="Citi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AJG-Z0-01D"/>
+                        <viewControllerLayoutGuide type="bottom" id="7wM-Oh-IFX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bnC-p6-kbM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Developed the city at night iphone 6 wallpapers" translatesAutoresizingMaskIntoConstraints="NO" id="arh-L4-51l"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-Em-dhO">
+                                <frame key="frameInset" minX="151" minY="356" width="74" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Verify">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRegister:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="3QC-sG-bFI"/>
+                                    <action selector="onVerify:" destination="ObF-Be-NAL" eventType="touchUpInside" id="I1H-3N-dg2"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Confirmation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9T-hh-fmz">
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please login your email and provide the verification code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqE-7b-N0R">
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.85385886450000004" green="0.85385886450000004" blue="0.85385886450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="verification code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="enr-2P-S5w">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="263" id="6Or-Om-Apk"/>
+                                    <constraint firstAttribute="height" constant="40" id="woQ-H7-a7P"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="enr-2P-S5w" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="1AY-Nj-y4u"/>
+                            <constraint firstItem="xqE-7b-N0R" firstAttribute="top" secondItem="d9T-hh-fmz" secondAttribute="bottom" constant="3" id="4Du-bV-K80"/>
+                            <constraint firstItem="xqE-7b-N0R" firstAttribute="top" secondItem="d9T-hh-fmz" secondAttribute="bottom" constant="3" id="EHl-01-eZA"/>
+                            <constraint firstItem="d9T-hh-fmz" firstAttribute="top" secondItem="AJG-Z0-01D" secondAttribute="bottom" constant="70" id="Lkj-Wc-NEB"/>
+                            <constraint firstItem="enr-2P-S5w" firstAttribute="top" secondItem="xqE-7b-N0R" secondAttribute="bottom" constant="91" id="NfM-7O-YZN"/>
+                            <constraint firstItem="arh-L4-51l" firstAttribute="top" secondItem="bnC-p6-kbM" secondAttribute="top" id="Oth-At-Qwe"/>
+                            <constraint firstItem="xqE-7b-N0R" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="Vf4-Zp-j7l"/>
+                            <constraint firstItem="arh-L4-51l" firstAttribute="leading" secondItem="bnC-p6-kbM" secondAttribute="leading" id="afz-QS-p51"/>
+                            <constraint firstItem="d9T-hh-fmz" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="lh0-Pt-MSZ"/>
+                            <constraint firstItem="7wM-Oh-IFX" firstAttribute="top" secondItem="arh-L4-51l" secondAttribute="bottom" id="qzp-wz-g6f"/>
+                            <constraint firstAttribute="trailing" secondItem="arh-L4-51l" secondAttribute="trailing" id="ryl-6p-XcK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="verificationTextField" destination="enr-2P-S5w" id="EVV-oe-xfJ"/>
+                        <segue destination="Yr4-rk-qP0" kind="show" identifier="ShowSignupNameViewController" id="3dq-BV-cUt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ogY-eX-KyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="73" y="701"/>
         </scene>
         <!--Signup Profile Image View Controller-->
         <scene sceneID="qc4-m0-6H3">

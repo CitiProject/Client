@@ -13,6 +13,13 @@ import GoogleMaps
 import GooglePlaces
 import AWSCognitoIdentityProvider
 
+let identityPoolId = "us-east-1:7fb95e03-4940-417c-a8e9-8020f88b25b6"
+let poolKey = "Citi Users"
+let poolId = "us-east-1_FJzTqCTMi"
+let appClientId = "57d2o255pe5p54hrhg8lb8p6ec"
+let appClientSecret = "i9eak0j8pdg1q9j9jnqok3qipp971otc71s5l5oh5grcjrg579d"
+let APIKey = "AIzaSyCxTvFZZCOAbefTC8JyTbrQxX_4_IHjgX8"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate , AWSCognitoIdentityInteractiveAuthenticationDelegate {
     
@@ -23,22 +30,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate , AWSCognitoIdentityIntera
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let credentialsProvider = AWSCognitoCredentialsProvider(
             regionType: AWSRegionType.usEast1,
-            identityPoolId: "us-east-1:7fb95e03-4940-417c-a8e9-8020f88b25b6")
+            identityPoolId: identityPoolId)
         let configuration = AWSServiceConfiguration(
             region: AWSRegionType.usEast1,
             credentialsProvider: credentialsProvider)
         AWSServiceManager.default().defaultServiceConfiguration = configuration
         
         //create and register user pool
-        let userPoolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: "57d2o255pe5p54hrhg8lb8p6ec", clientSecret: "i9eak0j8pdg1q9j9jnqok3qipp971otc71s5l5oh5grcjrg579d", poolId: "us-east-1_FJzTqCTMi")
-        AWSCognitoIdentityUserPool.registerCognitoIdentityUserPool(with: userPoolConfiguration, forKey: "Citi Users")
+        let userPoolConfiguration = AWSCognitoIdentityUserPoolConfiguration(clientId: appClientId, clientSecret: appClientSecret, poolId: poolId)
+        AWSCognitoIdentityUserPool.registerCognitoIdentityUserPool(with: userPoolConfiguration, forKey: poolKey)
         
-        self.pool = AWSCognitoIdentityUserPool(forKey: "Citi Users")
+        self.pool = AWSCognitoIdentityUserPool(forKey: poolKey)
         self.pool!.delegate = self
         self.user = self.pool!.currentUser()
         
-        GMSServices.provideAPIKey("AIzaSyCxTvFZZCOAbefTC8JyTbrQxX_4_IHjgX8")
-        GMSPlacesClient.provideAPIKey("AIzaSyCxTvFZZCOAbefTC8JyTbrQxX_4_IHjgX8")
+        GMSServices.provideAPIKey(APIKey)
+        GMSPlacesClient.provideAPIKey(APIKey)
         
         // Override point for customization after application launch.
         return true
