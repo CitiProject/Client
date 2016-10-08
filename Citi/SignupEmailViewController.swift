@@ -33,7 +33,37 @@ class SignupEmailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func showAlert(title: String?, message: String?) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func checkInput()->Bool {
+        if let email = emailTextField.text {
+            if email == "" {
+                showAlert(title: "Error", message: "Please enter email")
+                return false
+            }
+        }
+        
+        if let password = passwordTextField.text {
+            if password == "" {
+                showAlert(title: "Error", message: "Please enter password")
+                return false
+            }
+            if let passwordConfir = passwordConfTextField.text {
+                if passwordConfir == "" {
+                    showAlert(title: "Error", message: "Please enter password confirmation")
+                    return false
+                }
+                if password != passwordConfir {
+                    showAlert(title: "Error", message: "Password does not mastch confirmation")
+                    return false
+                }
+            }
+        }
         return true
     }
     
