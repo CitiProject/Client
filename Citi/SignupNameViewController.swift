@@ -37,8 +37,22 @@ class SignupNameViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
+    func checkInput()->Bool {
+        if fullnameTextField.text == "" {
+            showAlert(title: "Error", message: "Please enter name")
+            return false
+        }
+        if phoneNumTextField.text == "" {
+            showAlert(title: "Error", message: "Please enter phone number for contact")
+            return false
+        }
+        return true
+    }
+    
     @IBAction func onNext(_ sender: AnyObject) {
-        // TODO check input
+        if !checkInput() {
+            return
+        }
         
         var attributes = [AWSCognitoIdentityUserAttributeType]()
         let fullname = AWSCognitoIdentityUserAttributeType()!
