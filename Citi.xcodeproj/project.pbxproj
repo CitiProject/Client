@@ -22,6 +22,8 @@
 		5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E41D8B389400D7EAE9 /* Main.storyboard */; };
 		5B6044E81D8B389400D7EAE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E71D8B389400D7EAE9 /* Assets.xcassets */; };
 		5B6044EB1D8B389400D7EAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E91D8B389400D7EAE9 /* LaunchScreen.storyboard */; };
+		5B87816B1DB066B500F61246 /* TourGuideControlPaneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B87816A1DB066B500F61246 /* TourGuideControlPaneView.xib */; };
+		5B87816D1DB066FD00F61246 /* TourGuideControlPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87816C1DB066FD00F61246 /* TourGuideControlPaneView.swift */; };
 		D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655EFAB1DA728CC002C9D91 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		5B6044E71D8B389400D7EAE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5B6044EA1D8B389400D7EAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5B6044EC1D8B389400D7EAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B87816A1DB066B500F61246 /* TourGuideControlPaneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourGuideControlPaneView.xib; sourceTree = "<group>"; };
+		5B87816C1DB066FD00F61246 /* TourGuideControlPaneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuideControlPaneView.swift; sourceTree = "<group>"; };
 		60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.debug.xcconfig"; sourceTree = "<group>"; };
 		68822A89C1F97C58D0170F67 /* Pods_Citi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D655EFAB1DA728CC002C9D91 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 				5B1B3DBA1DA3F4AD00B7ECAF /* Storyboards */,
 				5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */,
 				5B03A83A1DA9443800928141 /* ViewController.swift */,
+				5B87816A1DB066B500F61246 /* TourGuideControlPaneView.xib */,
+				5B87816C1DB066FD00F61246 /* TourGuideControlPaneView.swift */,
 				5B6044E71D8B389400D7EAE9 /* Assets.xcassets */,
 				5B6044EC1D8B389400D7EAE9 /* Info.plist */,
 			);
@@ -216,6 +222,7 @@
 				5B6044EB1D8B389400D7EAE9 /* LaunchScreen.storyboard in Resources */,
 				5B6044E81D8B389400D7EAE9 /* Assets.xcassets in Resources */,
 				5B3119C01DA3F34500DCF408 /* Map.storyboard in Resources */,
+				5B87816B1DB066B500F61246 /* TourGuideControlPaneView.xib in Resources */,
 				5B3119BB1DA3E96F00DCF408 /* Signup.storyboard in Resources */,
 				5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */,
 			);
@@ -279,6 +286,7 @@
 				5B03A83B1DA9443800928141 /* ViewController.swift in Sources */,
 				5B3119C61DA3F45500DCF408 /* SignupProfileImageViewController.swift in Sources */,
 				5B3119BD1DA3ECFF00DCF408 /* SignupEmailViewController.swift in Sources */,
+				5B87816D1DB066FD00F61246 /* TourGuideControlPaneView.swift in Sources */,
 				5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */,
 				5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */,
 				5B1B3DBD1DA7481C00B7ECAF /* User.swift in Sources */,

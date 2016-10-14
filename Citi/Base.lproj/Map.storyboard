@@ -17,21 +17,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="01Z-PD-EP6" customClass="GMSMapView">
-                                <frame key="frameInset" minY="64" width="375" height="559"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="01Z-PD-EP6" customClass="GMSMapView">
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eau-dR-Pj7">
-                                <frame key="frameInset" minY="20" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iip-my-EQQ" customClass="TourGuideControlPaneView" customModule="Citi" customModuleProvider="target">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eau-dR-Pj7">
                                 <items>
-                                    <navigationItem title="Title" id="Q7d-gW-KYZ">
+                                    <navigationItem id="Q7d-gW-KYZ">
+                                        <nil key="title"/>
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="9Ka-a3-VhY">
                                             <connections>
                                                 <segue destination="NDA-NF-qN0" kind="show" id="LjE-Ez-K3b"/>
                                             </connections>
                                         </barButtonItem>
+                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lik-Ve-lxh">
+                                            <rect key="frame" x="164" y="7" width="47" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Switch"/>
+                                            <connections>
+                                                <action selector="onSwitch:" destination="szB-t6-4oN" eventType="touchUpInside" id="6Oi-Rr-PPu"/>
+                                            </connections>
+                                        </button>
                                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="fy9-5C-Rvl">
                                             <connections>
                                                 <segue destination="aF9-2m-tGH" kind="presentation" id="V0E-EO-jEP"/>
@@ -40,18 +48,33 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dRh-wD-Ts1">
-                                <frame key="frameInset" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dRh-wD-Ts1">
                                 <items>
                                     <barButtonItem title="Search For Ride" width="348" id="8yx-zJ-Dig"/>
                                 </items>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dRh-wD-Ts1" firstAttribute="top" secondItem="iip-my-EQQ" secondAttribute="bottom" id="5T6-Fr-agj"/>
+                            <constraint firstItem="VaU-Cb-kfk" firstAttribute="top" secondItem="dRh-wD-Ts1" secondAttribute="bottom" id="7hd-xG-chy"/>
+                            <constraint firstAttribute="trailing" secondItem="Eau-dR-Pj7" secondAttribute="trailing" id="I1Z-hL-Rys"/>
+                            <constraint firstAttribute="trailing" secondItem="dRh-wD-Ts1" secondAttribute="trailing" id="IJV-84-EEI"/>
+                            <constraint firstItem="01Z-PD-EP6" firstAttribute="top" secondItem="Eau-dR-Pj7" secondAttribute="bottom" id="Kcn-vv-c3s"/>
+                            <constraint firstItem="dRh-wD-Ts1" firstAttribute="top" secondItem="01Z-PD-EP6" secondAttribute="bottom" id="Lfn-ps-aKZ"/>
+                            <constraint firstItem="iip-my-EQQ" firstAttribute="top" secondItem="Eau-dR-Pj7" secondAttribute="bottom" id="UjJ-se-Ny2"/>
+                            <constraint firstAttribute="trailing" secondItem="01Z-PD-EP6" secondAttribute="trailing" id="Zth-iq-z0V"/>
+                            <constraint firstAttribute="trailing" secondItem="iip-my-EQQ" secondAttribute="trailing" id="e7Z-C9-4P4"/>
+                            <constraint firstItem="01Z-PD-EP6" firstAttribute="leading" secondItem="Dve-LH-Wbe" secondAttribute="leading" id="pR3-Ec-BYR"/>
+                            <constraint firstItem="Eau-dR-Pj7" firstAttribute="leading" secondItem="Dve-LH-Wbe" secondAttribute="leading" id="sNX-VR-grK"/>
+                            <constraint firstItem="iip-my-EQQ" firstAttribute="leading" secondItem="Dve-LH-Wbe" secondAttribute="leading" id="yJF-wB-4Jl"/>
+                            <constraint firstItem="Eau-dR-Pj7" firstAttribute="top" secondItem="A1j-Vq-gLD" secondAttribute="bottom" id="z7y-hh-AJ4"/>
+                            <constraint firstItem="dRh-wD-Ts1" firstAttribute="leading" secondItem="Dve-LH-Wbe" secondAttribute="leading" id="zKv-hB-NVX"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="01Z-PD-EP6" id="ItX-Cy-x6X"/>
+                        <outlet property="tourGuideControlPaneView" destination="iip-my-EQQ" id="fmI-2m-4y5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bo-DQ-2zA" userLabel="First Responder" sceneMemberID="firstResponder"/>

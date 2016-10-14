@@ -100,6 +100,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
+    
+    @IBAction func onSwitch(_ sender: AnyObject) {
+        if currentMode == ModeType.tourist {
+            currentMode = ModeType.tour_guide
+            UIView.animate(withDuration: 0.3, animations: { 
+                self.tourGuideControlPaneView.alpha = 0
+                }, completion: { (_) in
+                    self.tourGuideControlPaneView.isHidden = true
+            })
+        } else {
+            currentMode = ModeType.tourist
+            self.tourGuideControlPaneView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.tourGuideControlPaneView.alpha = 0.9
+                })
+        }
+    }
     
 }
 

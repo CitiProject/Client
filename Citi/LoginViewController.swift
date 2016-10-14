@@ -10,6 +10,14 @@ import UIKit
 import AWSCognitoIdentityProvider
 import AWSCognito
 
+
+var currentMode = ModeType.tourist
+
+enum ModeType {
+    case tourist
+    case tour_guide
+}
+
 class LoginViewController: UIViewController {
     @IBOutlet weak var userinfoTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -62,7 +70,7 @@ class LoginViewController: UIViewController {
         if !checkInput() {
             return
         }
-        
+ 
         let userPool = AWSCognitoIdentityUserPool(forKey: poolKey)
         let user = userPool.getUser(userinfoTextField.text!)
         
