@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import AWSCognitoIdentityProvider
+import AWSCognito
 
 class SignupEmailViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfTextField: UITextField!
+
+    let POOL_KEY = "us-east-1_N4DDsBWjP"
+    let EMAIL_KEY = "EMAIL_KEY"
+    let PASSWORD_KEY = "PASSWORD_KEY"
+    
+    var pool: AWSCognitoIdentityUserPool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +27,9 @@ class SignupEmailViewController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordConfTextField.delegate = self
+        
+        pool = AWSCognitoIdentityUserPool(forKey: POOL_KEY)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +37,20 @@ class SignupEmailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func onNext(_ sender: AnyObject) {
+        
+        
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let user = User()
+        user.email = emailTextField.text
+        user.password = passwordTextField.text
+        let view = segue.destination as! SignupNameViewController
+        view.user = user
+    }
 
     /*
     // MARK: - Navigation

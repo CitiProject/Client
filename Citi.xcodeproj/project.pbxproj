@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5377FCFB6A61DF37A2303345 /* Pods_Citi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68822A89C1F97C58D0170F67 /* Pods_Citi.framework */; };
+		5B1B3DBD1DA7481C00B7ECAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B3DBC1DA7481C00B7ECAF /* User.swift */; };
 		5B3119BB1DA3E96F00DCF408 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3119B91DA3E96F00DCF408 /* Signup.storyboard */; };
 		5B3119BD1DA3ECFF00DCF408 /* SignupEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */; };
 		5B3119C01DA3F34500DCF408 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3119BE1DA3F34500DCF408 /* Map.storyboard */; };
@@ -19,10 +20,12 @@
 		5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E41D8B389400D7EAE9 /* Main.storyboard */; };
 		5B6044E81D8B389400D7EAE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E71D8B389400D7EAE9 /* Assets.xcassets */; };
 		5B6044EB1D8B389400D7EAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E91D8B389400D7EAE9 /* LaunchScreen.storyboard */; };
+		D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655EFAB1DA728CC002C9D91 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		20EE182AAEF7BE068B4B8FA8 /* Pods-Citi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.release.xcconfig"; sourceTree = "<group>"; };
+		5B1B3DBC1DA7481C00B7ECAF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5B3119BA1DA3E96F00DCF408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Signup.storyboard; sourceTree = "<group>"; };
 		5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupEmailViewController.swift; sourceTree = "<group>"; };
 		5B3119BF1DA3F34500DCF408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Map.storyboard; sourceTree = "<group>"; };
@@ -38,6 +41,7 @@
 		5B6044EC1D8B389400D7EAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.debug.xcconfig"; sourceTree = "<group>"; };
 		68822A89C1F97C58D0170F67 /* Pods_Citi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D655EFAB1DA728CC002C9D91 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,14 @@
 			name = Storyboards;
 			sourceTree = "<group>";
 		};
+		5B1B3DBB1DA7480E00B7ECAF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B1B3DBC1DA7481C00B7ECAF /* User.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		5B6044D41D8B389400D7EAE9 = {
 			isa = PBXGroup;
 			children = (
@@ -116,7 +128,9 @@
 		5B6045071D8F0A2700D7EAE9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5B1B3DBB1DA7480E00B7ECAF /* Models */,
 				5B1B3DB91DA3F49300B7ECAF /* SignupViewControllers */,
+				D655EFAB1DA728CC002C9D91 /* MapViewController.swift */,
 				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
@@ -260,8 +274,10 @@
 				5B3119BD1DA3ECFF00DCF408 /* SignupEmailViewController.swift in Sources */,
 				5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */,
 				5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */,
+				5B1B3DBD1DA7481C00B7ECAF /* User.swift in Sources */,
 				5B3119C41DA3F42300DCF408 /* SignupOptionViewController.swift in Sources */,
 				5B3119C21DA3F3F900DCF408 /* SignupNameViewController.swift in Sources */,
+				D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
