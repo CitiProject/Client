@@ -74,7 +74,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="b6a-fj-3Tf" id="iyL-pp-QYz"/>
                         <outlet property="userinfoTextField" destination="pSO-bU-hta" id="vQA-z2-bDo"/>
-                        <segue destination="ywr-VS-fKp" kind="push" identifier="ToMapView" id="zRK-AZ-Ngw"/>
+                        <segue destination="ywr-VS-fKp" kind="modal" identifier="ToMapView" id="zRK-AZ-Ngw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

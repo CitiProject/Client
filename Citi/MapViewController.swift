@@ -17,15 +17,40 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    @IBOutlet weak var userRoleSwitch: UISwitch!
+    @IBOutlet weak var userRoleText: UILabel!
+    
     var userMarker: GMSMarker?
     var userView: UIImageView?
+    
+    var user: User?
     
     var locationManager = CLLocationManager()
     var didFindMyLocation = false
     
+    
+    func stateChanged() {
+        if userRoleSwitch.isOn {
+            userRoleText.text = "Tour Guide"
+            user?.userType = UserType.tour_guide
+        } else {
+            userRoleText.text = "Tourist"
+            user?.userType = UserType.tourist
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if user?.userType == UserType.tour_guide {
+            userRoleText.text = "Tour Guide"
+        } else {
+            userRoleText.text = "Tourist"
+        }
+        
+        userRoleSwitch.addTarget(self, action: #selector(self.stateChanged), for: UIControlEvents.valueChanged)
+        
         
         
         locationManager.requestAlwaysAuthorization()

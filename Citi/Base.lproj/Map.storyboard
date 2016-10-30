@@ -26,8 +26,8 @@
                                 <frame key="frameInset" minY="20" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="Q7d-gW-KYZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Settings" id="9Ka-a3-VhY"/>
+                                    <navigationItem title="CITI" id="Q7d-gW-KYZ">
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="9Ka-a3-VhY"/>
                                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="fy9-5C-Rvl">
                                             <connections>
                                                 <segue destination="aF9-2m-tGH" kind="presentation" id="V0E-EO-jEP"/>
@@ -40,14 +40,30 @@
                                 <frame key="frameInset" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Search For Ride" width="348" id="8yx-zJ-Dig"/>
+                                    <barButtonItem style="plain" id="XcL-cH-7s3">
+                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Igs-oy-zxk">
+                                            <rect key="frame" x="16" y="7" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="onTintColor" red="0.86313957253886009" green="0.0" blue="0.068528127544361897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </switch>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-VJ-ZPi">
+                                <frame key="frameInset" minX="72" minY="631" width="92" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Role: "/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="mapView" destination="01Z-PD-EP6" id="ItX-Cy-x6X"/>
+                        <outlet property="userRoleSwitch" destination="Igs-oy-zxk" id="Dc4-3p-EgW"/>
+                        <outlet property="userRoleText" destination="JLo-VJ-ZPi" id="pTB-71-ziT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bo-DQ-2zA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -63,4 +79,5 @@
             <point key="canvasLocation" x="1030" y="-227"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
