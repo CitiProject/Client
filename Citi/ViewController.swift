@@ -49,9 +49,9 @@ class ViewController: UIViewController {
                 self.showAlert(title: "success", message: nil)
             } else {
                 self.showAlert(title: "failure", message: nil)
-                print(task.error)
+                print(task.error!)
                 print(task.error.debugDescription)
-                print(task.error?.localizedDescription)
+                print(task.error?.localizedDescription as Any)
             }
             return nil
             }

@@ -9,6 +9,7 @@
 import UIKit
 import AWSCognitoIdentityProvider
 import AWSCognito
+import AWSDynamoDB
 
 class SignupProfileImageViewController: UIViewController {
     @IBOutlet weak var shortBioTextView: UITextView!
@@ -94,7 +95,10 @@ class SignupProfileImageViewController: UIViewController {
     @IBAction func onGetStarted(_ sender: AnyObject) {
         user?.bio = shortBioTextView.text
         
-        let pool = AWSCognitoIdentityUserPool(forKey: "Citi Users")
+        user?.userId = currUser.username
+        saveUser(self.user!)
+        
+        /*let pool = AWSCognitoIdentityUserPool(forKey: "Citi Users")
         
         var attributes = [AWSCognitoIdentityUserAttributeType]()
         let email = AWSCognitoIdentityUserAttributeType()
@@ -104,8 +108,8 @@ class SignupProfileImageViewController: UIViewController {
         
         attributes.append(email!)
         pool.signUp((user?.email!)!, password: (user?.password!)!, userAttributes: attributes, validationData: nil).continue ({ (task) -> Any? in
-            print("task.error", task.error)
-            print("task.result", task.result)
+            print("task.error", task.error!)
+            print("task.result", task.result!)
             switch (task.error, task.result) {
             case let (error?, _):
                 DispatchQueue.main.async { print("error") }
@@ -118,11 +122,26 @@ class SignupProfileImageViewController: UIViewController {
             }
             
             return nil
-        })
+        })*/
         
     }
     
 }
+
+// This is where the saving to S3 (image) and DynamoDB (data) is done.
+func saveUser(_ user: User)  {
+    //precondition(user.userId != nil, "You should provide a user object with a userId when saving a user")
+    
+    let mapper = AWSDynamoDBObjectMapper.default()
+    // We create a task that will save the user to DynamoDB
+    // This works because AMZUser extends AWSDynamoDBObjectModel and conforms to AWSDynamoDBModeling
+    let saveToDynamoDBTask: AWSTask = mapper.save(user)
+    
+    saveToDynamoDBTask.continue({ (task) -> AnyObject? in
+        return nil
+    })
+}
+
 
 extension SignupProfileImageViewController: UITextViewDelegate {
     

@@ -56,7 +56,7 @@ class SignupNameViewController: UIViewController {
         phoneNum.value = phoneNumTextField.text!
         attributes.append(phoneNum)
         
-        currUser.update(attributes).continue(with: .default(), with: { (task) -> Any? in
+        /*currUser.update(attributes).continue(with: .default(), with: { (task) -> Any? in
             if task.error == nil {
                 self.showAlert(title: "success", message: nil)
             } else {
@@ -64,7 +64,7 @@ class SignupNameViewController: UIViewController {
             }
             return nil
             }
-        )
+        )*/
     }
 
     // MARK: - Navigation
