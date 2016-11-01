@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AWSDynamoDB
 
 enum UserType {
     case tourist
@@ -14,7 +15,8 @@ enum UserType {
     case both
 }
 
-class User {
+class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
+    var userId: String?
     var email: String?
     var password: String?
     var name: String?
@@ -22,4 +24,19 @@ class User {
     var phoneNumber: String?
     var userType: UserType?
     var bio: String?
+    
+    
+    
+    override init!() { super.init() }
+    
+    required init!(coder: NSCoder!) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    class func dynamoDBTableName() -> String {
+        return "citi-mobilehub-2006386910-User"
+    }
+    class func hashKeyAttribute() -> String {
+        return "userId"
+    }
 }

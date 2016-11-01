@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
-                print(task.error ?? "")
+                print(task.error!)
             } else {
                 print("no error")
                 currUser = pool.getUser(self.userinfoTextField.text!)
