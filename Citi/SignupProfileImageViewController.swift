@@ -159,4 +159,14 @@ extension SignupProfileImageViewController: UIImagePickerControllerDelegate, UIN
         picker.dismiss(animated: true, completion: nil)
         self.onChangeProfile()
     }
+    
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let view = segue.destination as! MapViewController
+        view.user = user
+    }
 }
