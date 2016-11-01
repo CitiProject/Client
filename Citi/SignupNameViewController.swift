@@ -13,6 +13,8 @@ class SignupNameViewController: UIViewController {
     @IBOutlet weak var preferredNameTextField: UITextField!
     @IBOutlet weak var phoneNumTextField: UITextField!
     
+    var user: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,15 +29,17 @@ class SignupNameViewController: UIViewController {
     }
     
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        user?.name = fullnameTextField.text
+        user?.preferredName = preferredNameTextField.text
+        user?.phoneNumber = phoneNumTextField.text
+        let view = segue.destination as! SignupOptionViewController
+        view.user = user
     }
-    */
+    
 
 }
 
