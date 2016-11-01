@@ -71,27 +71,23 @@ class LoginViewController: UIViewController {
         let user = pool.getUser(userinfoTextField.text!)
         
         let session = user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil)
-        
-        session.continue({ (task) -> Any? in
+    
+        session.continue(with: AWSExecutor.mainThread(), with: { (task) -> Any? in
             self.processIndicator.stopAnimating()
             if task.error != nil {
+                print("error")
                 let alert = UIAlertController.init(title: "Error", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
                 print(task.error ?? "")
             } else {
+                print("no error")
                 currUser = pool.getUser(self.userinfoTextField.text!)
-                let alert = UIAlertController.init(title: "Success!", message: "logged in", preferredStyle: UIAlertControllerStyle.alert)
-                let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
-                    self.performSegue(withIdentifier: "ToMapView", sender: nil)
-                    
-                })
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
+                
+                self.performSegue(withIdentifier: "ToMapView", sender: nil)
             }
             return nil
-
         })
     }
 }

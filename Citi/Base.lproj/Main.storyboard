@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button alpha="0.90000000000000002" contentMode="scaleToFill" placeholderIntrinsicWidth="319" placeholderIntrinsicHeight="52" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Rq0-Uo-o75">
+                            <button alpha="0.90000000000000002" contentMode="scaleToFill" placeholderIntrinsicWidth="319" placeholderIntrinsicHeight="52" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="Rq0-Uo-o75">
                                 <rect key="frame" x="28" y="447" width="319" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.60301744937896729" green="0.07282797247171402" blue="0.019031103700399399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
