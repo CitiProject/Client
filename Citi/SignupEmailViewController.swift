@@ -76,7 +76,6 @@ class SignupEmailViewController: UIViewController {
         
         pool.signUp(emailTextField.text!, password: passwordTextField.text!, userAttributes: attributes, validationData: nil).continue(with: AWSExecutor.mainThread(), with: {
             (task:AWSTask!) -> AnyObject! in
-            
             if task.error != nil {
                 let alert = UIAlertController.init(title: "Failed to Sign Up", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)

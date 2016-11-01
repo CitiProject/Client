@@ -21,8 +21,7 @@ enum ModeType {
 class LoginViewController: UIViewController {
     @IBOutlet weak var userinfoTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
-    //var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
+    @IBOutlet weak var processIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +29,8 @@ class LoginViewController: UIViewController {
         userinfoTextField.delegate = self
         passwordTextField.delegate = self
         
-        pool.delegate = self
-        
-       // passwordAuthenticationCompletion = AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,64 +59,42 @@ class LoginViewController: UIViewController {
         }
         return true
     }
-
+    
     @IBAction func onLogin(_ sender: AnyObject) {
-        //passwordAuthenticationCompletion!.setResult(AWSCognitoIdentityPasswordAuthenticationDetails.init(username: "darrell@ms.com", password: "Abcd1234"))
-        
         if !checkInput() {
             return
         }
- 
-        let userPool = AWSCognitoIdentityUserPool(forKey: poolKey)
-        let user = userPool.getUser(userinfoTextField.text!)
         
-        user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil).continue(with: AWSExecutor.default(), with: {
-            (task:AWSTask!) -> AnyObject! in
-            
+        processIndicator.startAnimating()
+        processIndicator.isHidden = false
+        
+        let user = pool.getUser(userinfoTextField.text!)
+        
+        let session = user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil)
+        
+        session.continue({ (task) -> Any? in
+            self.processIndicator.stopAnimating()
             if task.error != nil {
                 let alert = UIAlertController.init(title: "Error", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
-                print(task.error)
+                print(task.error ?? "")
             } else {
                 currUser = pool.getUser(self.userinfoTextField.text!)
                 let alert = UIAlertController.init(title: "Success!", message: "logged in", preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
                     self.performSegue(withIdentifier: "ToMapView", sender: nil)
-
+                    
                 })
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
             }
             return nil
+
         })
     }
 }
-
-/*
-extension LoginViewController: AWSCognitoIdentityPasswordAuthentication {
-    func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
-        passwordAuthenticationCompletion = passwordAuthenticationCompletionSource
-        
-        print("AWSCognitoIdentityPasswordAuthentication")
-    }
-    
-    func didCompleteStepWithError(_ error: Error?) {
-        print("didCompleteStepWithError")
-        DispatchQueue.main.async {
-            if error != nil {
-                let alert = UIAlertController.init(title: "Error", message: "Cannot login", preferredStyle: UIAlertControllerStyle.alert)
-                let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            } else {
-                self.performSegue(withIdentifier: "ToMapView", sender: self)
-            }
-        }
-    }
-}
-*/
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -131,16 +105,4 @@ extension LoginViewController: UITextFieldDelegate {
         }
         return true
     }
-}
-
-extension LoginViewController: AWSCognitoIdentityInteractiveAuthenticationDelegate {
-    /*
-    func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
-        <#code#>
-    }
-    
-    func startCustomAuthentication() -> AWSCognitoIdentityCustomAuthentication {
-        <#code#>
-    }
- */
 }
