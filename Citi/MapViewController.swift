@@ -17,15 +17,40 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
     
+    @IBOutlet weak var userRoleSwitch: UISwitch!
+    @IBOutlet weak var userRoleText: UILabel!
+    
     var userMarker: GMSMarker?
     var userView: UIImageView?
+    
+    var user: User?
     
     var locationManager = CLLocationManager()
     var didFindMyLocation = false
     
+    
+    func stateChanged() {
+        if userRoleSwitch.isOn {
+            userRoleText.text = "Tour Guide"
+            user?.userType = UserType.tour_guide
+        } else {
+            userRoleText.text = "Tourist"
+            user?.userType = UserType.tourist
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if user?.userType == UserType.tour_guide {
+            userRoleText.text = "Tour Guide"
+        } else {
+            userRoleText.text = "Tourist"
+        }
+        
+        userRoleSwitch.addTarget(self, action: #selector(self.stateChanged), for: UIControlEvents.valueChanged)
+        
         
         
         locationManager.requestAlwaysAuthorization()
@@ -100,6 +125,24 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
+    
+    @IBAction func onSwitch(_ sender: AnyObject) {
+        if currentMode == ModeType.tourist {
+            currentMode = ModeType.tour_guide
+            UIView.animate(withDuration: 0.3, animations: { 
+                self.tourGuideControlPaneView.alpha = 0
+                }, completion: { (_) in
+                    self.tourGuideControlPaneView.isHidden = true
+            })
+        } else {
+            currentMode = ModeType.tourist
+            self.tourGuideControlPaneView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.tourGuideControlPaneView.alpha = 0.9
+                })
+        }
+    }
     
 }
 

@@ -14,13 +14,7 @@ class SignupEmailViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfTextField: UITextField!
-
-    let POOL_KEY = "us-east-1_N4DDsBWjP"
-    let EMAIL_KEY = "EMAIL_KEY"
-    let PASSWORD_KEY = "PASSWORD_KEY"
     
-    var pool: AWSCognitoIdentityUserPool?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +22,6 @@ class SignupEmailViewController: UIViewController {
         passwordTextField.delegate = self
         passwordConfTextField.delegate = self
         
-        pool = AWSCognitoIdentityUserPool(forKey: POOL_KEY)
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,19 +29,83 @@ class SignupEmailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func onNext(_ sender: AnyObject) {
-        
-        
-        
+    func showAlert(title: String?, message: String?) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
+    
+    func checkInput()->Bool {
+        if let email = emailTextField.text {
+            if email == "" {
+                showAlert(title: "Error", message: "Please enter email")
+                return false
+            }
+        }
+        
+        if let password = passwordTextField.text {
+            if password == "" {
+                showAlert(title: "Error", message: "Please enter password")
+                return false
+            }
+            if let passwordConfir = passwordConfTextField.text {
+                if passwordConfir == "" {
+                    showAlert(title: "Error", message: "Please enter password confirmation")
+                    return false
+                }
+                if password != passwordConfir {
+                    showAlert(title: "Error", message: "Password does not mastch confirmation")
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    @IBAction func onRegister(_ sender: AnyObject) {
+        if !checkInput() {
+            return
+        }
+        
+        var attributes = [AWSCognitoIdentityUserAttributeType]()
+        let email = AWSCognitoIdentityUserAttributeType()!
+        email.name = "email"
+        email.value = emailTextField.text!
+        attributes.append(email)
+        
+        pool.signUp(emailTextField.text!, password: passwordTextField.text!, userAttributes: attributes, validationData: nil).continue(with: AWSExecutor.mainThread(), with: {
+            (task:AWSTask!) -> AnyObject! in
+            if task.error != nil {
+                let alert = UIAlertController.init(title: "Failed to Sign Up", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                currUser = pool.getUser(self.emailTextField.text!)
+                
+                let alert = UIAlertController.init(title: "Welcome to Citi!", message: "Now please verify your email address", preferredStyle: UIAlertControllerStyle.alert)
+                let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
+                    self.performSegue(withIdentifier: "ShowEmailVerification", sender: nil)
+                })
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }
+            return nil
+        })
+
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let user = User()
-        user.email = emailTextField.text
-        user.password = passwordTextField.text
-        let view = segue.destination as! SignupNameViewController
-        view.user = user
+        user?.email = emailTextField.text
+        user?.password = passwordTextField.text
+        
+        if segue.identifier == "ShowEmailVerification" {
+            let view = segue.destination as! SignupEmailVerificationViewController
+            view.user = user
+        }
     }
 
     /*
