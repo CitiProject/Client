@@ -33,14 +33,6 @@
                                 <items>
                                     <navigationItem title="CITI" id="Q7d-gW-KYZ">
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="9Ka-a3-VhY"/>
-                                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Lik-Ve-lxh">
-                                            <rect key="frame" x="164" y="7" width="47" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Switch"/>
-                                            <connections>
-                                                <action selector="onSwitch:" destination="szB-t6-4oN" eventType="touchUpInside" id="6Oi-Rr-PPu"/>
-                                            </connections>
-                                        </button>
                                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="fy9-5C-Rvl">
                                             <connections>
                                                 <segue destination="aF9-2m-tGH" kind="presentation" id="V0E-EO-jEP"/>
@@ -53,7 +45,7 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" id="XcL-cH-7s3">
-                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="Igs-oy-zxk">
+                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Igs-oy-zxk">
                                             <rect key="frame" x="16" y="7" width="51" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="onTintColor" red="0.86313957253886009" green="0.0" blue="0.068528127544361897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -62,9 +54,16 @@
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-VJ-ZPi">
-                                <frame key="frameInset" minX="72" minY="631" width="92" height="28"/>
+                                <rect key="frame" x="72" y="631" width="92" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" label="Role: "/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tourist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRp-iG-d9M">
+                                <rect key="frame" x="72" y="635" width="160" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -91,6 +90,8 @@
                     <connections>
                         <outlet property="mapView" destination="01Z-PD-EP6" id="ItX-Cy-x6X"/>
                         <outlet property="tourGuideControlPaneView" destination="iip-my-EQQ" id="fmI-2m-4y5"/>
+                        <outlet property="userRoleSwitch" destination="Igs-oy-zxk" id="bve-NA-stM"/>
+                        <outlet property="userRoleText" destination="mRp-iG-d9M" id="VnR-VC-bWf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bo-DQ-2zA" userLabel="First Responder" sceneMemberID="firstResponder"/>

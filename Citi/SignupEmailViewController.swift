@@ -15,6 +15,8 @@ class SignupEmailViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfTextField: UITextField!
     
+    @IBOutlet weak var processIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,6 +70,9 @@ class SignupEmailViewController: UIViewController {
             return
         }
         
+        processIndicator.startAnimating()
+        processIndicator.isHidden = false
+        
         var attributes = [AWSCognitoIdentityUserAttributeType]()
         let email = AWSCognitoIdentityUserAttributeType()!
         email.name = "email"
@@ -76,6 +81,9 @@ class SignupEmailViewController: UIViewController {
         
         pool.signUp(emailTextField.text!, password: passwordTextField.text!, userAttributes: attributes, validationData: nil).continue(with: AWSExecutor.mainThread(), with: {
             (task:AWSTask!) -> AnyObject! in
+            
+            self.processIndicator.stopAnimating()
+            
             if task.error != nil {
                 let alert = UIAlertController.init(title: "Failed to Sign Up", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
