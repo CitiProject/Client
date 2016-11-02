@@ -39,17 +39,22 @@ class SignupOptionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch optionSegmentedControl.selectedSegmentIndex {
         case 0:
-            user?.userType = UserType.tourist
+            user?.userType = "Tourist"
         case 1:
-            user?.userType = UserType.tour_guide
+            user?.userType = "Tour Guide"
         case 2:
-            user?.userType = UserType.both
+            user?.userType = "Tourist"
         default:
-            user?.userType = UserType.tourist
+            user?.userType = "Tourist"
         }
         
-        let view = segue.destination as! SignupProfileImageViewController
-        view.user = user
+        if optionSegmentedControl.selectedSegmentIndex == 0 { // tourist
+            let view = segue.destination as! SignupProfileImageViewController
+            view.user = user
+        } else { // tour guide or both
+            let view = segue.destination as! SignupTourGuidePreferenceViewController
+            view.user = user
+        }
     }
     
 

@@ -94,35 +94,14 @@ class SignupProfileImageViewController: UIViewController {
 
     @IBAction func onGetStarted(_ sender: AnyObject) {
         user?.bio = shortBioTextView.text
+        user?.saveUser()
         
-        user?.userId = currUser.username
-        saveUser(self.user!)
-        
-        /*let pool = AWSCognitoIdentityUserPool(forKey: "Citi Users")
-        
-        var attributes = [AWSCognitoIdentityUserAttributeType]()
-        let email = AWSCognitoIdentityUserAttributeType()
-        email?.name = "email"
-        email?.value = user?.email
-        
-        
-        attributes.append(email!)
-        pool.signUp((user?.email!)!, password: (user?.password!)!, userAttributes: attributes, validationData: nil).continue ({ (task) -> Any? in
-            print("task.error", task.error!)
-            print("task.result", task.result!)
-            switch (task.error, task.result) {
-            case let (error?, _):
-                DispatchQueue.main.async { print("error") }
-                print(error.localizedDescription)
-            case let (_, result?) where result.user.confirmedStatus != .confirmed :
-                DispatchQueue.main.async {
-                }
-            default:
-                DispatchQueue.main.async { print("default") }
-            }
-            
-            return nil
-        })*/
+        if (user?.userType == "Tourist") {
+            self.performSegue(withIdentifier: "TouristMapSegue", sender: nil)
+        }
+        else if (user?.userType == "Tour Guide") {
+            self.performSegue(withIdentifier: "TourGuideMapSegue", sender: nil)
+        }
         
     }
     

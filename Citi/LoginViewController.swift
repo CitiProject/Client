@@ -13,6 +13,8 @@ import AWSCognito
 class LoginViewController: UIViewController {
     @IBOutlet weak var userinfoTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    var dynamoDBUser: User?
 
     //var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
     
@@ -76,6 +78,14 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 print(task.error!)
             } else {
+                self.dynamoDBUser?.loadUser(hash: self.userinfoTextField.text!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
+                    NSLog("Load one value - success")
+                    self.dynamoDBUser = task.result as? User
+                    print(self.dynamoDBUser!)
+                    return nil
+                })
+                
+                
                 currUser = pool.getUser(self.userinfoTextField.text!)
                 let alert = UIAlertController.init(title: "Success!", message: "logged in", preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
@@ -87,6 +97,8 @@ class LoginViewController: UIViewController {
             }
             return nil
         })
+        
+
     }
 }
 
