@@ -90,12 +90,7 @@
                     </view>
                     <connections>
                         <outlet property="mapView" destination="01Z-PD-EP6" id="ItX-Cy-x6X"/>
-<<<<<<< HEAD
                         <outlet property="tourGuideControlPaneView" destination="iip-my-EQQ" id="fmI-2m-4y5"/>
-=======
-                        <outlet property="userRoleSwitch" destination="Igs-oy-zxk" id="Dc4-3p-EgW"/>
-                        <outlet property="userRoleText" destination="JLo-VJ-ZPi" id="pTB-71-ziT"/>
->>>>>>> d1fea3e8ea9007f19ce540c96eaa2c87b3ef141e
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bo-DQ-2zA" userLabel="First Responder" sceneMemberID="firstResponder"/>

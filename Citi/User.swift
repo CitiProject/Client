@@ -8,24 +8,22 @@
 
 import Foundation
 import AWSDynamoDB
+import UIKit
+import CoreLocation
 
 enum UserType {
     case tourist
     case tour_guide
-    case both
 }
 
 class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userId: String?
+    var name: String?
     var email: String?
     var password: String?
-    var name: String?
-    var preferredName: String?
     var phoneNumber: String?
-    var userType: UserType?
+    var profilePicture: UIImage?
     var bio: String?
-    
-    
     
     override init!() { super.init() }
     
@@ -39,4 +37,10 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     class func hashKeyAttribute() -> String {
         return "userId"
     }
+    
+    var tags:[String]?
+    var ratings: Int?
+    var gpsLocation: CLLocation?
+    var tripHistory: String?
+    var userType: UserType?
 }

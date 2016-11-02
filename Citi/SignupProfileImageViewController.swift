@@ -108,13 +108,8 @@ class SignupProfileImageViewController: UIViewController {
         
         attributes.append(email!)
         pool.signUp((user?.email!)!, password: (user?.password!)!, userAttributes: attributes, validationData: nil).continue ({ (task) -> Any? in
-<<<<<<< HEAD
-            print("task.error", task.error ?? "")
-            print("task.result", task.result ?? "")
-=======
             print("task.error", task.error!)
             print("task.result", task.result!)
->>>>>>> d5ed1c9a6eefe101ff7073ae94a85cbaffef4d3d
             switch (task.error, task.result) {
             case let (error?, _):
                 DispatchQueue.main.async { print("error") }
