@@ -42,8 +42,6 @@ class SignupOptionViewController: UIViewController {
             user?.userType = UserType.tourist
         case 1:
             user?.userType = UserType.tour_guide
-        case 2:
-            user?.userType = UserType.both
         default:
             user?.userType = UserType.tourist
         }

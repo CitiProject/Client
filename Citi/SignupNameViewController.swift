@@ -86,7 +86,6 @@ class SignupNameViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         user?.name = fullnameTextField.text
-        user?.preferredName = preferredNameTextField.text
         user?.phoneNumber = phoneNumTextField.text
         let view = segue.destination as! SignupOptionViewController
         view.user = user
