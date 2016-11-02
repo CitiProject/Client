@@ -26,6 +26,10 @@ class SignupEmailVerificationViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onDoItLater(_ sender: Any) {
+        performSegue(withIdentifier: "ShowSignupNameViewController", sender: nil)
+    }
+    
     @IBAction func onVerify(_ sender: AnyObject) {
         currUser.confirmSignUp(verificationTextField.text!).continue(with: AWSExecutor.mainThread(), with: { (task: AWSTask!) -> Any? in
             if task.error == nil {

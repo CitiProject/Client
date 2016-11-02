@@ -28,14 +28,28 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var didFindMyLocation = false
     
+    @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
     
     func stateChanged() {
         if userRoleSwitch.isOn {
             userRoleText.text = "Tour Guide"
             user?.userType = UserType.tour_guide
+            
+            currentMode = ModeType.tour_guide
+            self.tourGuideControlPaneView.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {
+                self.tourGuideControlPaneView.alpha = 0.9
+            })
         } else {
             userRoleText.text = "Tourist"
             user?.userType = UserType.tourist
+            
+            currentMode = ModeType.tourist
+            UIView.animate(withDuration: 0.3, animations: {
+                self.tourGuideControlPaneView.alpha = 0
+            }, completion: { (_) in
+                self.tourGuideControlPaneView.isHidden = true
+            })
         }
     }
     
@@ -50,8 +64,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         userRoleSwitch.addTarget(self, action: #selector(self.stateChanged), for: UIControlEvents.valueChanged)
-        
-        
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -124,25 +136,5 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
-    
-    @IBAction func onSwitch(_ sender: AnyObject) {
-        if currentMode == ModeType.tourist {
-            currentMode = ModeType.tour_guide
-            UIView.animate(withDuration: 0.3, animations: { 
-                self.tourGuideControlPaneView.alpha = 0
-                }, completion: { (_) in
-                    self.tourGuideControlPaneView.isHidden = true
-            })
-        } else {
-            currentMode = ModeType.tourist
-            self.tourGuideControlPaneView.isHidden = false
-            UIView.animate(withDuration: 0.3, animations: {
-                self.tourGuideControlPaneView.alpha = 0.9
-                })
-        }
-    }
-    
 }
 

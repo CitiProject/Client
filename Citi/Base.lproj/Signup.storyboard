@@ -78,6 +78,9 @@
                                 <color key="textColor" red="0.85385886454945292" green="0.85385886454945292" blue="0.85385886454945292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="DYT-bV-h6Q">
+                                <rect key="frame" x="177" y="147" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -85,6 +88,7 @@
                             <constraint firstItem="Tup-st-faK" firstAttribute="centerX" secondItem="GoK-b8-hV7" secondAttribute="centerX" id="3HI-mL-3wk"/>
                             <constraint firstAttribute="trailing" secondItem="psX-9w-GIr" secondAttribute="trailing" id="7CW-gO-L4n"/>
                             <constraint firstItem="GcC-Be-Tuw" firstAttribute="top" secondItem="X4s-Ux-cVk" secondAttribute="bottom" constant="70" id="931-MG-cxo"/>
+                            <constraint firstItem="DYT-bV-h6Q" firstAttribute="centerX" secondItem="GoK-b8-hV7" secondAttribute="centerX" id="Cjz-7y-M9g"/>
                             <constraint firstItem="5Ly-Dd-aqB" firstAttribute="centerX" secondItem="GoK-b8-hV7" secondAttribute="centerX" id="F7D-tp-gN8"/>
                             <constraint firstItem="vgD-IQ-bth" firstAttribute="centerX" secondItem="GoK-b8-hV7" secondAttribute="centerX" id="Fuj-2Q-SNo"/>
                             <constraint firstItem="KpM-RT-z4b" firstAttribute="centerX" secondItem="GoK-b8-hV7" secondAttribute="centerX" id="Jk9-y1-eZ8"/>
@@ -95,6 +99,7 @@
                             <constraint firstItem="pyl-JT-JgB" firstAttribute="top" secondItem="eWr-re-y7u" secondAttribute="bottom" constant="275" id="Ybw-aX-SNw"/>
                             <constraint firstItem="psX-9w-GIr" firstAttribute="top" secondItem="GoK-b8-hV7" secondAttribute="top" id="bdw-El-rv5"/>
                             <constraint firstItem="GcC-Be-Tuw" firstAttribute="centerX" secondItem="GoK-b8-hV7" secondAttribute="centerX" id="iUX-Ji-hHb"/>
+                            <constraint firstItem="DYT-bV-h6Q" firstAttribute="top" secondItem="vgD-IQ-bth" secondAttribute="bottom" constant="8" id="iZK-KT-pol"/>
                             <constraint firstItem="KpM-RT-z4b" firstAttribute="top" secondItem="GcC-Be-Tuw" secondAttribute="bottom" constant="55" id="tLF-tk-Yuf"/>
                             <constraint firstItem="psX-9w-GIr" firstAttribute="leading" secondItem="GoK-b8-hV7" secondAttribute="leading" id="wMA-9d-9CI"/>
                         </constraints>
@@ -103,6 +108,7 @@
                         <outlet property="emailTextField" destination="KpM-RT-z4b" id="JOg-x8-ZBq"/>
                         <outlet property="passwordConfTextField" destination="5Ly-Dd-aqB" id="VGJ-ha-ORd"/>
                         <outlet property="passwordTextField" destination="Tup-st-faK" id="c8u-F5-L72"/>
+                        <outlet property="processIndicator" destination="DYT-bV-h6Q" id="G5S-27-EWc"/>
                         <segue destination="ObF-Be-NAL" kind="presentation" identifier="ShowEmailVerification" id="QQC-pH-ubi"/>
                     </connections>
                 </viewController>
@@ -394,9 +400,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Developed the city at night iphone 6 wallpapers" translatesAutoresizingMaskIntoConstraints="NO" id="arh-L4-51l">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-Em-dhO">
-                                <rect key="frame" x="151" y="356" width="74" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-Em-dhO">
+                                <rect key="frame" x="162" y="356" width="52" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Verify">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -404,6 +409,18 @@
                                 <connections>
                                     <action selector="onRegister:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="3QC-sG-bFI"/>
                                     <action selector="onVerify:" destination="ObF-Be-NAL" eventType="touchUpInside" id="I1H-3N-dg2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHW-ba-Bv8">
+                                <rect key="frame" x="165" y="400" width="45" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRegister:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="ZPA-hi-9lG"/>
+                                    <action selector="onVerify:" destination="ObF-Be-NAL" eventType="touchUpInside" id="7JD-hf-8Vy"/>
+                                    <segue destination="r2b-OH-Xhh" kind="show" id="0Ug-wT-i5F"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Confirmation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d9T-hh-fmz">
@@ -429,17 +446,35 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-Cb-dZc">
+                                <rect key="frame" x="144.5" y="444" width="86" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Do it later">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDoItLater:" destination="ObF-Be-NAL" eventType="touchUpInside" id="qeU-iJ-kaP"/>
+                                    <action selector="onRegister:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="PoW-Vk-xmN"/>
+                                    <action selector="onVerify:" destination="ObF-Be-NAL" eventType="touchUpInside" id="WGl-EL-KtX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="enr-2P-S5w" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="1AY-Nj-y4u"/>
                             <constraint firstItem="xqE-7b-N0R" firstAttribute="top" secondItem="d9T-hh-fmz" secondAttribute="bottom" constant="3" id="4Du-bV-K80"/>
+                            <constraint firstItem="9Vf-Cb-dZc" firstAttribute="top" secondItem="SHW-ba-Bv8" secondAttribute="bottom" constant="8" id="AQJ-VA-Hav"/>
                             <constraint firstItem="xqE-7b-N0R" firstAttribute="top" secondItem="d9T-hh-fmz" secondAttribute="bottom" constant="3" id="EHl-01-eZA"/>
+                            <constraint firstItem="CzY-Em-dhO" firstAttribute="top" secondItem="enr-2P-S5w" secondAttribute="bottom" constant="86" id="Gv9-8k-5RD"/>
                             <constraint firstItem="d9T-hh-fmz" firstAttribute="top" secondItem="AJG-Z0-01D" secondAttribute="bottom" constant="70" id="Lkj-Wc-NEB"/>
                             <constraint firstItem="enr-2P-S5w" firstAttribute="top" secondItem="xqE-7b-N0R" secondAttribute="bottom" constant="91" id="NfM-7O-YZN"/>
                             <constraint firstItem="arh-L4-51l" firstAttribute="top" secondItem="bnC-p6-kbM" secondAttribute="top" id="Oth-At-Qwe"/>
+                            <constraint firstItem="SHW-ba-Bv8" firstAttribute="top" secondItem="CzY-Em-dhO" secondAttribute="bottom" constant="8" id="Stz-Jq-W93"/>
+                            <constraint firstItem="CzY-Em-dhO" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="V0h-se-SQA"/>
                             <constraint firstItem="xqE-7b-N0R" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="Vf4-Zp-j7l"/>
+                            <constraint firstItem="SHW-ba-Bv8" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="XLL-m0-Y4N"/>
                             <constraint firstItem="arh-L4-51l" firstAttribute="leading" secondItem="bnC-p6-kbM" secondAttribute="leading" id="afz-QS-p51"/>
+                            <constraint firstItem="9Vf-Cb-dZc" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="kG0-iw-DOw"/>
                             <constraint firstItem="d9T-hh-fmz" firstAttribute="centerX" secondItem="bnC-p6-kbM" secondAttribute="centerX" id="lh0-Pt-MSZ"/>
                             <constraint firstItem="7wM-Oh-IFX" firstAttribute="top" secondItem="arh-L4-51l" secondAttribute="bottom" id="qzp-wz-g6f"/>
                             <constraint firstAttribute="trailing" secondItem="arh-L4-51l" secondAttribute="trailing" id="ryl-6p-XcK"/>
