@@ -46,8 +46,13 @@ class SignupOptionViewController: UIViewController {
             user?.userType = UserType.tourist
         }
         
-        let view = segue.destination as! SignupProfileImageViewController
-        view.user = user
+        if optionSegmentedControl.selectedSegmentIndex == 0 { // tourist
+            let view = segue.destination as! SignupProfileImageViewController
+            view.user = user
+        } else { // tour guide or both
+            let view = segue.destination as! SignupTourGuidePreferenceViewController
+            view.user = user
+        }
     }
     
 

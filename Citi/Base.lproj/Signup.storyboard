@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r2b-OH-Xhh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r2b-OH-Xhh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -200,10 +200,10 @@
             </objects>
             <point key="canvasLocation" x="1522" y="-3"/>
         </scene>
-        <!--View Controller-->
+        <!--Signup Tour Guide Preference View Controller-->
         <scene sceneID="9cR-Hw-9rf">
             <objects>
-                <viewController id="cjC-Zd-YeG" sceneMemberID="viewController">
+                <viewController id="cjC-Zd-YeG" customClass="SignupTourGuidePreferenceViewController" customModule="Citi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZV6-QS-7I2"/>
                         <viewControllerLayoutGuide type="bottom" id="flx-Os-BVN"/>
@@ -487,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogY-eX-KyR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="73" y="701"/>
+            <point key="canvasLocation" x="86" y="805"/>
         </scene>
         <!--Signup Profile Image View Controller-->
         <scene sceneID="qc4-m0-6H3">
@@ -540,7 +540,6 @@
                                 </state>
                                 <connections>
                                     <action selector="onGetStarted:" destination="zjy-gG-9FK" eventType="touchUpInside" id="QH6-Fr-deB"/>
-                                    <segue destination="7DG-iY-feP" kind="presentation" id="JsS-Fz-Ez5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -563,6 +562,8 @@
                     <connections>
                         <outlet property="profileImageView" destination="A4H-qg-XbL" id="u6S-6g-SOT"/>
                         <outlet property="shortBioTextView" destination="45b-fQ-tMo" id="UW3-a7-Azx"/>
+                        <segue destination="7DG-iY-feP" kind="show" identifier="TouristMapSegue" id="7JV-b2-8iW"/>
+                        <segue destination="CxI-c1-ssX" kind="show" identifier="TourGuideMapSegue" id="g0M-K5-bSP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2WG-5Y-Kia" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -581,6 +582,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oXK-zK-Niy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2819" y="-4"/>
+        </scene>
+        <!--TourGuideMap-->
+        <scene sceneID="G2o-PB-dUu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TourGuideMap" id="CxI-c1-ssX" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N1T-XU-xWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2868" y="48"/>
         </scene>
     </scenes>
     <resources>

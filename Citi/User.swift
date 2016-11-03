@@ -25,6 +25,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userType: UserType?
     var bio: String?
     
+    
     override init!() { super.init() }
     
     required init!(coder: NSCoder!) {

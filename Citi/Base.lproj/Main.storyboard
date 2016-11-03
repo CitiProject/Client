@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -82,12 +82,23 @@
                         <outlet property="passwordTextField" destination="b6a-fj-3Tf" id="iyL-pp-QYz"/>
                         <outlet property="processIndicator" destination="k3c-rT-mL3" id="RO7-Md-oZy"/>
                         <outlet property="userinfoTextField" destination="pSO-bU-hta" id="vQA-z2-bDo"/>
-                        <segue destination="ywr-VS-fKp" kind="modal" identifier="ToMapView" id="zRK-AZ-Ngw"/>
+                        <segue destination="hXE-hI-ZER" kind="push" identifier="TourGuideMapSegue" id="PiJ-vU-s46"/>
+                        <segue destination="ywr-VS-fKp" kind="push" identifier="TouristMapSegue" id="FOO-us-Sc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19.5" y="41.5"/>
+        </scene>
+        <!--TourGuideMap-->
+        <scene sceneID="4ip-4V-MTz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TourGuideMap" id="hXE-hI-ZER" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="a75-r0-tcy"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUd-lU-7xf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="-41"/>
         </scene>
         <!--Map-->
         <scene sceneID="XAF-WW-oqU">

@@ -23,6 +23,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var processIndicator: UIActivityIndicatorView!
     
+    var dynamoDBUser: User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,12 +83,38 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 print(task.error!)
             } else {
+                self.dynamoDBUser?.loadUser(hash: self.userinfoTextField.text!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
+                    NSLog("Load one value - success")
+                    self.dynamoDBUser = task.result as? User
+                    print(self.dynamoDBUser!)
+                    return nil
+                })
+                
                 currUser = pool.getUser(self.userinfoTextField.text!)
                 
-                self.performSegue(withIdentifier: "ToMapView", sender: nil)
+                if (self.dynamoDBUser?.userType == UserType.tourist) {
+                    self.performSegue(withIdentifier: "TouristMapSegue", sender: nil)
+                }
+                else if (self.dynamoDBUser?.userType == UserType.tour_guide) {
+                    self.performSegue(withIdentifier: "TourGuideMapSegue", sender: nil)
+                }
             }
             return nil
         })
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (dynamoDBUser?.userType == UserType.tourist) {
+            let view = segue.destination as! MapViewController
+            view.user = dynamoDBUser
+        }
+        else if (dynamoDBUser?.userType == UserType.tour_guide) {
+            let view = segue.destination as! TourGuideMapViewController
+            view.user = dynamoDBUser
+        }
     }
 }
 
