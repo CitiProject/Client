@@ -22,7 +22,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var email: String?
     var phoneNumber: String?
     var profilePicture: UIImage?
-    var userType: String?
+    var userType: UserType?
     var bio: String?
     
     override init!() { super.init() }
