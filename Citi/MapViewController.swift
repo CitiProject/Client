@@ -62,7 +62,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             userRoleText.text = "Tourist"
         }
-        
+            
         userRoleSwitch.addTarget(self, action: #selector(self.stateChanged), for: UIControlEvents.valueChanged)
         
         locationManager.requestAlwaysAuthorization()

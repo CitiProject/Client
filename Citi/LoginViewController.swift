@@ -10,7 +10,6 @@ import UIKit
 import AWSCognitoIdentityProvider
 import AWSCognito
 
-
 var currentMode = ModeType.tourist
 
 enum ModeType {
@@ -30,7 +29,6 @@ class LoginViewController: UIViewController {
         
         userinfoTextField.delegate = self
         passwordTextField.delegate = self
-        
     }
     
     override func didReceiveMemoryWarning() {

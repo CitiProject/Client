@@ -25,13 +25,19 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userType: UserType?
     var bio: String?
     
+    static var users: [User] = []
     
-    override init!() { super.init() }
-    
-    required init!(coder: NSCoder!) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+//    override init!() { super.init() }
+//    
+//    required init!(coder: NSCoder!) {
+//        super.init(coder: coder)
+//        //fatalError("init(coder:) has not been implemented")
+//    }
+//    
+//    override init(dictionary dictionaryValue: [AnyHashable : Any]!, error: ()) throws {
+//        try super.init(dictionary: dictionaryValue, error: error)
+//    }
+
     class func dynamoDBTableName() -> String {
         return "citi-mobilehub-2006386910-User"
     }
@@ -40,14 +46,14 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         return "userId"
     }
     
-    var tags:[String]?
+    class func ignoreAttributes() -> [String] {
+        return ["password", "tags", "gpsLocation", "tripHistory"]
+    }
+    
+//    var tags:[String]?
     var ratings: Int?
     var gpsLocation: CLLocation?
     var tripHistory: String?
-    
-    class func ignoreAttributes() -> [String] {
-        return ["password"]
-    }
     
     func saveUser() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -74,6 +80,35 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     func loadUser(hash: String) -> AWSTask<AnyObject>! {
         let mapper = AWSDynamoDBObjectMapper.default()
         return mapper.load(User.self, hashKey: hash, rangeKey: nil)
-        
     }
+    
+//    static func loadAllUsers() {
+//        let scanExpression = AWSDynamoDBScanExpression();
+//        scanExpression.limit = 10
+//        
+//        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+//        dynamoDBObjectMapper.scan(User.self, expression: scanExpression).continue({ (task) -> Any? in
+//            if task.error == nil {
+//                print("Sucess loading all users")
+//                if let exception = task.exception {
+//                    print("exception")
+//                    print(exception.reason ?? "")
+//                }
+//                
+//                if let result = task.result {
+//                    for item in result.items {
+//                        users.append(item as! User)
+//                    }
+//                    print(result.items)
+//                } else {
+//                    print("no result")
+//                }
+//            } else {
+//                print("Failed to load users")
+//                print(task.error.debugDescription)
+//            }
+//            
+//            return nil
+//        })
+//    }
 }
