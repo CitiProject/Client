@@ -10,11 +10,20 @@ import UIKit
 import AWSCognitoIdentityProvider
 import AWSCognito
 
+
+var currentMode = ModeType.tourist
+
+enum ModeType {
+    case tourist
+    case tour_guide
+}
+
 class LoginViewController: UIViewController {
     @IBOutlet weak var userinfoTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
-    //var passwordAuthenticationCompletion: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
+    @IBOutlet weak var processIndicator: UIActivityIndicatorView!
+    
+    var dynamoDBUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,68 +31,92 @@ class LoginViewController: UIViewController {
         userinfoTextField.delegate = self
         passwordTextField.delegate = self
         
-       // passwordAuthenticationCompletion = AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    func showAlert(title: String?, message: String?) {
+        let alert = UIAlertController.init(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func checkInput()->Bool {
+        if let email = userinfoTextField.text {
+            if email == "" {
+                showAlert(title: "Error", message: "Please enter email")
+                return false
+            }
+        }
+        
+        if let password = passwordTextField.text {
+            if password == "" {
+                showAlert(title: "Error", message: "Please enter password")
+                return false
+            }
+        }
+        return true
+    }
+    
     @IBAction func onLogin(_ sender: AnyObject) {
-        print("on Login")
-        //passwordAuthenticationCompletion!.setResult(AWSCognitoIdentityPasswordAuthenticationDetails.init(username: "darrell@ms.com", password: "Abcd1234"))
+        if !checkInput() {
+            return
+        }
         
+        processIndicator.startAnimating()
+        processIndicator.isHidden = false
         
-        let userPool = AWSCognitoIdentityUserPool(forKey: "Citi Users")
-        let user = userPool.getUser(userinfoTextField.text!)
+        let user = pool.getUser(userinfoTextField.text!)
         
-        user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil).continue(with: AWSExecutor.mainThread(), with: {
-            (task:AWSTask!) -> AnyObject! in
-            
+        let session = user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil)
+    
+        session.continue(with: AWSExecutor.mainThread(), with: { (task) -> Any? in
+            self.processIndicator.stopAnimating()
             if task.error != nil {
-                let alert = UIAlertController.init(title: "Error", message: "Cannot login", preferredStyle: UIAlertControllerStyle.alert)
+                let alert = UIAlertController.init(title: "Error", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
-                print(task.error)
+                print(task.error!)
             } else {
-                let alert = UIAlertController.init(title: "Success!", message: "logged in", preferredStyle: UIAlertControllerStyle.alert)
-                let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
-                    self.performSegue(withIdentifier: "ToMapView", sender: nil)
-
+                self.dynamoDBUser?.loadUser(hash: self.userinfoTextField.text!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
+                    NSLog("Load one value - success")
+                    self.dynamoDBUser = task.result as? User
+                    print(self.dynamoDBUser!)
+                    return nil
                 })
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
+                
+                currUser = pool.getUser(self.userinfoTextField.text!)
+                
+                if (self.dynamoDBUser?.userType == UserType.tourist) {
+                    self.performSegue(withIdentifier: "TouristMapSegue", sender: nil)
+                }
+                else if (self.dynamoDBUser?.userType == UserType.tour_guide) {
+                    self.performSegue(withIdentifier: "TourGuideMapSegue", sender: nil)
+                }
             }
             return nil
         })
     }
-}
-
-/*
-extension LoginViewController: AWSCognitoIdentityPasswordAuthentication {
-    func getDetails(_ authenticationInput: AWSCognitoIdentityPasswordAuthenticationInput, passwordAuthenticationCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>) {
-        passwordAuthenticationCompletion = passwordAuthenticationCompletionSource
-        
-        print("AWSCognitoIdentityPasswordAuthentication")
-    }
     
-    func didCompleteStepWithError(_ error: Error?) {
-        print("didCompleteStepWithError")
-        DispatchQueue.main.async {
-            if error != nil {
-                let alert = UIAlertController.init(title: "Error", message: "Cannot login", preferredStyle: UIAlertControllerStyle.alert)
-                let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            } else {
-                self.performSegue(withIdentifier: "ToMapView", sender: self)
-            }
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (dynamoDBUser?.userType == UserType.tourist) {
+            let view = segue.destination as! MapViewController
+            view.user = dynamoDBUser
+        }
+        else if (dynamoDBUser?.userType == UserType.tour_guide) {
+            let view = segue.destination as! TourGuideMapViewController
+            view.user = dynamoDBUser
         }
     }
 }
-*/
 
 extension LoginViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

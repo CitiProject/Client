@@ -13,9 +13,10 @@ import CoreLocation
 import MapKit
 import AWSDynamoDB
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
+    //@IBOutlet weak var mapView: GMSMapView!
     
     @IBOutlet weak var userRoleSwitch: UISwitch!
     @IBOutlet weak var userRoleText: UILabel!
@@ -114,9 +115,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func mapView(_ mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
         UIView.animate(withDuration: 5.0, animations: { () -> Void in
             self.userView?.tintColor = UIColor.blue
-            }, completion: {(finished: Bool) -> Void in
-                // Stop tracking view changes to allow CPU to idle.
-                self.userMarker?.tracksViewChanges = false
+        }, completion: {(finished: Bool) -> Void in
+            // Stop tracking view changes to allow CPU to idle.
+            self.userMarker?.tracksViewChanges = false
         })
     }
     
