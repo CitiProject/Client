@@ -97,7 +97,7 @@ class SignupProfileImageViewController: UIViewController {
         user?.saveUser()
         
         if (user?.userType == "Tourist") {
-            self.performSegue(withIdentifier: "TouristMapSegue", sender: nil)
+            self.performSegue(withIdentifier: "TouristSegue", sender: nil)
         }
         else if (user?.userType == "Tour Guide") {
             self.performSegue(withIdentifier: "TourGuideMapSegue", sender: nil)

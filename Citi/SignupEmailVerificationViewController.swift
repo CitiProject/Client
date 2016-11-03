@@ -31,7 +31,12 @@ class SignupEmailVerificationViewController: UIViewController {
             if task.error == nil {
                 let alert = UIAlertController.init(title: "Success", message: "Email verified", preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
-                    self.performSegue(withIdentifier: "ShowSignupNameViewController", sender: nil)
+                    //tourist or tour guide
+                    if self.user?.userType == "Tourist" {
+                    self.performSegue(withIdentifier: "ShowSignUp", sender: nil)
+                    } else {
+                      self.performSegue(withIdentifier: "ShowTourGuide", sender: nil)
+                    }
                 })
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
@@ -51,10 +56,16 @@ class SignupEmailVerificationViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowSignupNameViewController" {
-            let view = segue.destination as! SignupNameViewController
+        if segue.identifier == "ShowSignUp" {
+            let view = segue.destination as! SignupProfileImageViewController
+            view.user = user
+        }
+        
+        if segue.identifier == "ShowTourGuide" {
+            let view = segue.destination as! SignupTourGuidePreferenceViewController
             view.user = user
         }
     }
+    
 
 }

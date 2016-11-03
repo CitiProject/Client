@@ -14,6 +14,12 @@ class SignupEmailViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var passwordConfTextField: UITextField!
+    @IBOutlet weak var fullName: UITextField!
+    @IBOutlet weak var prefName: UITextField!
+    @IBOutlet weak var phoneNumber: UITextField!
+    var userTypeString:String = ""
+    
+    @IBOutlet weak var userTypeSeg: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +27,10 @@ class SignupEmailViewController: UIViewController {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         passwordConfTextField.delegate = self
+        fullName.delegate = self
+        prefName.delegate = self
+        phoneNumber.delegate = self
+        
         
     }
 
@@ -59,6 +69,13 @@ class SignupEmailViewController: UIViewController {
                     return false
                 }
             }
+            
+            //Fullname
+            
+            //Preferred Name
+            
+            //Phone Number
+            
         }
         return true
     }
@@ -73,6 +90,42 @@ class SignupEmailViewController: UIViewController {
         email.name = "email"
         email.value = emailTextField.text!
         attributes.append(email)
+        
+        //New
+        let fullname = AWSCognitoIdentityUserAttributeType()!
+        fullname.name = "custom:full_name"
+        fullname.value = fullName.text!
+        attributes.append(fullname)
+        
+        let preferredName = AWSCognitoIdentityUserAttributeType()!
+        preferredName.name = "custom:preferred_name"
+        preferredName.value = prefName.text!
+        attributes.append(preferredName)
+        
+        let phoneNum = AWSCognitoIdentityUserAttributeType()!
+        phoneNum.name = "custom:phone_number"
+        phoneNum.value = phoneNumber.text!
+        attributes.append(phoneNum)
+        
+        let userType = AWSCognitoIdentityUserAttributeType()!
+        userType.name = "custom:user_type"
+        
+        
+        switch userTypeSeg.selectedSegmentIndex {
+        case 0:
+            userType.value = "Tourist"
+        case 1:
+            userType.value = "Tour Guide"
+        case 2:
+            userType.value = "Both"
+        default:
+            userType.value = "Tourist"
+        }
+        
+        attributes.append(userType)
+        userTypeString=userType.value!
+        
+        //
         
         pool.signUp(emailTextField.text!, password: passwordTextField.text!, userAttributes: attributes, validationData: nil).continue(with: AWSExecutor.mainThread(), with: {
             (task:AWSTask!) -> AnyObject! in
@@ -102,6 +155,10 @@ class SignupEmailViewController: UIViewController {
         let user = User()
         user?.userId = emailTextField.text
         user?.password = passwordTextField.text
+        user?.name=fullName.text
+        user?.preferredName=prefName.text
+        user?.userType=userTypeString
+        user?.phoneNumber=phoneNumber.text
         
         if segue.identifier == "ShowEmailVerification" {
             let view = segue.destination as! SignupEmailVerificationViewController
