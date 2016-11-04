@@ -22,7 +22,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var email: String?
     var phoneNumber: String?
     var profilePicture: UIImage?
-    var userType: UserType?
+    var userType: String?
     var bio: String?
     
     
