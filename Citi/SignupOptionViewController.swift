@@ -39,11 +39,11 @@ class SignupOptionViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch optionSegmentedControl.selectedSegmentIndex {
         case 0:
-            user?.userType = "Tourist"
+            user?.userType = "tourist"
         case 1:
-            user?.userType = "Tour Guide"
+            user?.userType = "tour_guide"
         default:
-            user?.userType = "Tourist"
+            user?.userType = "tourist"
         }
         
         if optionSegmentedControl.selectedSegmentIndex == 0 { // tourist

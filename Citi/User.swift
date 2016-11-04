@@ -35,10 +35,10 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         return "userId"
     }
     
-    /*var tags:[String]?
-    var ratings: Int?
-    var gpsLocation: CLLocation?
-    var tripHistory: String?*/
+    //var tags:[String]?
+    //var ratings: Int?
+    var gpsLocation: String?
+    //var tripHistory: String?
     
     class func ignoreAttributes() -> [String] {
         return ["password"]

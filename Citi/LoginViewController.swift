@@ -92,10 +92,10 @@ class LoginViewController: UIViewController {
                 
                 currUser = pool.getUser(self.userinfoTextField.text!)
                 
-                if (self.dynamoDBUser?.userType == "Tourist") {
+                if (self.dynamoDBUser?.userType == "tourist") {
                     self.performSegue(withIdentifier: "TouristMapSegue", sender: nil)
                 }
-                else if (self.dynamoDBUser?.userType == "Tour Guide") {
+                else if (self.dynamoDBUser?.userType == "tour_guide") {
                     self.performSegue(withIdentifier: "TourGuideMapSegue", sender: nil)
                 }
             }
@@ -107,11 +107,11 @@ class LoginViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (dynamoDBUser?.userType == "Tourist") {
+        if (dynamoDBUser?.userType == "tourist") {
             let view = segue.destination as! MapViewController
             view.user = dynamoDBUser
         }
-        else if (dynamoDBUser?.userType == "Tour Guide") {
+        else if (dynamoDBUser?.userType == "tour_guide") {
             let view = segue.destination as! TourGuideMapViewController
             view.user = dynamoDBUser
         }
