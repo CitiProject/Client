@@ -26,7 +26,6 @@
 		852BD1871DCB9F9700DA5111 /* SignupTourGuidePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BD1861DCB9F9700DA5111 /* SignupTourGuidePreferenceViewController.swift */; };
 		852BD18B1DCB9FDA00DA5111 /* TourGuideMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BD18A1DCB9FDA00DA5111 /* TourGuideMapViewController.swift */; };
 		852BD18D1DCB9FFB00DA5111 /* TourGuideMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852BD18C1DCB9FFB00DA5111 /* TourGuideMap.storyboard */; };
-		852BD18F1DCBA00700DA5111 /* DriverMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852BD18E1DCBA00700DA5111 /* DriverMap.storyboard */; };
 		D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655EFAB1DA728CC002C9D91 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,7 +53,6 @@
 		852BD1861DCB9F9700DA5111 /* SignupTourGuidePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupTourGuidePreferenceViewController.swift; sourceTree = "<group>"; };
 		852BD18A1DCB9FDA00DA5111 /* TourGuideMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuideMapViewController.swift; sourceTree = "<group>"; };
 		852BD18C1DCB9FFB00DA5111 /* TourGuideMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TourGuideMap.storyboard; sourceTree = "<group>"; };
-		852BD18E1DCBA00700DA5111 /* DriverMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverMap.storyboard; sourceTree = "<group>"; };
 		D655EFAB1DA728CC002C9D91 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,7 +92,6 @@
 		5B1B3DBA1DA3F4AD00B7ECAF /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				852BD18E1DCBA00700DA5111 /* DriverMap.storyboard */,
 				852BD18C1DCB9FFB00DA5111 /* TourGuideMap.storyboard */,
 				5B3119B91DA3E96F00DCF408 /* Signup.storyboard */,
 				5B3119BE1DA3F34500DCF408 /* Map.storyboard */,
@@ -233,7 +230,6 @@
 				5B3119C01DA3F34500DCF408 /* Map.storyboard in Resources */,
 				5B87816B1DB066B500F61246 /* TourGuideControlPaneView.xib in Resources */,
 				5B3119BB1DA3E96F00DCF408 /* Signup.storyboard in Resources */,
-				852BD18F1DCBA00700DA5111 /* DriverMap.storyboard in Resources */,
 				852BD18D1DCB9FFB00DA5111 /* TourGuideMap.storyboard in Resources */,
 				5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */,
 			);
