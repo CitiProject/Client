@@ -26,6 +26,7 @@
 		852BD1871DCB9F9700DA5111 /* SignupTourGuidePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BD1861DCB9F9700DA5111 /* SignupTourGuidePreferenceViewController.swift */; };
 		852BD18B1DCB9FDA00DA5111 /* TourGuideMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852BD18A1DCB9FDA00DA5111 /* TourGuideMapViewController.swift */; };
 		852BD18D1DCB9FFB00DA5111 /* TourGuideMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852BD18C1DCB9FFB00DA5111 /* TourGuideMap.storyboard */; };
+		856A181A1DCCE695002E6A90 /* TourGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856A18191DCCE695002E6A90 /* TourGuide.swift */; };
 		D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655EFAB1DA728CC002C9D91 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		852BD1861DCB9F9700DA5111 /* SignupTourGuidePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupTourGuidePreferenceViewController.swift; sourceTree = "<group>"; };
 		852BD18A1DCB9FDA00DA5111 /* TourGuideMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuideMapViewController.swift; sourceTree = "<group>"; };
 		852BD18C1DCB9FFB00DA5111 /* TourGuideMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TourGuideMap.storyboard; sourceTree = "<group>"; };
+		856A18191DCCE695002E6A90 /* TourGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuide.swift; sourceTree = "<group>"; };
 		D655EFAB1DA728CC002C9D91 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				5B1B3DBC1DA7481C00B7ECAF /* User.swift */,
+				856A18191DCCE695002E6A90 /* TourGuide.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				5B3119C41DA3F42300DCF408 /* SignupOptionViewController.swift in Sources */,
 				852BD18B1DCB9FDA00DA5111 /* TourGuideMapViewController.swift in Sources */,
 				5B3119C21DA3F3F900DCF408 /* SignupNameViewController.swift in Sources */,
+				856A181A1DCCE695002E6A90 /* TourGuide.swift in Sources */,
 				D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */,
 				5B03A8391DA9366600928141 /* SignupEmailVerificationViewController.swift in Sources */,
 			);

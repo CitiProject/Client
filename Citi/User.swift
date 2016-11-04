@@ -21,11 +21,11 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var bio: String?
     
     
-    override init!() { super.init() }
+  //  override init!() { super.init() }
     
-    required init!(coder: NSCoder!) {
-        fatalError("init(coder:) has not been implemented")
-    }
+  //  required init!(coder: NSCoder!) {
+   //     fatalError("init(coder:) has not been implemented")
+   // }
     
     class func dynamoDBTableName() -> String {
         return "citi-mobilehub-2006386910-User"

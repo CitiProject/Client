@@ -137,6 +137,34 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         marker.map = mapView
         
     }
+    /*
+    func findCloseDrivers() {
+        
+        //  let tg = TourGuide()
+        TourGuide.loadTourGuides()
+        let tg = TourGuide.tourGuides
+        
+        for eachTourGuide: TourGuide in tg {
+            
+            var xyString = eachTourGuide.gpsLocation?.components(separatedBy: " ")
+            let tempLatitude = (String(describing: xyString?[0]) as NSString).doubleValue
+            let tempLongitude = (String(describing: xyString?[1]) as NSString).doubleValue
+            print("\n\n\n\n*****************$$#$###### temp Lat = /(tempLatitude)")
+            print("*****************$$#$###### temp Long = /(tempLongitude)\n\n\n\n\n")
+            
+            
+            let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
+            
+            let marker = GMSMarker(position: position)
+            marker.icon = UIImage(named: "driving")
+            marker.isFlat = true
+            //marker.icon = UIImage(named: "username_icon")
+            marker.tracksViewChanges = true
+            marker.map = mapView
+        }
+        
+    }*/
+
     
     
     override func didReceiveMemoryWarning() {
