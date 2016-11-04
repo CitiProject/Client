@@ -42,7 +42,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
     var tags:[String]?
     var ratings: Int?
-    var gpsLocation: CLLocation?
+    var gpsLocation: String?
     var tripHistory: String?
     
     class func ignoreAttributes() -> [String] {
