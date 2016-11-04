@@ -85,7 +85,9 @@ class SignupEmailViewController: UIViewController {
             self.processIndicator.stopAnimating()
             
             if task.error != nil {
-                let alert = UIAlertController.init(title: "Failed to Sign Up", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                let debugDescription = task.error.debugDescription
+            
+                let alert = UIAlertController.init(title: "Failed to Sign Up", message: debugDescription, preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)

@@ -63,7 +63,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             DispatchQueue.main.async(execute: {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 if let _ = task.result {
-                    //completion(true, nil)
+                    print("Successfully saved user")
                 }
                 else if let error = task.error {
                     print(error.localizedDescription)
