@@ -106,6 +106,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         marker.map = mapView
         self.userMarker = marker
         
+        let locationString = "\(userLocation!.coordinate.latitude) \(userLocation!.coordinate.longitude)"
+        
+        user?.gpsLocation = locationString
+        
+        saveUser(user!)
+        
         findCloseDrivers();
         
         locationManager.stopUpdatingLocation()
@@ -130,7 +136,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         marker.map = mapView
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

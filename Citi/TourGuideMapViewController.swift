@@ -107,6 +107,12 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         marker.map = mapView
         self.userMarker = marker
         
+        let locationString = "\(userLocation!.coordinate.latitude) \(userLocation!.coordinate.longitude)"
+        
+        user?.gpsLocation = locationString
+        
+        saveUser(user!)
+        
         findCloseDrivers();
         
         locationManager.stopUpdatingLocation()
