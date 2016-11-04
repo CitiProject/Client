@@ -33,7 +33,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     func stateChanged() {
         if userRoleSwitch.isOn {
             userRoleText.text = "Tour Guide"
-            user?.userType = UserType.tour_guide
+            user?.userType = "Tour Guide"
             
             currentMode = ModeType.tour_guide
             self.tourGuideControlPaneView.isHidden = false
@@ -42,7 +42,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             })
         } else {
             userRoleText.text = "Tourist"
-            user?.userType = UserType.tourist
+            user?.userType = "Tourist"
             
             currentMode = ModeType.tourist
             UIView.animate(withDuration: 0.3, animations: {
@@ -57,7 +57,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if user?.userType == UserType.tour_guide {
+        if user?.userType == "Tour Guide" {
             userRoleText.text = "Tour Guide"
         } else {
             userRoleText.text = "Tourist"

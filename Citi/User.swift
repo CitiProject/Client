@@ -11,18 +11,13 @@ import AWSDynamoDB
 import UIKit
 import CoreLocation
 
-enum UserType {
-    case tourist
-    case tour_guide
-}
-
 class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userId: String?
     var name: String?
     var email: String?
     var phoneNumber: String?
-    var profilePicture: UIImage?
-    var userType: UserType?
+    //var profilePicture: UIImage?
+    var userType: String?
     var bio: String?
     
     
@@ -40,10 +35,10 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         return "userId"
     }
     
-    var tags:[String]?
+    /*var tags:[String]?
     var ratings: Int?
     var gpsLocation: CLLocation?
-    var tripHistory: String?
+    var tripHistory: String?*/
     
     class func ignoreAttributes() -> [String] {
         return ["password"]

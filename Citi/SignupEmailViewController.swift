@@ -108,6 +108,7 @@ class SignupEmailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let user = User()
         user?.email = emailTextField.text
+        user?.userId = emailTextField.text
         
         if segue.identifier == "ShowEmailVerification" {
             let view = segue.destination as! SignupEmailVerificationViewController

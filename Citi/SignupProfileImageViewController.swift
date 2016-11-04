@@ -94,12 +94,12 @@ class SignupProfileImageViewController: UIViewController {
 
     @IBAction func onGetStarted(_ sender: AnyObject) {
         user?.bio = shortBioTextView.text
-        user?.saveUser()
+        saveUser(user!)
         
-        if (user?.userType == UserType.tourist) {
+        if (user?.userType == "Tourist") {
             self.performSegue(withIdentifier: "TouristMapSegue", sender: nil)
         }
-        else if (user?.userType == UserType.tour_guide) {
+        else if (user?.userType == "Tour Guide") {
             self.performSegue(withIdentifier: "TourGuideMapSegue", sender: nil)
         }
         
@@ -140,11 +140,11 @@ extension SignupProfileImageViewController: UIImagePickerControllerDelegate, UIN
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (user?.userType == UserType.tourist) {
+        if (user?.userType == "Tourist") {
             let view = segue.destination as! MapViewController
             view.user = user
         }
-        else if (user?.userType == UserType.tour_guide) {
+        else if (user?.userType == "Tour Guide") {
             let view = segue.destination as! TourGuideMapViewController
             view.user = user
         }
