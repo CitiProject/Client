@@ -1,0 +1,512 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5377FCFB6A61DF37A2303345 /* Pods_Citi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68822A89C1F97C58D0170F67 /* Pods_Citi.framework */; };
+		5B03A8391DA9366600928141 /* SignupEmailVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B03A8381DA9366600928141 /* SignupEmailVerificationViewController.swift */; };
+		5B1B3DBD1DA7481C00B7ECAF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B1B3DBC1DA7481C00B7ECAF /* User.swift */; };
+		5B3119BB1DA3E96F00DCF408 /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3119B91DA3E96F00DCF408 /* Signup.storyboard */; };
+		5B3119BD1DA3ECFF00DCF408 /* SignupEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */; };
+		5B3119C01DA3F34500DCF408 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B3119BE1DA3F34500DCF408 /* Map.storyboard */; };
+		5B3119C21DA3F3F900DCF408 /* SignupNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3119C11DA3F3F900DCF408 /* SignupNameViewController.swift */; };
+		5B3119C41DA3F42300DCF408 /* SignupOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3119C31DA3F42300DCF408 /* SignupOptionViewController.swift */; };
+		5B3119C61DA3F45500DCF408 /* SignupProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B3119C51DA3F45500DCF408 /* SignupProfileImageViewController.swift */; };
+		5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */; };
+		5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */; };
+		5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E41D8B389400D7EAE9 /* Main.storyboard */; };
+		5B6044E81D8B389400D7EAE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E71D8B389400D7EAE9 /* Assets.xcassets */; };
+		5B6044EB1D8B389400D7EAE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B6044E91D8B389400D7EAE9 /* LaunchScreen.storyboard */; };
+		5B87816B1DB066B500F61246 /* TourGuideControlPaneView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5B87816A1DB066B500F61246 /* TourGuideControlPaneView.xib */; };
+		5B87816D1DB066FD00F61246 /* TourGuideControlPaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B87816C1DB066FD00F61246 /* TourGuideControlPaneView.swift */; };
+		5BD1D3801DCAE3A2003AD47C /* TourGuideMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1D37C1DCAE3A2003AD47C /* TourGuideMap.storyboard */; };
+		5BD1D3811DCAE3A2003AD47C /* TourGuideMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */; };
+		5BD1D3821DCAE3A2003AD47C /* DriverMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1D37E1DCAE3A2003AD47C /* DriverMap.storyboard */; };
+		5BD1D3831DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1D37F1DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift */; };
+		5BF7DE681DCBBF52004F9B0C /* TourGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */; };
+		D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655EFAB1DA728CC002C9D91 /* MapViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		20EE182AAEF7BE068B4B8FA8 /* Pods-Citi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.release.xcconfig"; sourceTree = "<group>"; };
+		5B03A8381DA9366600928141 /* SignupEmailVerificationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupEmailVerificationViewController.swift; sourceTree = "<group>"; };
+		5B1B3DBC1DA7481C00B7ECAF /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5B3119BA1DA3E96F00DCF408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Signup.storyboard; sourceTree = "<group>"; };
+		5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupEmailViewController.swift; sourceTree = "<group>"; };
+		5B3119BF1DA3F34500DCF408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Map.storyboard; sourceTree = "<group>"; };
+		5B3119C11DA3F3F900DCF408 /* SignupNameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupNameViewController.swift; sourceTree = "<group>"; };
+		5B3119C31DA3F42300DCF408 /* SignupOptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupOptionViewController.swift; sourceTree = "<group>"; };
+		5B3119C51DA3F45500DCF408 /* SignupProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupProfileImageViewController.swift; sourceTree = "<group>"; };
+		5B6044DD1D8B389400D7EAE9 /* Citi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Citi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5B6044E51D8B389400D7EAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B6044E71D8B389400D7EAE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5B6044EA1D8B389400D7EAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5B6044EC1D8B389400D7EAE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B87816A1DB066B500F61246 /* TourGuideControlPaneView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TourGuideControlPaneView.xib; sourceTree = "<group>"; };
+		5B87816C1DB066FD00F61246 /* TourGuideControlPaneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuideControlPaneView.swift; sourceTree = "<group>"; };
+		5BD1D37C1DCAE3A2003AD47C /* TourGuideMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TourGuideMap.storyboard; sourceTree = "<group>"; };
+		5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuideMapViewController.swift; sourceTree = "<group>"; };
+		5BD1D37E1DCAE3A2003AD47C /* DriverMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverMap.storyboard; sourceTree = "<group>"; };
+		5BD1D37F1DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupTourGuidePreferenceViewController.swift; sourceTree = "<group>"; };
+		5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuide.swift; sourceTree = "<group>"; };
+		60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.debug.xcconfig"; sourceTree = "<group>"; };
+		68822A89C1F97C58D0170F67 /* Pods_Citi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D655EFAB1DA728CC002C9D91 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5B6044DA1D8B389400D7EAE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5377FCFB6A61DF37A2303345 /* Pods_Citi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		25CD90E4940EF70C56C9B528 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */,
+				20EE182AAEF7BE068B4B8FA8 /* Pods-Citi.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B1B3DB91DA3F49300B7ECAF /* SignupViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */,
+				5B03A8381DA9366600928141 /* SignupEmailVerificationViewController.swift */,
+				5B3119C11DA3F3F900DCF408 /* SignupNameViewController.swift */,
+				5B3119C31DA3F42300DCF408 /* SignupOptionViewController.swift */,
+				5B3119C51DA3F45500DCF408 /* SignupProfileImageViewController.swift */,
+			);
+			name = SignupViewControllers;
+			sourceTree = "<group>";
+		};
+		5B1B3DBA1DA3F4AD00B7ECAF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				5BD1D37C1DCAE3A2003AD47C /* TourGuideMap.storyboard */,
+				5BD1D37E1DCAE3A2003AD47C /* DriverMap.storyboard */,
+				5B3119B91DA3E96F00DCF408 /* Signup.storyboard */,
+				5B3119BE1DA3F34500DCF408 /* Map.storyboard */,
+				5B6044E41D8B389400D7EAE9 /* Main.storyboard */,
+				5B6044E91D8B389400D7EAE9 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		5B1B3DBB1DA7480E00B7ECAF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5B1B3DBC1DA7481C00B7ECAF /* User.swift */,
+				5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		5B6044D41D8B389400D7EAE9 = {
+			isa = PBXGroup;
+			children = (
+				5B6044DF1D8B389400D7EAE9 /* Citi */,
+				5B6044DE1D8B389400D7EAE9 /* Products */,
+				25CD90E4940EF70C56C9B528 /* Pods */,
+				CF26602F4810E8C9B840D75B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5B6044DE1D8B389400D7EAE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5B6044DD1D8B389400D7EAE9 /* Citi.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5B6044DF1D8B389400D7EAE9 /* Citi */ = {
+			isa = PBXGroup;
+			children = (
+				5B6045071D8F0A2700D7EAE9 /* ViewControllers */,
+				5B1B3DBA1DA3F4AD00B7ECAF /* Storyboards */,
+				5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */,
+				5B87816A1DB066B500F61246 /* TourGuideControlPaneView.xib */,
+				5B87816C1DB066FD00F61246 /* TourGuideControlPaneView.swift */,
+				5B6044E71D8B389400D7EAE9 /* Assets.xcassets */,
+				5B6044EC1D8B389400D7EAE9 /* Info.plist */,
+			);
+			path = Citi;
+			sourceTree = "<group>";
+		};
+		5B6045071D8F0A2700D7EAE9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5B1B3DBB1DA7480E00B7ECAF /* Models */,
+				5B1B3DB91DA3F49300B7ECAF /* SignupViewControllers */,
+				D655EFAB1DA728CC002C9D91 /* MapViewController.swift */,
+				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
+				5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */,
+				5BD1D37F1DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CF26602F4810E8C9B840D75B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				68822A89C1F97C58D0170F67 /* Pods_Citi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5B6044DC1D8B389400D7EAE9 /* Citi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B6044EF1D8B389400D7EAE9 /* Build configuration list for PBXNativeTarget "Citi" */;
+			buildPhases = (
+				DA4A3B70DD1ADA1872F6B0BF /* [CP] Check Pods Manifest.lock */,
+				5B6044D91D8B389400D7EAE9 /* Sources */,
+				5B6044DA1D8B389400D7EAE9 /* Frameworks */,
+				5B6044DB1D8B389400D7EAE9 /* Resources */,
+				793A5D14C5D0E605B70671BE /* [CP] Embed Pods Frameworks */,
+				112042B8EDAC8B6A12984F22 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Citi;
+			productName = Citi;
+			productReference = 5B6044DD1D8B389400D7EAE9 /* Citi.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B6044D51D8B389400D7EAE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = Citi;
+				TargetAttributes = {
+					5B6044DC1D8B389400D7EAE9 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 4MR49B8559;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5B6044D81D8B389400D7EAE9 /* Build configuration list for PBXProject "Citi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5B6044D41D8B389400D7EAE9;
+			productRefGroup = 5B6044DE1D8B389400D7EAE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5B6044DC1D8B389400D7EAE9 /* Citi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5B6044DB1D8B389400D7EAE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B6044EB1D8B389400D7EAE9 /* LaunchScreen.storyboard in Resources */,
+				5B6044E81D8B389400D7EAE9 /* Assets.xcassets in Resources */,
+				5B3119C01DA3F34500DCF408 /* Map.storyboard in Resources */,
+				5B87816B1DB066B500F61246 /* TourGuideControlPaneView.xib in Resources */,
+				5B3119BB1DA3E96F00DCF408 /* Signup.storyboard in Resources */,
+				5BD1D3821DCAE3A2003AD47C /* DriverMap.storyboard in Resources */,
+				5BD1D3801DCAE3A2003AD47C /* TourGuideMap.storyboard in Resources */,
+				5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		112042B8EDAC8B6A12984F22 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Citi/Pods-Citi-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		793A5D14C5D0E605B70671BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Citi/Pods-Citi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA4A3B70DD1ADA1872F6B0BF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5B6044D91D8B389400D7EAE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B3119C61DA3F45500DCF408 /* SignupProfileImageViewController.swift in Sources */,
+				5B3119BD1DA3ECFF00DCF408 /* SignupEmailViewController.swift in Sources */,
+				5B87816D1DB066FD00F61246 /* TourGuideControlPaneView.swift in Sources */,
+				5BD1D3811DCAE3A2003AD47C /* TourGuideMapViewController.swift in Sources */,
+				5BD1D3831DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift in Sources */,
+				5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */,
+				5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */,
+				5B1B3DBD1DA7481C00B7ECAF /* User.swift in Sources */,
+				5B3119C41DA3F42300DCF408 /* SignupOptionViewController.swift in Sources */,
+				5B3119C21DA3F3F900DCF408 /* SignupNameViewController.swift in Sources */,
+				5BF7DE681DCBBF52004F9B0C /* TourGuide.swift in Sources */,
+				D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */,
+				5B03A8391DA9366600928141 /* SignupEmailVerificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5B3119B91DA3E96F00DCF408 /* Signup.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B3119BA1DA3E96F00DCF408 /* Base */,
+			);
+			name = Signup.storyboard;
+			sourceTree = "<group>";
+		};
+		5B3119BE1DA3F34500DCF408 /* Map.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B3119BF1DA3F34500DCF408 /* Base */,
+			);
+			name = Map.storyboard;
+			sourceTree = "<group>";
+		};
+		5B6044E41D8B389400D7EAE9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6044E51D8B389400D7EAE9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5B6044E91D8B389400D7EAE9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5B6044EA1D8B389400D7EAE9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5B6044ED1D8B389400D7EAE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5B6044EE1D8B389400D7EAE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5B6044F01D8B389400D7EAE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4MR49B8559;
+				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
+				INFOPLIST_FILE = Citi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cs490.Citi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		5B6044F11D8B389400D7EAE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20EE182AAEF7BE068B4B8FA8 /* Pods-Citi.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4MR49B8559;
+				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
+				INFOPLIST_FILE = Citi/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cs490.Citi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5B6044D81D8B389400D7EAE9 /* Build configuration list for PBXProject "Citi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B6044ED1D8B389400D7EAE9 /* Debug */,
+				5B6044EE1D8B389400D7EAE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5B6044EF1D8B389400D7EAE9 /* Build configuration list for PBXNativeTarget "Citi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5B6044F01D8B389400D7EAE9 /* Debug */,
+				5B6044F11D8B389400D7EAE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B6044D51D8B389400D7EAE9 /* Project object */;
+}

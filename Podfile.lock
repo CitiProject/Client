@@ -1,0 +1,38 @@
+PODS:
+  - AWSCognito (2.4.8):
+    - AWSCore (= 2.4.8)
+  - AWSCognitoIdentityProvider (2.4.8):
+    - AWSCore (= 2.4.8)
+  - AWSCore (2.4.8)
+  - AWSDynamoDB (2.4.8):
+    - AWSCore (= 2.4.8)
+  - AWSS3 (2.4.8):
+    - AWSCore (= 2.4.8)
+  - GoogleMaps (2.0.1):
+    - GoogleMaps/Maps (= 2.0.1)
+  - GoogleMaps/Base (2.0.1)
+  - GoogleMaps/Maps (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+  - GooglePlaces (2.0.1):
+    - GoogleMaps/Base (= 2.0.1)
+
+DEPENDENCIES:
+  - AWSCognito
+  - AWSCognitoIdentityProvider
+  - AWSDynamoDB
+  - AWSS3
+  - GoogleMaps
+  - GooglePlaces
+
+SPEC CHECKSUMS:
+  AWSCognito: 63ae70c4ff94656f7a36892c45680bbb311b7381
+  AWSCognitoIdentityProvider: a36003a2eef4376d05525e0f4c2cc27e0c2351eb
+  AWSCore: 7bc7e845f532dedc65b133cdf518bb44a2e28dfe
+  AWSDynamoDB: aff5790ebf397c1865f99b7f764b67a3e7f379e0
+  AWSS3: f48121d50ddd73e830c3522c44772a70fce29f27
+  GoogleMaps: f09da64fc987c1aa29394567c3cab5a3df83c402
+  GooglePlaces: 72fab1d1651c6df0322f2aad245ffb15b80d3c56
+
+PODFILE CHECKSUM: c6083f0771166c42384959ec693fe419f04c4961
+
+COCOAPODS: 1.0.1
