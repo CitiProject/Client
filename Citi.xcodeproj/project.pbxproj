@@ -136,6 +136,7 @@
 		5B6044DF1D8B389400D7EAE9 /* Citi */ = {
 			isa = PBXGroup;
 			children = (
+				5B1B3DBB1DA7480E00B7ECAF /* Models */,
 				5B6045071D8F0A2700D7EAE9 /* ViewControllers */,
 				5B1B3DBA1DA3F4AD00B7ECAF /* Storyboards */,
 				5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */,
@@ -150,7 +151,6 @@
 		5B6045071D8F0A2700D7EAE9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5B1B3DBB1DA7480E00B7ECAF /* Models */,
 				5B1B3DB91DA3F49300B7ECAF /* SignupViewControllers */,
 				D655EFAB1DA728CC002C9D91 /* MapViewController.swift */,
 				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
