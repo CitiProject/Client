@@ -13,7 +13,15 @@ import CoreLocation
 import MapKit
 import AWSDynamoDB
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMUClusterManagerDelegate, GMSMapViewDelegate {
+    
+   // private var mapView: GMSMapView!
+    private var clusterManager: GMUClusterManager!
+    let kClusterItemCount = 100
+    let kCameraLatitude = 37.77722
+    let kCameraLongitude = -122.41111
+
+
     
     @IBOutlet weak var mapView: GMSMapView!
     
@@ -57,6 +65,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
         if user?.userType == "tour_guide" {
             userRoleText.text = "Tour Guide"
         } else {
@@ -78,6 +87,26 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         /*let camera = GMSCameraPosition.camera(withLatitude: 1.285, longitude: 103.848, zoom: 1)
          let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
          viewMap = mapView*/
+    }
+    
+    /// Randomly generates cluster items within some extent of the camera and
+    /// adds them to the cluster manager.
+    private func generateClusterItems() {
+        let extent = 0.2
+        for index in 1...kClusterItemCount {
+            
+            let lat = kCameraLatitude + extent * randomScale()
+            let lng = kCameraLongitude + extent * randomScale()
+            let name = "Item \(index)"
+            let item =
+                POIItem(position: CLLocationCoordinate2DMake(lat, lng), name: name)
+            clusterManager.add(item)
+        }
+    }
+    
+    /// Returns a random value between -1.0 and 1.0.
+    private func randomScale() -> Double {
+        return Double(arc4random()) / Double(UINT32_MAX) * 2.0 - 1.0
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -115,7 +144,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //        locationManager.stopUpdatingLocation()
     }
     
-    func mapView(_ mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
+    var infoWindow = CustomInfoWindow()
+ //   var activePoint : POIItem?
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+       
         UIView.animate(withDuration: 5.0, animations: { () -> Void in
             self.userView?.tintColor = UIColor.blue
             }, completion: {(finished: Bool) -> Void in
@@ -145,6 +178,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
 //            
             var tempLatitude: Double
             var tempLongitude: Double
+            
             if let gps = eachTourGuide.gpsLocation {
                 var xyString = gps.components(separatedBy: " ")
                 tempLatitude = (xyString[0] as NSString).doubleValue
@@ -175,6 +209,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
             marker.icon = UIImage(named: "tour_guide_small")
             marker.tracksViewChanges = true
             marker.map = mapView
+            
             self.userMarker = marker
             
 //            let marker = GMSMarker(position: position)
@@ -188,6 +223,25 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         drawnTourGuides = true
         
         locationManager.stopUpdatingLocation()
+       
+        
+        // Set up the cluster manager with the supplied icon generator and
+        // renderer.
+        let iconGenerator = GMUDefaultClusterIconGenerator()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
+        let renderer = GMUDefaultClusterRenderer(mapView: mapView,
+                                                 clusterIconGenerator: iconGenerator)
+        clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
+                                           renderer: renderer)
+        
+        // Generate and add random items to the cluster manager.
+        generateClusterItems()
+        
+        // Call cluster() after items have been added to perform the clustering
+        // and rendering on map.
+        print("cluster manager")
+        clusterManager.cluster()
+        
 
     }
     
