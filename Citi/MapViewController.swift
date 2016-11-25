@@ -29,6 +29,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     var userMarker: GMSMarker?
     private var clusterManager: GMUClusterManager!
     var displayedInfoWindow: UIView?
+    
     var markerTapped = false
     var cameraMoving = false
     var idleAfterMovement = false
@@ -165,21 +166,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         
     }
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-       super.touchesBegan(touches, with: event)
-        
-    print("mmmmm touching stuff")
-       print(view)
-        if let touch = touches.first {
-            // ...
-            if (touch.view != mapView.viewWithTag(99)) {
-                print("what they want")
-                mapView.viewWithTag(99)?.isHidden = true
-            }
-        }
-        
-    }
-
     func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) {
         let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
                                                            zoom: mapView.camera.zoom + 1)
@@ -221,16 +207,49 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             
             /* animate the camera to center on the currently tapped marker, which causes
              mapView:didChangeCameraPosition: to be called */
-            let newCamera = GMSCameraPosition.camera(withTarget: marker.position,
-                                                     zoom: mapView.camera.zoom)
-            let update = GMSCameraUpdate.setCamera(newCamera)
-            mapView.moveCamera(update)
+           // let newCamera = GMSCameraPosition.camera(withTarget: marker.position,
+                           //                          zoom: mapView.camera.zoom)
+           // let update = GMSCameraUpdate.setCamera(newCamera)
+           // mapView.moveCamera(update)
+            
+            
+            
+            
+            
+            
+            
+            mapView.animate(toLocation: marker.position)
+         //   self.cameraMoving = true
+            mapView.selectedMarker = marker
+            
+            var point = mapView.projection.point(for: marker.position)
+            point.y = point.y - 250
+            
+            let newPoint = mapView.projection.coordinate(for: point)
+            let camera = GMSCameraUpdate.setTarget(newPoint)
+            mapView.animate(with: camera)
+            
+            
+            
+            
+            
+            
+            
+            
             
             if(self.markerTapped && !self.cameraMoving) {
                 //create custom info window
+                
                 self.displayedInfoWindow = customMarker
                 
+                self.displayedInfoWindow?.frame.origin.x = 0
+                self.displayedInfoWindow?.frame.origin.y = 0
+                
+                self.displayedInfoWindow?.frame.origin.x += 25
+                self.displayedInfoWindow?.frame.origin.y += 80
                 self.view.addSubview(self.displayedInfoWindow!)
+               // self.displayedInfoWindow?.frame.origin.x -= 25
+               // self.displayedInfoWindow?.frame.origin.y -= 80
             }
 
         } else {
@@ -245,7 +264,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     }
     
     
-    func mapView(_ mapView: GMSMapView, didChange cameraPosition: GMSCameraPosition){
+/*    func mapView(_ mapView: GMSMapView, didChange cameraPosition: GMSCameraPosition){
         /* if we got here after we've previously been idle and displayed our custom info window,
          then remove that custom info window and nil out the object */
         if(self.idleAfterMovement) {
@@ -254,14 +273,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 self.displayedInfoWindow = nil
             }
         }
-        if let tempPoint = activePoint {
-            customMarker.center = mapView.projection.point(for: tempPoint.position)
-        }
+
         // if we got here after a marker was tapped, then set the cameraMoving state flag to YES
         if(self.markerTapped) {
             self.cameraMoving = true
         }
-    }
+    }*/
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         /* if we got here and a marker was tapped and our animate method was called, then it means we're ready
@@ -275,8 +292,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             //create custom info window
             self.displayedInfoWindow = customMarker
            
-            displayedInfoWindow.center = mapView.projection.pointForCoordinate(poiItem.position)
-             activePoint = poiItem
+            //displayedInfoWindow.center = mapView.projection.pointForCoordinate(poiItem.position)
+            // activePoint = poiItem
+            
             self.view.addSubview(self.displayedInfoWindow!)
     
         }
