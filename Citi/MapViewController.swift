@@ -13,22 +13,29 @@ import CoreLocation
 import MapKit
 import AWSDynamoDB
 
-class MapViewController: UIViewController, CLLocationManagerDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMUClusterManagerDelegate, GMSMapViewDelegate {
     
+   // private var mapView: GMSMapView!
     @IBOutlet weak var mapView: GMSMapView!
-    
     @IBOutlet weak var userRoleSwitch: UISwitch!
     @IBOutlet weak var userRoleText: UILabel!
+    @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
     
-    var userMarker: GMSMarker?
-    var userView: UIImageView?
-    
+  
+   // var userView: UIImageView?
     var user: User?
-    
     var locationManager = CLLocationManager()
     var didFindMyLocation = false
+    var userMarker: GMSMarker?
+    private var clusterManager: GMUClusterManager!
+    var displayedInfoWindow: UIView?
     
-    @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
+    var markerTapped = false
+    var cameraMoving = false
+    var idleAfterMovement = false
+    var currentlyTappedMarker: GMSMarker?
+    let customMarker:CustomMarker = CustomMarker.loadFromNib()
+    var activePoint : POIItem?
     
     func stateChanged() {
         if userRoleSwitch.isOn {
@@ -57,6 +64,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
         if user?.userType == "tour_guide" {
             userRoleText.text = "Tour Guide"
         } else {
@@ -74,10 +82,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         TourGuide.loadTourGuides()
         print("loading tour guides")
 
-        
-        /*let camera = GMSCameraPosition.camera(withLatitude: 1.285, longitude: 103.848, zoom: 1)
-         let mapView = GMSMapView.map(withFrame: .zero, camera: camera)
-         viewMap = mapView*/
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -86,65 +90,51 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last
-//        let center = CLLocationCoordinate2D(latitude: userLocation!.coordinate.latitude, longitude: userLocation!.coordinate.longitude)
-        
+
         mapView.camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
                                                   longitude: userLocation!.coordinate.longitude, zoom: 15)
         mapView.isMyLocationEnabled = true
         mapView.settings.compassButton = true
         mapView.settings.myLocationButton = true
         
-        let userIcon = UIImage(named: "username_icon")!.withRenderingMode(.alwaysTemplate)
-        let markerView = UIImageView(image: userIcon)
-        markerView.tintColor = UIColor.red
-        self.userView = markerView
-        
-//        
-//        let marker = GMSMarker(position: center)
-//        marker.title = "Your Location"
-//        marker.snippet = "\(center.latitude) \(center.longitude)"
-//        //marker.iconView = markerView
-//        marker.isFlat = true
-//        marker.icon = UIImage(named: "username_icon")
-//        marker.tracksViewChanges = true
-//        marker.map = mapView
-//        self.userMarker = marker
+      //  let userIcon = UIImage(named: "username_icon")!.withRenderingMode(.alwaysTemplate)
+      //  let markerView = UIImageView(image: userIcon)
+     //   markerView.tintColor = UIColor.red
+       // self.userView = markerView
+        self.mapView.delegate = self
+        self.view.addSubview(self.mapView)
         
         findCloseDrivers();
         
 //        locationManager.stopUpdatingLocation()
     }
     
-    func mapView(_ mapView: GMSMapView, idleAtCameraPosition position: GMSCameraPosition) {
-        UIView.animate(withDuration: 5.0, animations: { () -> Void in
-            self.userView?.tintColor = UIColor.blue
-            }, completion: {(finished: Bool) -> Void in
-                // Stop tracking view changes to allow CPU to idle.
-                self.userMarker?.tracksViewChanges = false
-        })
-    }
-    
-    var drawnTourGuides = false
-    
-    
     func findCloseDrivers() {
+        
+        let iconGenerator = GMUDefaultClusterIconGenerator()
+        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
+        let renderer = GMUDefaultClusterRenderer(mapView: mapView,
+                                                 clusterIconGenerator: iconGenerator)
+        clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
+                                           renderer: renderer)
+        
         if TourGuide.tourGuides.count == 0 {
             return
         }
-      
+        
         if drawnTourGuides {
             return
         }
         
-        //  let tg = TourGuide()
         let tg = TourGuide.tourGuides
         
         print("NUMBER OF TOUR GUIDES: ", tg.count)
         
         for eachTourGuide: TourGuide in tg {
-//            
+            
             var tempLatitude: Double
             var tempLongitude: Double
+            
             if let gps = eachTourGuide.gpsLocation {
                 var xyString = gps.components(separatedBy: " ")
                 tempLatitude = (xyString[0] as NSString).doubleValue
@@ -153,43 +143,199 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
                 tempLatitude = 40.712784
                 tempLongitude = -74.005941
             }
-//            var xyString = eachTourGuide.gpsLocation?.components(separatedBy: " ")
-//            print(eachTourGuide.gpsLocation)
             
-//            let tempLatitude = 40.712784
-//            let tempLongitude = -74.005941
             print("drawing a tour guide")
             print(String(format: "%f %f", tempLatitude, tempLongitude))
-
-//            print("*****************$$#$###### temp Lat = /(tempLatitude)")
-//            print("*****************$$#$###### temp Long = /(tempLongitude)")
             
             let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
             
-            let marker = GMSMarker(position: position)
-            marker.title = eachTourGuide.name ?? "Tour Guide"
-          //  marker.snippet = "\(position.latitude) \(position.longitude)"
-            //marker.iconView = markerView
-            marker.snippet = "Contact: \(eachTourGuide.phoneNumber!) \n Hastags: Night life, Safari, Mountains"
-            marker.isFlat = false
-            marker.icon = UIImage(named: "tour_guide_small")
-            marker.tracksViewChanges = true
-            marker.map = mapView
-            self.userMarker = marker
             
-//            let marker = GMSMarker(position: position)
-//            marker.icon = UIImage(named: "username_icon")
-//            marker.isFlat = true
-//            //marker.icon = UIImage(named: "username_icon")
-//            marker.tracksViewChanges = true
-//            marker.map = mapView
+            let name = eachTourGuide.name ?? " "
+            let item =
+                POIItem(position: position, name: name)
+            clusterManager.add(item)
+            
         }
         
         drawnTourGuides = true
-        
         locationManager.stopUpdatingLocation()
-
+        
+        print("cluster manager")
+        clusterManager.cluster()
+        clusterManager.setDelegate(self, mapDelegate: self)
+        
     }
+
+    func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) {
+        let newCamera = GMSCameraPosition.camera(withTarget: cluster.position,
+                                                           zoom: mapView.camera.zoom + 1)
+        let update = GMSCameraUpdate.setCamera(newCamera)
+        mapView.moveCamera(update)
+    }
+    
+    // MARK: - GMUMapViewDelegate
+ //   var infoWindow = CustomInfoWindow()
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if (marker.userData as? POIItem) != nil {
+            
+            print("tapped dat marker ass")
+            
+            var flag = true
+            if (marker == currentlyTappedMarker) {
+                flag = false
+            }
+          
+            //A marker has been tapped, so set that state flag
+            self.markerTapped = true
+            
+            //If a marker has previosly been tapped and stored in curretnlyTappedMarker, then nil it out
+            if( self.currentlyTappedMarker != nil) {
+                self.currentlyTappedMarker = nil
+            }
+            
+            //make this marker our curretnly tapped marker
+            self.currentlyTappedMarker = marker
+            
+            
+            
+            //if custom info window is already being displayed remove it and nil the object
+            if (flag && (self.displayedInfoWindow != nil) && (self.displayedInfoWindow?.isDescendant(of: self.view))!) {
+                self.displayedInfoWindow?.removeFromSuperview()
+                self.displayedInfoWindow = nil
+            }
+            
+            /* animate the camera to center on the currently tapped marker, which causes
+             mapView:didChangeCameraPosition: to be called */
+           // let newCamera = GMSCameraPosition.camera(withTarget: marker.position,
+                           //                          zoom: mapView.camera.zoom)
+           // let update = GMSCameraUpdate.setCamera(newCamera)
+           // mapView.moveCamera(update)
+            
+            
+            
+            
+            
+            
+            
+            mapView.animate(toLocation: marker.position)
+         //   self.cameraMoving = true
+            mapView.selectedMarker = marker
+            
+            var point = mapView.projection.point(for: marker.position)
+            point.y = point.y - 250
+            
+            let newPoint = mapView.projection.coordinate(for: point)
+            let camera = GMSCameraUpdate.setTarget(newPoint)
+            mapView.animate(with: camera)
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            if(self.markerTapped && !self.cameraMoving) {
+                //create custom info window
+                
+                self.displayedInfoWindow = customMarker
+                
+                self.displayedInfoWindow?.frame.origin.x = 0
+                self.displayedInfoWindow?.frame.origin.y = 0
+                
+                self.displayedInfoWindow?.frame.origin.x += 25
+                self.displayedInfoWindow?.frame.origin.y += 80
+                self.view.addSubview(self.displayedInfoWindow!)
+               // self.displayedInfoWindow?.frame.origin.x -= 25
+               // self.displayedInfoWindow?.frame.origin.y -= 80
+            }
+
+        } else {
+            NSLog("Did tap a normal marker")
+            print("Did tap a normal marker")
+           
+            
+   
+            
+        }
+        return true
+    }
+    
+    
+/*    func mapView(_ mapView: GMSMapView, didChange cameraPosition: GMSCameraPosition){
+        /* if we got here after we've previously been idle and displayed our custom info window,
+         then remove that custom info window and nil out the object */
+        if(self.idleAfterMovement) {
+            if((self.displayedInfoWindow != nil) && (self.displayedInfoWindow?.isDescendant(of: self.view))!){
+                self.displayedInfoWindow?.removeFromSuperview()
+                self.displayedInfoWindow = nil
+            }
+        }
+
+        // if we got here after a marker was tapped, then set the cameraMoving state flag to YES
+        if(self.markerTapped) {
+            self.cameraMoving = true
+        }
+    }*/
+    
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        /* if we got here and a marker was tapped and our animate method was called, then it means we're ready
+         to show our custom info window */
+        if(self.markerTapped && self.cameraMoving) {
+            //reset our state
+            self.cameraMoving = false
+            self.markerTapped = false
+            self.idleAfterMovement = true
+            
+            //create custom info window
+            self.displayedInfoWindow = customMarker
+           
+            //displayedInfoWindow.center = mapView.projection.pointForCoordinate(poiItem.position)
+            // activePoint = poiItem
+            
+            self.view.addSubview(self.displayedInfoWindow!)
+    
+        }
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        if((self.currentlyTappedMarker) != nil) {
+            self.currentlyTappedMarker = nil
+        }
+        
+        if((self.displayedInfoWindow != nil ) && (self.displayedInfoWindow?.isDescendant(of: self.view))!) {
+            self.displayedInfoWindow?.removeFromSuperview()
+            self.displayedInfoWindow = nil
+        }
+    }
+
+    /*
+    func mapView(_ mapView: GMSMapView, didChange position: GMSCameraPosition) {
+        
+        if let tempPoint = activePoint {
+            customMarker.center = mapView.projection.point(for: tempPoint.position)
+        }
+        
+    }
+    
+    */
+    
+    /*   func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+     
+     UIView.animate(withDuration: 5.0, animations: { () -> Void in
+     self.userView?.tintColor = UIColor.blue
+     }, completion: {(finished: Bool) -> Void in
+     // Stop tracking view changes to allow CPU to idle.
+     self.userMarker?.tracksViewChanges = false
+     })
+     
+     
+     } */
+    var drawnTourGuides = false
+    
+    
     
     
     override func didReceiveMemoryWarning() {
