@@ -8,9 +8,9 @@
 		<true/>
 	</dict>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Allowing access to your location, you can spot your position on the map.</string>
+    <string>This application needs access to your location information</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>This application needs access to your location information</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array/>
 	<key>Item 0</key>
