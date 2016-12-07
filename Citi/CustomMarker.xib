@@ -32,6 +32,9 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5r-tQ-hkh">
                     <rect key="frame" x="294" y="439" width="57" height="30"/>
                     <state key="normal" title="Request"/>
+                    <connections>
+                        <action selector="execRequest:" destination="iN0-l3-epB" eventType="touchUpInside" id="ila-63-bw9"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHh-P8-bGT">
                     <rect key="frame" x="130" y="0.0" width="103" height="53"/>
@@ -54,6 +57,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="executeRequest" destination="a5r-tQ-hkh" id="IeJ-Uj-JWK"/>
                 <outlet property="userImage" destination="jHh-P8-bGT" id="IVC-7q-GuB"/>
             </connections>
             <point key="canvasLocation" x="23.5" y="-7.5"/>

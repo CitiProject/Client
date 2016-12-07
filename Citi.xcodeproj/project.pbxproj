@@ -43,6 +43,7 @@
 		85E3412E1DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E341221DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.m */; };
 		85E341311DE0DB0500AE7FD8 /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E341301DE0DB0500AE7FD8 /* POIItem.swift */; };
 		D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655EFAB1DA728CC002C9D91 /* MapViewController.swift */; };
+		D67360F01DF79B7D002060B2 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67360EF1DF79B7D002060B2 /* Requests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +110,7 @@
 		85E341241DE0D61C00AE7FD8 /* GMUClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMUClusterAlgorithm.h; path = "google-maps-ios-utils-master/src/Clustering/Algo/GMUClusterAlgorithm.h"; sourceTree = "<group>"; };
 		85E341301DE0DB0500AE7FD8 /* POIItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		D655EFAB1DA728CC002C9D91 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D67360EF1DF79B7D002060B2 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				5B1B3DBC1DA7481C00B7ECAF /* User.swift */,
 				5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */,
 				85E341301DE0DB0500AE7FD8 /* POIItem.swift */,
+				D67360EF1DF79B7D002060B2 /* Requests.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				5B3119C61DA3F45500DCF408 /* SignupProfileImageViewController.swift in Sources */,
 				5B3119BD1DA3ECFF00DCF408 /* SignupEmailViewController.swift in Sources */,
 				5B87816D1DB066FD00F61246 /* TourGuideControlPaneView.swift in Sources */,
+				D67360F01DF79B7D002060B2 /* Requests.swift in Sources */,
 				85E3412A1DE0D61C00AE7FD8 /* GMUClusterManager.m in Sources */,
 				85E3412B1DE0D61C00AE7FD8 /* GMUWrappingDictionaryKey.m in Sources */,
 				85E340D81DE00BB100AE7FD8 /* UIView Ext.swift in Sources */,
