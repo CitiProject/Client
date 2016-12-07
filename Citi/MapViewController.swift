@@ -38,10 +38,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     
     var markers = [String:GMSMarker]()
     let geocoder = CLGeocoder()
-
-    @IBOutlet weak var tagTextField: UITextField!
-    @IBOutlet weak var distanceTextField: UITextField!
-    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
@@ -91,13 +87,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         }
     }
     
-    @IBAction func onSearchAndUpdateMap(_ sender: Any) {
-        let tag = tagTextField.text
-        let distance = Double(distanceTextField.text!)
-        
-        
-    }
+    @IBOutlet weak var advancedSearchFilterView: TourGuideControlPaneView!
     
+    @IBAction func onSearchAndUpdateMap(_ sender: Any) {
+        advancedSearchFilterView.alpha = 0
+        advancedSearchFilterView.isHidden = false
+        
+        UIView.animate(withDuration: 0.35) {
+            self.advancedSearchFilterView.alpha = 1
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +120,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         
         TourGuide.loadTourGuides()
         print("loading tour guides")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.onUpdateMap(notification:)), name: NSNotification.Name(rawValue: "ONUPDATEMAPCALLED"), object: nil)
+    }
+    
+    func onUpdateMap(notification: NSNotification) {
+        print("------onUpdateMap(notification: NSNotification)-----")
 
+        let tagNdistance = notification.object as! Dictionary<String, String>
+        
+        print(tagNdistance)
+        
+        var tag = ""
+        var distance = 5.5
+        
+        if let tag_txt = tagNdistance["tag"] {
+            tag = tag_txt
+        }
+        
+        if let distance_txt = tagNdistance["distance"] {
+            if let distance_double = Double(distance_txt) {
+                distance = distance_double
+            }
+        }
+        
+        TourGuide.loadTagTourGuides(tag: tag)
+        findCloseDrivers(distance: distance)
+        
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
