@@ -38,7 +38,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     var markers = [String:GMSMarker]()
     let geocoder = CLGeocoder()
 
-
+    @IBOutlet weak var tagTextField: UITextField!
+    @IBOutlet weak var distanceTextField: UITextField!
+    
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         searchBar.becomeFirstResponder()
@@ -86,6 +89,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             })
         }
     }
+    
+    @IBAction func onSearchAndUpdateMap(_ sender: Any) {
+        let tag = tagTextField.text
+        let distance = Double(distanceTextField.text!)
+        
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

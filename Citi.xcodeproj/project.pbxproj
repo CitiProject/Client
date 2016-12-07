@@ -27,6 +27,7 @@
 		5BD1D3811DCAE3A2003AD47C /* TourGuideMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */; };
 		5BD1D3821DCAE3A2003AD47C /* DriverMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1D37E1DCAE3A2003AD47C /* DriverMap.storyboard */; };
 		5BD1D3831DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1D37F1DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift */; };
+		5BE0E32C1DF7ADC90096F928 /* tmpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0E32B1DF7ADC90096F928 /* tmpViewController.swift */; };
 		5BF7DE681DCBBF52004F9B0C /* TourGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */; };
 		85AE77521DDF853B003E1EF2 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AE77511DDF853B003E1EF2 /* CustomMarker.swift */; };
 		85C940271DDBF2A0003D657F /* CustomMarker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85C940261DDBF2A0003D657F /* CustomMarker.xib */; };
@@ -68,6 +69,7 @@
 		5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuideMapViewController.swift; sourceTree = "<group>"; };
 		5BD1D37E1DCAE3A2003AD47C /* DriverMap.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DriverMap.storyboard; sourceTree = "<group>"; };
 		5BD1D37F1DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupTourGuidePreferenceViewController.swift; sourceTree = "<group>"; };
+		5BE0E32B1DF7ADC90096F928 /* tmpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tmpViewController.swift; sourceTree = "<group>"; };
 		5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuide.swift; sourceTree = "<group>"; };
 		60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.debug.xcconfig"; sourceTree = "<group>"; };
 		68822A89C1F97C58D0170F67 /* Pods_Citi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +199,7 @@
 				5B6044E01D8B389400D7EAE9 /* AppDelegate.swift */,
 				5B87816A1DB066B500F61246 /* TourGuideControlPaneView.xib */,
 				5B87816C1DB066FD00F61246 /* TourGuideControlPaneView.swift */,
+				5BE0E32B1DF7ADC90096F928 /* tmpViewController.swift */,
 				5B6044E71D8B389400D7EAE9 /* Assets.xcassets */,
 				5B6044EC1D8B389400D7EAE9 /* Info.plist */,
 			);
@@ -425,6 +428,7 @@
 				85E341291DE0D61C00AE7FD8 /* GMUStaticCluster.m in Sources */,
 				5B6044E31D8B389400D7EAE9 /* LoginViewController.swift in Sources */,
 				85E3412E1DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.m in Sources */,
+				5BE0E32C1DF7ADC90096F928 /* tmpViewController.swift in Sources */,
 				85E341251DE0D61C00AE7FD8 /* GQTPointQuadTreeChild.m in Sources */,
 				85E3412C1DE0D61C00AE7FD8 /* GMUSimpleClusterAlgorithm.m in Sources */,
 				5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="szB-t6-4oN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="szB-t6-4oN">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,6 +34,20 @@
                                 <rect key="frame" x="0.0" y="108" width="375" height="515"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tags" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2sh-7s-5AL">
+                                <rect key="frame" x="39" y="150" width="306" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="distance" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HYu-v0-l7a">
+                                <rect key="frame" x="39" y="200" width="125" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <view hidden="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iip-my-EQQ" customClass="TourGuideControlPaneView" customModule="Citi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="375" height="505"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -42,7 +56,11 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="CITI2" id="Q7d-gW-KYZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="v1m-EJ-cmH"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="v1m-EJ-cmH">
+                                            <connections>
+                                                <segue destination="RwP-Q7-0mH" kind="show" id="ewo-LI-1F8"/>
+                                            </connections>
+                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="fy9-5C-Rvl">
                                             <connections>
                                                 <segue destination="aF9-2m-tGH" kind="presentation" id="V0E-EO-jEP"/>
@@ -60,6 +78,17 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="onTintColor" red="0.86313957253886009" green="0.0" blue="0.068528127544361897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </switch>
+                                    </barButtonItem>
+                                    <barButtonItem width="171" style="plain" systemItem="fixedSpace" id="Q2V-GX-AdZ"/>
+                                    <barButtonItem style="plain" id="Fse-cG-Xdo">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="EJe-7h-NF8">
+                                            <rect key="frame" x="248" y="7" width="51" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Search"/>
+                                            <connections>
+                                                <action selector="onSearchAndUpdateMap:" destination="szB-t6-4oN" eventType="touchUpInside" id="yL7-OH-0gV"/>
+                                            </connections>
+                                        </button>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -95,7 +124,9 @@
                     </view>
                     <connections>
                         <outlet property="addressSearch" destination="rfo-PN-6Sl" id="sei-Wp-rFJ"/>
+                        <outlet property="distanceTextField" destination="HYu-v0-l7a" id="rIb-nN-PTZ"/>
                         <outlet property="mapView" destination="01Z-PD-EP6" id="ItX-Cy-x6X"/>
+                        <outlet property="tagTextField" destination="2sh-7s-5AL" id="wYd-o3-mPD"/>
                         <outlet property="tourGuideControlPaneView" destination="iip-my-EQQ" id="fmI-2m-4y5"/>
                         <outlet property="userRoleSwitch" destination="Igs-oy-zxk" id="bve-NA-stM"/>
                         <outlet property="userRoleText" destination="mRp-iG-d9M" id="VnR-VC-bWf"/>
@@ -112,6 +143,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9z-lQ-VHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="974" y="-241"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="foe-to-ihA">
+            <objects>
+                <viewController id="RwP-Q7-0mH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rk9-OD-s6B"/>
+                        <viewControllerLayoutGuide type="bottom" id="1eK-V9-9S7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ge0-Rx-rB5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bFJ-Zn-MnI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="334" y="453"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
