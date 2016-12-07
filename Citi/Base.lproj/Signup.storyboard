@@ -225,30 +225,8 @@
                                     <segue destination="zjy-gG-9FK" kind="show" id="HJj-UF-egW"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="locations" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc0-ns-Y5a">
-                                <rect key="frame" x="56" y="175" width="263" height="40"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="uJh-zJ-YGq"/>
-                                    <constraint firstAttribute="width" constant="263" id="zlv-ne-ogt"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" alpha="0.85000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tags" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W2Z-JS-eay">
-                                <rect key="frame" x="56" y="237" width="263" height="40"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="XUR-oR-I7d"/>
-                                    <constraint firstAttribute="width" constant="263" id="g0e-Vy-L9H"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specify you area of knowledge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6B-YQ-AfK">
-                                <rect key="frame" x="17" y="90" width="341" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Specify your area of knowledge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O6B-YQ-AfK">
+                                <rect key="frame" x="13" y="90" width="350" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -259,10 +237,16 @@
                                 <color key="textColor" red="0.85385886450000004" green="0.85385886450000004" blue="0.85385886450000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tags" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B5q-fR-zf4">
+                                <rect key="frame" x="77" y="253" width="222" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="W2Z-JS-eay" firstAttribute="centerX" secondItem="dYy-gh-XHT" secondAttribute="centerX" id="6Fz-mH-y0p"/>
                             <constraint firstItem="flx-Os-BVN" firstAttribute="top" secondItem="nZe-Aj-a7c" secondAttribute="bottom" constant="275" id="F1Z-ec-Jsf"/>
                             <constraint firstItem="O6B-YQ-AfK" firstAttribute="centerX" secondItem="dYy-gh-XHT" secondAttribute="centerX" id="LCi-1j-HsG"/>
                             <constraint firstItem="O6B-YQ-AfK" firstAttribute="top" secondItem="ZV6-QS-7I2" secondAttribute="bottom" constant="70" id="SEb-ab-yj9"/>
@@ -271,17 +255,17 @@
                             <constraint firstItem="GXw-ia-Dro" firstAttribute="top" secondItem="O6B-YQ-AfK" secondAttribute="bottom" constant="3" id="g9i-vd-Nab"/>
                             <constraint firstItem="I36-zN-nsZ" firstAttribute="leading" secondItem="dYy-gh-XHT" secondAttribute="leading" id="hpG-XR-hvx"/>
                             <constraint firstItem="nZe-Aj-a7c" firstAttribute="centerX" secondItem="dYy-gh-XHT" secondAttribute="centerX" id="i7V-Kw-adP"/>
-                            <constraint firstItem="cc0-ns-Y5a" firstAttribute="centerX" secondItem="dYy-gh-XHT" secondAttribute="centerX" id="lFQ-1a-m2W"/>
-                            <constraint firstItem="W2Z-JS-eay" firstAttribute="top" secondItem="cc0-ns-Y5a" secondAttribute="bottom" constant="22" id="rgo-f1-2Wv"/>
                             <constraint firstItem="flx-Os-BVN" firstAttribute="top" secondItem="I36-zN-nsZ" secondAttribute="bottom" id="vAy-2M-TbO"/>
-                            <constraint firstItem="cc0-ns-Y5a" firstAttribute="top" secondItem="O6B-YQ-AfK" secondAttribute="bottom" constant="55" id="xAH-ON-F0r"/>
                             <constraint firstItem="I36-zN-nsZ" firstAttribute="top" secondItem="dYy-gh-XHT" secondAttribute="top" id="yAp-8A-Sf7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tagField" destination="B5q-fR-zf4" id="5kH-de-ANp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="at5-tY-kNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1521" y="740"/>
+            <point key="canvasLocation" x="1520.8" y="739.88005997001505"/>
         </scene>
         <!--Signup Name View Controller-->
         <scene sceneID="dTo-Dd-LCd">

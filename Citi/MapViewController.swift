@@ -27,6 +27,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     var userMarker: GMSMarker?
     private var clusterManager: GMUClusterManager!
     var displayedInfoWindow: UIView?
+    var userLocation: CLLocation?
     
     var markerTapped = false
     var cameraMoving = false
@@ -128,7 +129,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation = locations.last
+        userLocation = locations.last
 
         mapView.camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
                                                   longitude: userLocation!.coordinate.longitude, zoom: 15)
@@ -143,10 +144,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         self.mapView.delegate = self
         self.view.addSubview(self.mapView)
         
-        findCloseDrivers();
+        findCloseDrivers(distance: 0);
         
         //   locationManager.stopUpdatingLocation()
     }
+    
     
     func getUpdatedTourGuideLocations() {
         TourGuide.loadTourGuides()
@@ -180,7 +182,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         
     }
     
-    func findCloseDrivers() {
+    func findCloseDrivers(distance: Double) {
         
         let iconGenerator = GMUDefaultClusterIconGenerator()
         let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
@@ -198,10 +200,37 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         }
         
         let tg = TourGuide.tourGuides
-        
+        var filtered_tg: [TourGuide] = []
         print("NUMBER OF TOUR GUIDES: ", tg.count)
         
-        for eachTourGuide: TourGuide in tg {
+        if distance > 0 {
+            for eachTourGuide: TourGuide in tg {
+                
+                var tempLatitude: Double
+                var tempLongitude: Double
+                
+                if let gps = eachTourGuide.gpsLocation {
+                    var xyString = gps.components(separatedBy: " ")
+                    tempLatitude = (xyString[0] as NSString).doubleValue
+                    tempLongitude = (xyString[1] as NSString).doubleValue
+                } else {
+                    tempLatitude = 40.712784
+                    tempLongitude = -74.005941
+                }
+                
+                print(String(format: "%f %f", tempLatitude, tempLongitude))
+                
+                let position = CLLocation(latitude: tempLatitude, longitude: tempLongitude)
+                
+                let distance_between = position.distance(from: userLocation!) / 1609.34;
+                
+                if distance_between > distance {
+                    filtered_tg.append(eachTourGuide)
+                }
+            }
+        }
+        
+        for eachTourGuide: TourGuide in filtered_tg {
             
             var tempLatitude: Double
             var tempLongitude: Double

@@ -139,6 +139,7 @@
 			children = (
 				5B3119BC1DA3ECFF00DCF408 /* SignupEmailViewController.swift */,
 				5B03A8381DA9366600928141 /* SignupEmailVerificationViewController.swift */,
+				5BD1D37F1DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift */,
 				5B3119C11DA3F3F900DCF408 /* SignupNameViewController.swift */,
 				5B3119C31DA3F42300DCF408 /* SignupOptionViewController.swift */,
 				5B3119C51DA3F45500DCF408 /* SignupProfileImageViewController.swift */,
@@ -213,7 +214,6 @@
 				D655EFAB1DA728CC002C9D91 /* MapViewController.swift */,
 				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
 				5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */,
-				5BD1D37F1DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";

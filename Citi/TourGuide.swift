@@ -10,7 +10,6 @@ import Foundation
 import AWSDynamoDB
 
 class TourGuide: User {
-    var online = true
     static var tourGuides: [TourGuide] = []
     
 //    override init!() {
@@ -29,6 +28,39 @@ class TourGuide: User {
 //        online = true
 //        try super.init(dictionary: dictionaryValue, error: error)
 //    }
+    
+    static func loadTagTourGuides(tag: String) {
+        let scanExpression = AWSDynamoDBScanExpression();
+        scanExpression.limit = 10
+        scanExpression.expressionAttributeValues = [":userTag" : tag]
+        scanExpression.filterExpression = "tags = :userTag"
+        
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        dynamoDBObjectMapper.scan(TourGuide.self, expression: scanExpression).continue({ (task) -> Any? in
+            if task.error == nil {
+                print("Sucess loading all tour guides")
+                if let exception = task.exception {
+                    print("exception")
+                    print(exception.reason ?? "")
+                }
+                
+                if let result = task.result {
+                    for item in result.items {
+                        tourGuides.append(item as! TourGuide)
+                    }
+                    //                    print(result.items)
+                } else {
+                    print("no result")
+                }
+            } else {
+                print("Failed to load tour guides")
+                print(task.error.debugDescription)
+            }
+            
+            return nil
+        })
+        
+    }
     
     static func loadTourGuides() {
         let scanExpression = AWSDynamoDBScanExpression();

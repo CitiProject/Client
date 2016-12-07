@@ -24,6 +24,11 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var profilePicture: UIImage?
     var userType: String?
     var bio: String?
+    var tags:[String]?
+    var ratings: Int?
+    var gpsLocation: String?
+    
+    
     
 //    static var users: [User] = []
     
@@ -47,13 +52,8 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     }
     
     class func ignoreAttributes() -> [String] {
-        return ["password", "tags", "gpsLocation", "tripHistory"]
+        return ["password", "profilePicture", "ratings", "gpsLocation"]
     }
-    
-//    var tags:[String]?
-    var ratings: Int?
-    var gpsLocation: String?
-    var tripHistory: String?
     
     func saveUser() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
