@@ -13,16 +13,14 @@ import CoreLocation
 import MapKit
 import AWSDynamoDB
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, GMUClusterManagerDelegate, GMSMapViewDelegate {
+class MapViewController: UIViewController, CLLocationManagerDelegate, GMUClusterManagerDelegate, GMSMapViewDelegate, UISearchBarDelegate {
     
-   // private var mapView: GMSMapView!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var userRoleSwitch: UISwitch!
     @IBOutlet weak var userRoleText: UILabel!
     @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
+    @IBOutlet weak var addressSearch: UISearchBar!
     
-  
-   // var userView: UIImageView?
     var user: User?
     var locationManager = CLLocationManager()
     var didFindMyLocation = false
@@ -36,6 +34,35 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     var currentlyTappedMarker: GMSMarker?
     let customMarker:CustomMarker = CustomMarker.loadFromNib()
     var activePoint : POIItem?
+    
+    var markers = [String:GMSMarker]()
+    let geocoder = CLGeocoder()
+
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.becomeFirstResponder()
+        getCoordinates(address: searchBar.text!)
+        
+        view.endEditing(true)
+        
+    }
+
+    
+    func getCoordinates(address : String) {
+        
+        geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
+            if((error) != nil){
+                print("Error", error!)
+            }
+            if let placemark = placemarks?.first {
+                let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                self.mapView.camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude,
+                                                          longitude: coordinates.longitude, zoom: 10)
+            }
+        })
+        
+    }
     
     func stateChanged() {
         if userRoleSwitch.isOn {
@@ -64,6 +91,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.addressSearch.delegate = self
         
         if user?.userType == "tour_guide" {
             userRoleText.text = "Tour Guide"
@@ -97,16 +125,48 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         mapView.settings.compassButton = true
         mapView.settings.myLocationButton = true
         
-      //  let userIcon = UIImage(named: "username_icon")!.withRenderingMode(.alwaysTemplate)
-      //  let markerView = UIImageView(image: userIcon)
-     //   markerView.tintColor = UIColor.red
+       //  let userIcon = UIImage(named: "username_icon")!.withRenderingMode(.alwaysTemplate)
+       //  let markerView = UIImageView(image: userIcon)
+       //   markerView.tintColor = UIColor.red
        // self.userView = markerView
         self.mapView.delegate = self
         self.view.addSubview(self.mapView)
         
         findCloseDrivers();
         
-//        locationManager.stopUpdatingLocation()
+        //   locationManager.stopUpdatingLocation()
+    }
+    
+    func getUpdatedTourGuideLocations() {
+        TourGuide.loadTourGuides()
+        
+        let tg = TourGuide.tourGuides
+        
+        print("NUMBER OF TOUR GUIDES: ", tg.count)
+        
+        for eachTourGuide: TourGuide in tg {
+            
+            var tempLatitude: Double
+            var tempLongitude: Double
+            
+            if let gps = eachTourGuide.gpsLocation {
+                var xyString = gps.components(separatedBy: " ")
+                tempLatitude = (xyString[0] as NSString).doubleValue
+                tempLongitude = (xyString[1] as NSString).doubleValue
+            } else {
+                tempLatitude = 40.712784
+                tempLongitude = -74.005941
+            }
+            
+            print("drawing a tour guide")
+            print(String(format: "%f %f", tempLatitude, tempLongitude))
+            
+            let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
+            
+            self.markers[eachTourGuide.name!]?.position = position
+            self.markers[eachTourGuide.name!]?.title = eachTourGuide.name
+        }
+        
     }
     
     func findCloseDrivers() {
