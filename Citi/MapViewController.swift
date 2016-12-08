@@ -20,6 +20,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     @IBOutlet weak var userRoleText: UILabel!
     @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
     @IBOutlet weak var addressSearch: UISearchBar!
+    @IBOutlet weak var advancedSearch: TourGuideControlPaneView!
     
     var user: User?
     var locationManager: CLLocationManager!
@@ -34,9 +35,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     var idleAfterMovement = false
     var currentlyTappedMarker: GMSMarker?
     let customMarker:CustomMarker = CustomMarker.loadFromNib()
-    var activePoint : POIItem?
+    var activePoint: POIItem?
+    var isSearchShown: Bool? = false
     
-    var markers = [String:GMSMarker]()
+    var markers = [POIItem]()
     let geocoder = CLGeocoder()
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -65,35 +67,47 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     
     func stateChanged() {
         if userRoleSwitch.isOn {
-            userRoleText.text = "Tour Guide"
+            userRoleText.text = "Current Role: Tour Guide"
             user?.userType = "tour_guide"
             
             currentMode = ModeType.tour_guide
-            self.tourGuideControlPaneView.isHidden = false
+            /*self.tourGuideControlPaneView.isHidden = false
             UIView.animate(withDuration: 0.3, animations: {
                 self.tourGuideControlPaneView.alpha = 0.9
-            })
+            })*/
         } else {
-            userRoleText.text = "Tourist"
+            userRoleText.text = "Current Role: Tourist"
             user?.userType = "tourist"
             
             currentMode = ModeType.tourist
-            UIView.animate(withDuration: 0.3, animations: {
+            /*UIView.animate(withDuration: 0.3, animations: {
                 self.tourGuideControlPaneView.alpha = 0
             }, completion: { (_) in
                 self.tourGuideControlPaneView.isHidden = true
-            })
+            })*/
         }
     }
     
-    @IBOutlet weak var advancedSearchFilterView: TourGuideControlPaneView!
-    
     @IBAction func onSearchAndUpdateMap(_ sender: Any) {
-        advancedSearchFilterView.alpha = 0
-        advancedSearchFilterView.isHidden = false
-        
-        UIView.animate(withDuration: 0.35) {
-            self.advancedSearchFilterView.alpha = 1
+        if isSearchShown == false {
+            advancedSearch.alpha = 0
+            advancedSearch.isHidden = false
+            self.view.bringSubview(toFront: advancedSearch)
+            self.view.sendSubview(toBack: mapView)
+            userRoleText.text = "ON"
+            isSearchShown = true
+            
+            UIView.animate(withDuration: 0.35) {
+                self.advancedSearch.alpha = 1
+            }
+        }
+        else {
+            advancedSearch.alpha = 0
+            advancedSearch.isHidden = true
+            self.view.bringSubview(toFront: mapView)
+            self.view.sendSubview(toBack: advancedSearch)
+            userRoleText.text = "OFF"
+            isSearchShown = false
         }
     }
     
@@ -101,14 +115,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        UINavigationBar.appearance().barTintColor = UIColor(red: 185.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        
         self.addressSearch.delegate = self
         
         if user?.userType == "tour_guide" {
-            userRoleText.text = "Tour Guide"
+            userRoleText.text = "Current Role: Tour Guide"
         } else {
-            userRoleText.text = "Tourist"
+            userRoleText.text = "Current Role: Tourist"
         }
-            
+        
         userRoleSwitch.addTarget(self, action: #selector(self.stateChanged), for: UIControlEvents.valueChanged)
         
         locationManager = CLLocationManager()
@@ -119,10 +137,57 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         
+        let iconGenerator = GMUDefaultClusterIconGenerator()
+        let algorithm = GMUGridBasedClusterAlgorithm()
+        let renderer = GMUDefaultClusterRenderer(mapView: mapView,
+                                                 clusterIconGenerator: iconGenerator)
+        clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
+                                           renderer: renderer)
+        clusterManager.setDelegate(self, mapDelegate: self)
+        
         TourGuide.loadTourGuides()
         print("loading tour guides")
         
         NotificationCenter.default.addObserver(self, selector: #selector(MapViewController.onUpdateMap(notification:)), name: NSNotification.Name(rawValue: "ONUPDATEMAPCALLED"), object: nil)
+    }
+    
+    func loadTagTourGuides(tag: NSString) {
+        print("------loadTagTourGuides-----")
+        
+        let scanExpression = AWSDynamoDBScanExpression();
+        scanExpression.limit = 10
+        scanExpression.expressionAttributeValues = [":userTag" : tag]
+        scanExpression.filterExpression = "tags = :userTag"
+        
+        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+        dynamoDBObjectMapper.scan(TourGuide.self, expression: scanExpression).continue({ (task) -> Any? in
+            if task.error == nil {
+                print("Success loading all tour guides in MapViewController")
+                if let exception = task.exception {
+                    print("exception")
+                    print(exception.reason ?? "")
+                }
+                
+                if let result = task.result {
+                    TourGuide.tourGuides.removeAll()
+                    for item in result.items {
+                        TourGuide.tourGuides.append(item as! TourGuide)
+                    }
+                    print("TOUR GUIDES: ", TourGuide.tourGuides)
+                    self.findCloseDriversWithDistance(distance: 5.0)
+                    
+                    print("TOUR GUIDES: ", TourGuide.tourGuides)
+                } else {
+                    print("no result")
+                }
+            } else {
+                print("Failed to load tour guides")
+                print(task.error.debugDescription)
+            }
+            
+            return nil
+        })
+        
     }
     
     func onUpdateMap(notification: NSNotification) {
@@ -133,7 +198,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         print(tagNdistance)
         
         var tag = ""
-        var distance = 5.5
+        var distance = 5.0
+        print(distance)
         
         if let tag_txt = tagNdistance["tag"] {
             tag = tag_txt
@@ -144,10 +210,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 distance = distance_double
             }
         }
-        
-        TourGuide.loadTagTourGuides(tag: tag)
-        findCloseDrivers(distance: distance)
-        
+        print("------onUpdateMap(notification: NSNotification): BEFORE CALLS -----")
+        loadTagTourGuides(tag: tag as NSString)
+        print("------onUpdateMap(notification: NSNotification): AFTER CALLS -----")
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -170,9 +235,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         self.mapView.delegate = self
         self.view.addSubview(self.mapView)
         
-        findCloseDrivers(distance: 0);
+        print("------onUpdateMap(notification: NSNotification): AFTER CALLS -----")
+        findCloseDrivers();
         
-        //   locationManager.stopUpdatingLocation()
+        //locationManager.stopUpdatingLocation()
     }
     
     
@@ -200,36 +266,140 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             print("drawing a tour guide")
             print(String(format: "%f %f", tempLatitude, tempLongitude))
             
-            let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
             
-            self.markers[eachTourGuide.name!]?.position = position
-            self.markers[eachTourGuide.name!]?.title = eachTourGuide.name
         }
         
     }
-    
-    func findCloseDrivers(distance: Double) {
+    func findCloseDriversWithDistance(distance: Double) {
+        print("------findCloseDrivers with value-----")
         
-        let iconGenerator = GMUDefaultClusterIconGenerator()
-        let algorithm = GMUNonHierarchicalDistanceBasedAlgorithm()
-        let renderer = GMUDefaultClusterRenderer(mapView: mapView,
-                                                 clusterIconGenerator: iconGenerator)
-        clusterManager = GMUClusterManager(map: mapView, algorithm: algorithm,
-                                           renderer: renderer)
+        for item: POIItem in markers {
+            clusterManager.remove(item)
+        }
+        markers.removeAll()
         
+        print("TOUR GUIDE COUNT: ", TourGuide.tourGuides.count)
         if TourGuide.tourGuides.count == 0 {
             return
         }
         
-        if drawnTourGuides {
-            return
-        }
+        /*if drawnTourGuides {
+         //  return
+         //}*/
         
         let tg = TourGuide.tourGuides
         var filtered_tg: [TourGuide] = []
         print("NUMBER OF TOUR GUIDES: ", tg.count)
+        print("DISTANCE: ", distance)
+        if distance > 0.0 {
+            for eachTourGuide: TourGuide in tg {
+                
+                var tempLatitude: Double
+                var tempLongitude: Double
+                
+                if let gps = eachTourGuide.gpsLocation {
+                    var xyString = gps.components(separatedBy: " ")
+                    tempLatitude = (xyString[0] as NSString).doubleValue
+                    tempLongitude = (xyString[1] as NSString).doubleValue
+                } else {
+                    tempLatitude = 40.712784
+                    tempLongitude = -74.005941
+                }
+                
+                print(String(format: "%f %f", tempLatitude, tempLongitude))
+                
+                let position = CLLocation(latitude: tempLatitude, longitude: tempLongitude)
+                
+                let distance_between = position.distance(from: userLocation!) / 1609.34;
+                
+                if distance_between < distance {
+                    filtered_tg.append(eachTourGuide)
+                }
+            }
+            
+            for eachTourGuide: TourGuide in filtered_tg {
+                
+                var tempLatitude: Double
+                var tempLongitude: Double
+                
+                if let gps = eachTourGuide.gpsLocation {
+                    var xyString = gps.components(separatedBy: " ")
+                    tempLatitude = (xyString[0] as NSString).doubleValue
+                    tempLongitude = (xyString[1] as NSString).doubleValue
+                } else {
+                    tempLatitude = 40.712784
+                    tempLongitude = -74.005941
+                }
+                
+                print("drawing a tour guide")
+                print(String(format: "%f %f", tempLatitude, tempLongitude))
+                
+                let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
+                
+                
+                let name = eachTourGuide.name ?? " "
+                let item =
+                    POIItem(position: position, name: name)
+                clusterManager.add(item)
+                markers.append(item)
+            }
+        }
+        else {
+            for eachTourGuide: TourGuide in tg {
+                
+                var tempLatitude: Double
+                var tempLongitude: Double
+                
+                if let gps = eachTourGuide.gpsLocation {
+                    var xyString = gps.components(separatedBy: " ")
+                    tempLatitude = (xyString[0] as NSString).doubleValue
+                    tempLongitude = (xyString[1] as NSString).doubleValue
+                } else {
+                    tempLatitude = 40.712784
+                    tempLongitude = -74.005941
+                }
+                
+                print("drawing a tour guide")
+                print(String(format: "%f %f", tempLatitude, tempLongitude))
+                
+                let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
+                
+                
+                let name = eachTourGuide.name ?? " "
+                let item =
+                    POIItem(position: position, name: name)
+                print("MARKER: ", item)
+                clusterManager.add(item)
+                markers.append(item)
+            }
+            
+        }
         
-        if distance > 0 {
+        locationManager.stopUpdatingLocation()
+        
+        print("cluster manager before")
+        clusterManager.cluster()
+        print("cluster manager after")
+    }
+
+    
+    func findCloseDrivers() {
+        print("------findCloseDrivers without value-----")
+        
+        print("TOUR GUIDE COUNT: ", TourGuide.tourGuides.count)
+        if TourGuide.tourGuides.count == 0 {
+            return
+        }
+        
+        /*if drawnTourGuides {
+          //  return
+        //}*/
+        let distance = 0.0
+        let tg = TourGuide.tourGuides
+        var filtered_tg: [TourGuide] = []
+        print("NUMBER OF TOUR GUIDES: ", tg.count)
+        print("DISTANCE: ", distance)
+        if distance > 0.0 {
             for eachTourGuide: TourGuide in tg {
                 
                 var tempLatitude: Double
@@ -254,42 +424,69 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                     filtered_tg.append(eachTourGuide)
                 }
             }
+            
+            for eachTourGuide: TourGuide in filtered_tg {
+                
+                var tempLatitude: Double
+                var tempLongitude: Double
+                
+                if let gps = eachTourGuide.gpsLocation {
+                    var xyString = gps.components(separatedBy: " ")
+                    tempLatitude = (xyString[0] as NSString).doubleValue
+                    tempLongitude = (xyString[1] as NSString).doubleValue
+                } else {
+                    tempLatitude = 40.712784
+                    tempLongitude = -74.005941
+                }
+                
+                print("drawing a tour guide")
+                print(String(format: "%f %f", tempLatitude, tempLongitude))
+                
+                let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
+                
+                
+                let name = eachTourGuide.name ?? " "
+                let item =
+                    POIItem(position: position, name: name)
+                clusterManager.add(item)
+                markers.append(item)
+            }
         }
-        
-        for eachTourGuide: TourGuide in filtered_tg {
-            
-            var tempLatitude: Double
-            var tempLongitude: Double
-            
-            if let gps = eachTourGuide.gpsLocation {
-                var xyString = gps.components(separatedBy: " ")
-                tempLatitude = (xyString[0] as NSString).doubleValue
-                tempLongitude = (xyString[1] as NSString).doubleValue
-            } else {
-                tempLatitude = 40.712784
-                tempLongitude = -74.005941
+        else {
+            for eachTourGuide: TourGuide in tg {
+                
+                var tempLatitude: Double
+                var tempLongitude: Double
+                
+                if let gps = eachTourGuide.gpsLocation {
+                    var xyString = gps.components(separatedBy: " ")
+                    tempLatitude = (xyString[0] as NSString).doubleValue
+                    tempLongitude = (xyString[1] as NSString).doubleValue
+                } else {
+                    tempLatitude = 40.712784
+                    tempLongitude = -74.005941
+                }
+                
+                print("drawing a tour guide")
+                print(String(format: "%f %f", tempLatitude, tempLongitude))
+                
+                let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
+                
+                
+                let name = eachTourGuide.name ?? " "
+                let item =
+                    POIItem(position: position, name: name)
+                clusterManager.add(item)
+                markers.append(item)
             }
             
-            print("drawing a tour guide")
-            print(String(format: "%f %f", tempLatitude, tempLongitude))
-            
-            let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
-            
-            
-            let name = eachTourGuide.name ?? " "
-            let item =
-                POIItem(position: position, name: name)
-            clusterManager.add(item)
-            
         }
         
-        drawnTourGuides = true
+        //drawnTourGuides = false
         locationManager.stopUpdatingLocation()
         
         print("cluster manager")
         clusterManager.cluster()
-        clusterManager.setDelegate(self, mapDelegate: self)
-        
     }
 
     func clusterManager(_ clusterManager: GMUClusterManager, didTap cluster: GMUCluster) {
@@ -389,6 +586,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         return true
     }
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let view = segue.destination as! CurrentTourViewController
+        view.user = user
+    }
+    
     
 /*    func mapView(_ mapView: GMSMapView, didChange cameraPosition: GMSCameraPosition){
         /* if we got here after we've previously been idle and displayed our custom info window,
@@ -406,7 +609,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         }
     }*/
     
-    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+    /*func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
         /* if we got here and a marker was tapped and our animate method was called, then it means we're ready
          to show our custom info window */
         if(self.markerTapped && self.cameraMoving) {
@@ -467,6 +670,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    }*/
 }
 

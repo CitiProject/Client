@@ -29,8 +29,10 @@ class TourGuideControlPaneView: UIView {
         addSubview(contentView)
     }
     
-    @IBOutlet weak var tagTextField: UITextField!
+    @IBOutlet weak var tagTextField: UISearchBar!
+    
     @IBOutlet weak var distanceTextField: UITextField!
+    
     
     @IBAction func onUpdateMap(_ sender: Any) {
         print("------onUpdateMap-----")
@@ -46,6 +48,7 @@ class TourGuideControlPaneView: UIView {
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ONUPDATEMAPCALLED"), object: dic)
     }
+    
     
     
     

@@ -38,7 +38,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGp-GH-TAS">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="CITI1" id="I6a-fw-LnU">
+                                    <navigationItem title="CITI" id="I6a-fw-LnU">
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="IBI-1z-JTA">
                                             <color key="tintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </barButtonItem>
@@ -114,4 +114,5 @@
             <point key="canvasLocation" x="921" y="-234"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
