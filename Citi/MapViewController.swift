@@ -23,7 +23,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     @IBOutlet weak var advancedSearch: TourGuideControlPaneView!
     
     var user: User?
-    var locationManager = CLLocationManager()
+    var locationManager: CLLocationManager!
     var didFindMyLocation = false
     var userMarker: GMSMarker?
     private var clusterManager: GMUClusterManager!
@@ -59,8 +59,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             }
             if let placemark = placemarks?.first {
                 let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
-                self.mapView.camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude,
-                                                          longitude: coordinates.longitude, zoom: 10)
+                self.mapView.camera = GMSCameraPosition.camera(withLatitude: coordinates.latitude, longitude: coordinates.longitude, zoom: 10)
             }
         })
         
@@ -129,6 +128,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         }
         
         userRoleSwitch.addTarget(self, action: #selector(self.stateChanged), for: UIControlEvents.valueChanged)
+        
+        locationManager = CLLocationManager()
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()

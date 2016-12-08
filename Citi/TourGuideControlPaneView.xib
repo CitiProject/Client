@@ -17,6 +17,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
+
             <rect key="frame" x="0.0" y="0.0" width="377" height="221"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -31,9 +32,10 @@
                             <rect key="frame" x="71" y="155" width="224" height="46"/>
                             <color key="backgroundColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="46" id="N7K-xw-WF9"/>
-                                <constraint firstAttribute="width" constant="224" id="Q6W-fq-Xap"/>
+                                <constraint firstAttribute="width" constant="224" id="5Ht-bW-7vX"/>
+                                <constraint firstAttribute="height" constant="40" id="oP8-Ho-58W"/>
                             </constraints>
+
                             <state key="normal" title="Search">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -84,7 +86,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.19459011130136986" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="7xF-PB-79B" firstAttribute="leading" secondItem="WOW-9o-Qlg" secondAttribute="leading" id="3kF-6B-n38"/>
                         <constraint firstItem="qqz-g5-7Hj" firstAttribute="leading" secondItem="WOW-9o-Qlg" secondAttribute="leading" constant="8" id="6bT-yr-xvl"/>
@@ -99,12 +101,17 @@
                 </view>
             </subviews>
             <constraints>
-                <constraint firstItem="WOW-9o-Qlg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LTX-xl-Wzg"/>
-                <constraint firstAttribute="bottom" secondItem="WOW-9o-Qlg" secondAttribute="bottom" id="a1I-t7-WrR"/>
-                <constraint firstAttribute="trailing" secondItem="WOW-9o-Qlg" secondAttribute="trailing" id="bVK-Hp-vCC"/>
-                <constraint firstItem="WOW-9o-Qlg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kMP-FL-gv3"/>
+                <constraint firstAttribute="bottom" secondItem="WOW-9o-Qlg" secondAttribute="bottom" id="G6X-45-4hG"/>
+                <constraint firstItem="WOW-9o-Qlg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Jgh-HF-A4I"/>
+                <constraint firstAttribute="bottom" secondItem="WOW-9o-Qlg" secondAttribute="bottom" id="Pnb-sY-mGz"/>
+                <constraint firstItem="WOW-9o-Qlg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VXB-Ne-Pjm"/>
+                <constraint firstAttribute="trailing" secondItem="WOW-9o-Qlg" secondAttribute="trailing" id="Xt8-dU-90M"/>
+                <constraint firstAttribute="trailing" secondItem="WOW-9o-Qlg" secondAttribute="trailing" id="cou-hX-Apa"/>
+                <constraint firstItem="WOW-9o-Qlg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ddg-b5-27A"/>
+                <constraint firstItem="WOW-9o-Qlg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yQd-fY-JbC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+
             <point key="canvasLocation" x="-18.5" y="-137.5"/>
         </view>
     </objects>

@@ -69,6 +69,7 @@ class LoginViewController: UIViewController {
         processIndicator.isHidden = false
         
         let user = pool.getUser(userinfoTextField.text!)
+        dynamoDBUser = User()
         
         let session = user.getSession(userinfoTextField.text!, password: passwordTextField.text!, validationData: nil)
     
@@ -81,21 +82,33 @@ class LoginViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 print(task.error!)
             } else {
-                self.dynamoDBUser?.loadUser(hash: self.userinfoTextField.text!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
-                    NSLog("Load one value - success")
-                    self.dynamoDBUser = task.result as? User
-                    print(self.dynamoDBUser!)
-                    return nil
+                self.dynamoDBUser?.loadUser(hash: self.userinfoTextField.text!).continue({ (task) -> Any? in
+                    if task.error == nil {
+                        NSLog("Load one value - success")
+                        self.dynamoDBUser = task.result as? User
+                        print(self.dynamoDBUser!)
+                        
+                        currUser = pool.getUser(self.userinfoTextField.text!)
+                        
+                        if (self.dynamoDBUser?.userType == "tourist") {
+                            print("segue to tourist")
+                            DispatchQueue.main.sync() {
+                                self.performSegue(withIdentifier: "TouristMapSegue", sender: nil)
+                            }
+                        }
+                        else if (self.dynamoDBUser?.userType == "tour_guide") {
+                            print("segue to tour_guide")
+                            DispatchQueue.main.sync() {
+                                self.performSegue(withIdentifier: "TourGuideMapSegue", sender: nil)
+                            }
+                        }
+                        
+                        return nil
+                    } else {
+                        print(task.error ?? "Error")
+                        return nil
+                    }
                 })
-                
-                currUser = pool.getUser(self.userinfoTextField.text!)
-                
-                if (self.dynamoDBUser?.userType == "tourist") {
-                    self.performSegue(withIdentifier: "TouristMapSegue", sender: nil)
-                }
-                else if (self.dynamoDBUser?.userType == "tour_guide") {
-                    self.performSegue(withIdentifier: "TourGuideMapSegue", sender: nil)
-                }
             }
             return nil
         })
