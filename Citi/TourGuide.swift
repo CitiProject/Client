@@ -29,7 +29,9 @@ class TourGuide: User {
 //        try super.init(dictionary: dictionaryValue, error: error)
 //    }
     
-    static func loadTagTourGuides(tag: String) {
+    static func loadTagTourGuides(tag: NSString) {
+        print("------loadTagTourGuides-----")
+        
         let scanExpression = AWSDynamoDBScanExpression();
         scanExpression.limit = 10
         scanExpression.expressionAttributeValues = [":userTag" : tag]
@@ -38,7 +40,7 @@ class TourGuide: User {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         dynamoDBObjectMapper.scan(TourGuide.self, expression: scanExpression).continue({ (task) -> Any? in
             if task.error == nil {
-                print("Sucess loading all tour guides")
+                print("Success loading all tour guides2")
                 if let exception = task.exception {
                     print("exception")
                     print(exception.reason ?? "")
@@ -48,6 +50,7 @@ class TourGuide: User {
                     for item in result.items {
                         tourGuides.append(item as! TourGuide)
                     }
+                    
                     //                    print(result.items)
                 } else {
                     print("no result")
@@ -71,7 +74,7 @@ class TourGuide: User {
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         dynamoDBObjectMapper.scan(TourGuide.self, expression: scanExpression).continue({ (task) -> Any? in
             if task.error == nil {
-                print("Sucess loading all tour guides")
+                print("Success loading all tour guides2")
                 if let exception = task.exception {
                     print("exception")
                     print(exception.reason ?? "")
@@ -81,7 +84,8 @@ class TourGuide: User {
                     for item in result.items {
                         tourGuides.append(item as! TourGuide)
                     }
-                    //                    print(result.items)
+                    
+                    print("ITEMS:", result.items)
                 } else {
                     print("no result")
                 }
