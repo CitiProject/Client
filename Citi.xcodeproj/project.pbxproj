@@ -43,6 +43,7 @@
 		85E3412D1DE0D61C00AE7FD8 /* GMUNonHierarchicalDistanceBasedAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E341201DE0D61C00AE7FD8 /* GMUNonHierarchicalDistanceBasedAlgorithm.m */; };
 		85E3412E1DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E341221DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.m */; };
 		85E341311DE0DB0500AE7FD8 /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E341301DE0DB0500AE7FD8 /* POIItem.swift */; };
+		C97E3FB31DF9F12B0008FA5F /* CurrentTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E3FB21DF9F12B0008FA5F /* CurrentTourViewController.swift */; };
 		D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655EFAB1DA728CC002C9D91 /* MapViewController.swift */; };
 		D67360F01DF79B7D002060B2 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67360EF1DF79B7D002060B2 /* Requests.swift */; };
 /* End PBXBuildFile section */
@@ -111,6 +112,7 @@
 		85E341231DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMUGridBasedClusterAlgorithm.h; path = "google-maps-ios-utils-master/src/Clustering/Algo/GMUGridBasedClusterAlgorithm.h"; sourceTree = "<group>"; };
 		85E341241DE0D61C00AE7FD8 /* GMUClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMUClusterAlgorithm.h; path = "google-maps-ios-utils-master/src/Clustering/Algo/GMUClusterAlgorithm.h"; sourceTree = "<group>"; };
 		85E341301DE0DB0500AE7FD8 /* POIItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
+		C97E3FB21DF9F12B0008FA5F /* CurrentTourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTourViewController.swift; sourceTree = "<group>"; };
 		D655EFAB1DA728CC002C9D91 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D67360EF1DF79B7D002060B2 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -215,6 +217,7 @@
 				D655EFAB1DA728CC002C9D91 /* MapViewController.swift */,
 				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
 				5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */,
+				C97E3FB21DF9F12B0008FA5F /* CurrentTourViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				5B3119BD1DA3ECFF00DCF408 /* SignupEmailViewController.swift in Sources */,
 				5B87816D1DB066FD00F61246 /* TourGuideControlPaneView.swift in Sources */,
 				D67360F01DF79B7D002060B2 /* Requests.swift in Sources */,
+				C97E3FB31DF9F12B0008FA5F /* CurrentTourViewController.swift in Sources */,
 				85E3412A1DE0D61C00AE7FD8 /* GMUClusterManager.m in Sources */,
 				85E3412B1DE0D61C00AE7FD8 /* GMUWrappingDictionaryKey.m in Sources */,
 				85E340D81DE00BB100AE7FD8 /* UIView Ext.swift in Sources */,
