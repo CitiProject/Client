@@ -29,6 +29,25 @@ class TourGuideControlPaneView: UIView {
         addSubview(contentView)
     }
     
+    @IBOutlet weak var tagTextField: UITextField!
+    @IBOutlet weak var distanceTextField: UITextField!
+    
+    @IBAction func onUpdateMap(_ sender: Any) {
+        print("------onUpdateMap-----")
+        var dic = ["tag": "", "distance": "5.0"]
+        // default distance is 5.0
+        
+        if let tag = tagTextField.text {
+            dic["tag"] = tag
+        }
+        if let distance_txt = distanceTextField.text {
+            dic["distance"] = distance_txt
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "ONUPDATEMAPCALLED"), object: dic)
+    }
+    
+    
     
     /*
     // Only override draw() if you perform custom drawing.

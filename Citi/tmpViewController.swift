@@ -1,18 +1,15 @@
 //
-//  SignupTourGuidePreferenceViewController.swift
+//  tmpViewController.swift
 //  Citi
 //
-//  Created by Nadeem Mahmood on 11/2/16.
+//  Created by Darrell Shi on 12/6/16.
 //  Copyright © 2016 Citi. All rights reserved.
 //
 
 import UIKit
 
-class SignupTourGuidePreferenceViewController: UIViewController {
+class tmpViewController: UIViewController {
 
-    var user: User?
-    @IBOutlet weak var tagField: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,13 +22,14 @@ class SignupTourGuidePreferenceViewController: UIViewController {
     }
     
 
+    /*
     // MARK: - Navigation
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            user?.tags?.append(tagField.text!)
-            let view = segue.destination as! SignupProfileImageViewController
-            view.user = user
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
     }
+    */
 
 }
