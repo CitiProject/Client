@@ -70,7 +70,24 @@ class CurrentTourViewController: UIViewController {
         var minutes = counter / 60
         var seconds = counter % 60
         
-        timerLabel.text = String(hours) + ":" + String(minutes) + ":" + String(seconds)
+        if(hours < 10){
+            timerLabel.text = "0" + String(hours) + ":"
+        }else{
+            timerLabel.text = String(hours) + ":"
+        }
+        
+        if(minutes < 10){
+            timerLabel.text = timerLabel.text! + "0" + String(minutes) + ":"
+        }else{
+            timerLabel.text = timerLabel.text! + String(minutes) + ":"
+        }
+        
+        if(seconds < 10){
+            timerLabel.text = timerLabel.text! + "0" + String(seconds)
+        }else{
+            timerLabel.text = timerLabel.text! + String(seconds)
+        }
+        
     }
     
     @IBAction func endTourNow(_ sender: Any) {

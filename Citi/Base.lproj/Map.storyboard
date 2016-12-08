@@ -43,12 +43,12 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="CITI" id="Q7d-gW-KYZ">
-                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="v1m-EJ-cmH"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="fy9-5C-Rvl">
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="v1m-EJ-cmH">
                                             <connections>
-                                                <segue destination="aF9-2m-tGH" kind="presentation" id="V0E-EO-jEP"/>
+                                                <segue destination="Rfq-qy-JJz" kind="show" identifier="TourSegue" id="v8e-UT-e6b"/>
                                             </connections>
                                         </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="fy9-5C-Rvl"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -120,15 +120,15 @@
         <!--Main-->
         <scene sceneID="6KT-DE-E2a">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="aF9-2m-tGH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l9z-lQ-VHF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Main" id="aF9-2m-tGH" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="974" y="-241"/>
         </scene>
         <!--Current Tour View Controller-->
         <scene sceneID="pMW-0e-6uB">
             <objects>
-                <viewController id="Rfq-qy-JJz" customClass="CurrentTourViewController" sceneMemberID="viewController">
+                <viewController id="Rfq-qy-JJz" customClass="CurrentTourViewController" customModule="Citi" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2NX-C6-6zl"/>
                         <viewControllerLayoutGuide type="bottom" id="CrC-ZM-3Xr"/>
