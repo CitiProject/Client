@@ -12,6 +12,20 @@ class CustomMarker: UIView {
 
     @IBOutlet weak var userImage: UIImageView!
     
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+  
+    
+    
+
+    func setUserName(name:String){
+        self.userNameLabel.text = name
+    }
+
+  
+    
+    //  userName.setText("hi")
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -19,6 +33,9 @@ class CustomMarker: UIView {
         // Drawing code
     }
     */
+    
+    
+    
 
     class func instanceFromNib() -> UIView {
         return UINib(nibName: "CustomMarker", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
