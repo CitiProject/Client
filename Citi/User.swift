@@ -18,6 +18,7 @@ enum UserType {
 
 class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userId: String?
+    var userDP: UIImage?
     var name: String?
     var email: String?
     var phoneNumber: String?
@@ -25,6 +26,10 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userType: String?
     var bio: String?
     
+    
+    var ratings = 1
+    var gpsLocation: String?
+    var tripHistory: String?
 //    static var users: [User] = []
     
 //    override init!() { super.init() }
@@ -51,9 +56,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     }
     
 //    var tags:[String]?
-    var ratings: Int?
-    var gpsLocation: String?
-    var tripHistory: String?
+
     
     func saveUser() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true

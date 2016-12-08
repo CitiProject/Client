@@ -28,6 +28,7 @@
 		5BD1D3821DCAE3A2003AD47C /* DriverMap.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BD1D37E1DCAE3A2003AD47C /* DriverMap.storyboard */; };
 		5BD1D3831DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD1D37F1DCAE3A2003AD47C /* SignupTourGuidePreferenceViewController.swift */; };
 		5BF7DE681DCBBF52004F9B0C /* TourGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */; };
+		85263F991DF8E4F40065078E /* DPManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85263F981DF8E4F40065078E /* DPManipulator.swift */; };
 		85AE77521DDF853B003E1EF2 /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AE77511DDF853B003E1EF2 /* CustomMarker.swift */; };
 		85C940271DDBF2A0003D657F /* CustomMarker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85C940261DDBF2A0003D657F /* CustomMarker.xib */; };
 		85E340D81DE00BB100AE7FD8 /* UIView Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E340D71DE00BB100AE7FD8 /* UIView Ext.swift */; };
@@ -71,6 +72,7 @@
 		5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourGuide.swift; sourceTree = "<group>"; };
 		60C5FB7F09930B5F9E9E0EED /* Pods-Citi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Citi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Citi/Pods-Citi.debug.xcconfig"; sourceTree = "<group>"; };
 		68822A89C1F97C58D0170F67 /* Pods_Citi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Citi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85263F981DF8E4F40065078E /* DPManipulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPManipulator.swift; sourceTree = "<group>"; };
 		85AE77511DDF853B003E1EF2 /* CustomMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
 		85C940261DDBF2A0003D657F /* CustomMarker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMarker.xib; sourceTree = "<group>"; };
 		85E340D71DE00BB100AE7FD8 /* UIView Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView Ext.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				5B1B3DBC1DA7481C00B7ECAF /* User.swift */,
 				5BF7DE671DCBBF52004F9B0C /* TourGuide.swift */,
 				85E341301DE0DB0500AE7FD8 /* POIItem.swift */,
+				85263F981DF8E4F40065078E /* DPManipulator.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				85E3412E1DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.m in Sources */,
 				85E341251DE0D61C00AE7FD8 /* GQTPointQuadTreeChild.m in Sources */,
 				85E3412C1DE0D61C00AE7FD8 /* GMUSimpleClusterAlgorithm.m in Sources */,
+				85263F991DF8E4F40065078E /* DPManipulator.swift in Sources */,
 				5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */,
 				85AE77521DDF853B003E1EF2 /* CustomMarker.swift in Sources */,
 				5B1B3DBD1DA7481C00B7ECAF /* User.swift in Sources */,

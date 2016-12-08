@@ -299,10 +299,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             
             if(self.markerTapped && !self.cameraMoving) {
                 //create custom info window
-                let tGName = (currentlyTappedMarker?.userData as! POIItem).tourGuide.name!
+                let userPOIItem = currentlyTappedMarker?.userData as! POIItem
+                let tGName = userPOIItem.tourGuide.name!
+                let userImageView = DPManipulator.getMagicalDP(userImage: userPOIItem.tourGuide.userDP, userImageView: customMarker.userImageView)
                 print(tGName)
+                print(userImageView.image!)
                 
                 customMarker.userNameLabel.text=tGName
+                customMarker.userImageView = userImageView
+                customMarker.showRatings(ratingNumber: userPOIItem.tourGuide.ratings)
+                customMarker.userTag.text = "Expertise: "
                 
                 self.displayedInfoWindow = customMarker
                 //displayedInfoWindow.userNameLabel.text=tGName
@@ -310,7 +316,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 self.displayedInfoWindow?.frame.origin.y = 0
                 
                 self.displayedInfoWindow?.frame.origin.x += 25
-                self.displayedInfoWindow?.frame.origin.y += 125
+                self.displayedInfoWindow?.frame.origin.y += 120
                 self.view.addSubview(self.displayedInfoWindow!)
                // self.displayedInfoWindow?.frame.origin.x -= 25
                // self.displayedInfoWindow?.frame.origin.y -= 80
