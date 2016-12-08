@@ -93,7 +93,7 @@
                         <outlet property="processIndicator" destination="k3c-rT-mL3" id="RO7-Md-oZy"/>
                         <outlet property="userinfoTextField" destination="pSO-bU-hta" id="vQA-z2-bDo"/>
                         <segue destination="hXE-hI-ZER" kind="push" identifier="TourGuideMapSegue" id="PiJ-vU-s46"/>
-                        <segue destination="ywr-VS-fKp" kind="push" identifier="TouristMapSegue" id="FOO-us-Sc4"/>
+                        <segue destination="ywr-VS-fKp" kind="modal" identifier="TouristMapSegue" id="FOO-us-Sc4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -118,7 +118,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tYw-eo-igi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="405" y="42.243333333333332"/>
+            <point key="canvasLocation" x="447" y="41"/>
         </scene>
         <!--Signup-->
         <scene sceneID="IVh-ls-put">
