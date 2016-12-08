@@ -24,21 +24,57 @@ class CurrentTourViewController: UIViewController {
     
     
     
-    var dynamoDBUser: User?
+    var user: User?
+    var tour: Tours?
+    var tourist: User?
+    var timer: Timer?
+    var counter = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //start timer immediately
         
-        //display tourist name
-        //dynamoDBUser
+        //start timer immediately
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(CurrentTourViewController.updateTimer), userInfo: nil, repeats: true)
+        
+        //display tour row associated with user
+        self.tour?.checkTours(hash: (self.user?.email)!).continue(successBlock: { (task:
+            AWSTask!) -> AWSTask<AnyObject>! in
+            NSLog("Load one value - success")
+            self.tour = task.result as? Tours
+            print(self.tour! as Any)
+            return nil
+        })
+        
+        //load tourist
+        self.tourist?.loadUser(hash: (self.tour?.tourist)!).continue(successBlock: { (task:
+            AWSTask!) -> AWSTask<AnyObject>! in
+            NSLog("Load one user - success")
+            self.tourist = task.result as? User
+            print(self.tourist! as Any)
+            return nil
+        })
+        
+        //set label
+        touristNameLabel.text = tourist?.name
+        
         
         
 
     }
     
+    func updateTimer(){
+        counter += 1
+        
+        var hours = counter / 3600
+        var minutes = counter / 60
+        var seconds = counter % 60
+        
+        timerLabel.text = String(hours) + ":" + String(minutes) + ":" + String(seconds)
+    }
+    
     @IBAction func endTourNow(_ sender: Any) {
+
     }
     
     

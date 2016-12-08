@@ -10,13 +10,12 @@ import AWSDynamoDB
 import UIKit
 import CoreLocation
 
-class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
-    var tourguide_id: String?
-    var accepted: Bool?
-    var rejected: Bool?
-    var tourist_id: String?
+class Tours : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
+    var tour_id: String?
+    var Active: Bool?
+    var tour_guide: String?
+    var tourist: String?
 
-    
     //    static var users: [User] = []
     
     //    override init!() { super.init() }
@@ -31,11 +30,11 @@ class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     //    }
     
     class func dynamoDBTableName() -> String {
-        return "request"
+        return "Tours"
     }
     
     class func hashKeyAttribute() -> String {
-        return "tourguide_id"
+        return "tourist"
     }
     
     // class func ignoreAttributes() -> [String] {
@@ -44,7 +43,7 @@ class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
     //    var tags:[String]?
     
-    func saveRequest() {
+    func saveTour() {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         
@@ -52,7 +51,7 @@ class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
             DispatchQueue.main.async(execute: {
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 if let _ = task.result {
-                    print("Successfully saved request")
+                    print("Successfully saved tour")
                 }
                 else if let error = task.error {
                     print(error.localizedDescription)
@@ -66,11 +65,11 @@ class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         })
     }
     
-    func checkRequest(hash: String) -> AWSTask<AnyObject>! {
+    func checkTours(hash: String) -> AWSTask<AnyObject>! {
         let mapper = AWSDynamoDBObjectMapper.default()
-        return mapper.load(Requests.self, hashKey: hash, rangeKey: nil)
+        return mapper.load(Tours.self, hashKey: hash, rangeKey: nil)
     }
-    
+
     
     //    static func loadAllUsers() {
     //        let scanExpression = AWSDynamoDBScanExpression();

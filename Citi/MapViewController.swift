@@ -585,6 +585,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         return true
     }
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let view = segue.destination as! CurrentTourViewController
+        view.user = user
+    }
+    
     
 /*    func mapView(_ mapView: GMSMapView, didChange cameraPosition: GMSCameraPosition){
         /* if we got here after we've previously been idle and displayed our custom info window,
