@@ -30,18 +30,23 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     var locationManager = CLLocationManager()
     var didFindMyLocation = false
     
-    @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
-    
     var timer: DispatchSourceTimer?
     
     func startTimer() {
         let queue = DispatchQueue(label: "com.domain.app.timer")  // you can also use `DispatchQueue.main`, if you want
         timer = DispatchSource.makeTimerSource(queue: queue)
         timer!.scheduleRepeating(deadline: .now(), interval: .seconds(60))
+        
         timer!.setEventHandler { [weak self] in
             // do whatever you want here
-            self?.user2?.checkRequest(hash: (self?.user?.email)!)
+            self?.user2?.checkRequest(hash: (self?.user?.email)!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
+                NSLog("Load one value - success")
+                self?.user2 = task.result as? Requests
+                print(self?.user2! as Any)
+                return nil
+            })
         }
+        
         timer!.resume()
     }
     
@@ -53,6 +58,8 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     deinit {
         self.stopTimer()
     }
+    
+    @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
     
     
     func stateChanged() {
@@ -90,6 +97,7 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         }
         
         userRoleSwitch.addTarget(self, action: #selector(self.stateChanged), for: UIControlEvents.valueChanged)
+        startTimer() //Start timer to poll for requests
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()

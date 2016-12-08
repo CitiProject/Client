@@ -24,7 +24,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var profilePicture: UIImage?
     var userType: String?
     var bio: String?
-    var tags:[String]?
+    var tags:String?
     var ratings: Int?
     var gpsLocation: String?
     

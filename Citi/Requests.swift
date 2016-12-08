@@ -5,7 +5,6 @@
 //  Created by Tushar Sharma on 06/12/16.
 //  Copyright © 2016 Citi. All rights reserved.
 //
-
 import Foundation
 import AWSDynamoDB
 import UIKit
@@ -42,8 +41,8 @@ class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         return "tourguide_id"
     }
     
-   // class func ignoreAttributes() -> [String] {
-     //   return ["password", "tags", "gpsLocation", "tripHistory"]
+    // class func ignoreAttributes() -> [String] {
+    //   return ["password", "tags", "gpsLocation", "tripHistory"]
     //}
     
     //    var tags:[String]?
@@ -76,7 +75,7 @@ class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         return mapper.load(Requests.self, hashKey: hash, rangeKey: nil)
     }
     
-        
+    
     //    static func loadAllUsers() {
     //        let scanExpression = AWSDynamoDBScanExpression();
     //        scanExpression.limit = 10
@@ -102,7 +101,7 @@ class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     //                print("Failed to load users")
     //                print(task.error.debugDescription)
     //            }
-    //            
+    //
     //            return nil
     //        })
     //    }
