@@ -45,8 +45,19 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
             self?.user2?.checkRequest(hash: (self?.user?.email)!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
                 NSLog("Load one value - success")
                 self?.user2 = task.result as? Requests
+                
+                var tourist: User?
+                //load tourist
+                self?.user?.loadUser(hash: (self?.user2?.tourist_id)!).continue(successBlock: { (task:
+                    AWSTask!) -> AWSTask<AnyObject>! in
+                    NSLog("Load one user - success")
+                    tourist = task.result as? User
+                  
+                    return nil
+                })
+                
                 if self?.user2?.tourguide_id == self?.user?.userId {
-                    let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour Request!", preferredStyle: UIAlertControllerStyle.alert)
+                    let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour request from \(tourist?.name)!", preferredStyle: UIAlertControllerStyle.alert)
                     
                     requestSuccessAlert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (action: UIAlertAction!) in
                         print("Handle Ok logic here")
