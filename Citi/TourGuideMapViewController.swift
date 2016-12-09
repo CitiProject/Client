@@ -41,11 +41,11 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         timer!.setEventHandler { [weak self] in
             // do whatever you want here
             print("loop");
-            self?.user2?.tourguide_id = self?.user?.email//"darrellshi@yahoo.com"
+            self?.user2?.tourguide_id = self?.user?.email //"darrellshi@yahoo.com"
             self?.user2?.checkRequest(hash: (self?.user2?.tourguide_id)!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
                 NSLog("Load one value - success")
                 self?.user2 = task.result as? Requests
-                if(!(self?.user2?.accepted==1) && !(self?.user2?.rejected==1)) {
+                if(!(self?.user2?.accepted==1) && !(self?.user2?.rejected==1) && !(self?.user2?.tourist_id?.isEmpty)!) {
                 self?.request()
                 }
                 

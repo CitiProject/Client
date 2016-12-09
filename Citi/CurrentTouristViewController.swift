@@ -82,12 +82,12 @@ class CurrentTouristViewController: UIViewController {
     }
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! PayNowViewController
-        view.user = user
-        view.tour = tour
-        view.tour_guide = tour_guide
-    }
+  //  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //    let view = segue.destination as! PayNowViewController
+      //  view.user = user
+        //view.tour = tour
+      //  view.tour_guide = tour_guide
+    //}
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
