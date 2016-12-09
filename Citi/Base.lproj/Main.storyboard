@@ -77,8 +77,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="263" verticalHuggingPriority="252" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="23" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yn7-Qk-k0h">
-                                <rect key="frame" x="56" y="593" width="263" height="23"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="263" verticalHuggingPriority="252" misplaced="YES" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="23" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yn7-Qk-k0h">
+                                <rect key="frame" x="56" y="548" width="263" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="12"/>
                                 <state key="normal" title="Dont have an account? Sign Up">
