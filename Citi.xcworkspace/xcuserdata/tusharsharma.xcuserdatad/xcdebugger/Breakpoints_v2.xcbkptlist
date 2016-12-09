@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Citi/TourGuideMapViewController.swift"
-            timestampString = "502942741.422795"
+            timestampString = "502998667.694317"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "startTimer()"
             landmarkType = "7">
          </BreakpointContent>
