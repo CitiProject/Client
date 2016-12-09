@@ -22,7 +22,7 @@ class PayNowViewController: UIViewController {
     
     var user: User?
     var tour: Tours?
-    var tourist: User?
+    var tour_guide: User?
 
     
     override func viewDidLoad() {
@@ -37,21 +37,14 @@ class PayNowViewController: UIViewController {
             return nil
         })*/
         
-        //load tourist
-        self.tourist?.loadUser(hash: (self.tour?.tourist)!).continue(successBlock: { (task:
-            AWSTask!) -> AWSTask<AnyObject>! in
-            NSLog("Load one user - success")
-            self.tourist = task.result as? User
+
             
-            self.tourGuideName.text = self.user?.name
-            self.touristName.text = self.tourist?.name
+            self.tourGuideName.text = self.tour_guide?.name
+            self.touristName.text = self.user?.name
             self.rateLabel.text = String(describing: self.user?.rate)
             self.tourLengthLabel.text = self.tour?.duration
             self.totalLabel.text = String(describing: self.returnTotal())
-            
-            print(self.tourist! as Any)
-            return nil
-        })
+
         
         
 
