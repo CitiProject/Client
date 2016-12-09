@@ -110,7 +110,7 @@
                         <outlet property="passwordTextField" destination="b6a-fj-3Tf" id="iyL-pp-QYz"/>
                         <outlet property="processIndicator" destination="k3c-rT-mL3" id="RO7-Md-oZy"/>
                         <outlet property="userinfoTextField" destination="pSO-bU-hta" id="vQA-z2-bDo"/>
-                        <segue destination="hXE-hI-ZER" kind="push" identifier="TourGuideMapSegue" id="PiJ-vU-s46"/>
+                        <segue destination="hXE-hI-ZER" kind="modal" identifier="TourGuideMapSegue" id="PiJ-vU-s46"/>
                         <segue destination="ywr-VS-fKp" kind="modal" identifier="TouristMapSegue" id="FOO-us-Sc4"/>
                     </connections>
                 </viewController>
