@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aKc-D0-NE3">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aKc-D0-NE3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -11,7 +11,7 @@
         <!--Tour Guide Map View Controller-->
         <scene sceneID="BFz-eQ-41A">
             <objects>
-                <viewController id="aKc-D0-NE3" customClass="TourGuideMapViewController" customModule="Citi" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aKc-D0-NE3" customClass="TourGuideMapViewController" customModule="Citi" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3w-KS-Bfs"/>
                         <viewControllerLayoutGuide type="bottom" id="lyG-xu-DIj"/>
@@ -110,8 +110,9 @@
                     </view>
                     <connections>
                         <outlet property="addressSearch" destination="59y-zo-FOu" id="tEv-dw-v2X"/>
-                        <outlet property="advancedSearch" destination="O7O-XO-Tyb" id="75s-3h-dwl"/>
-                        <outlet property="mapView" destination="oJV-S0-BGs" id="K1d-zn-bnb"/>
+                        <outlet property="advancedSearch" destination="O7O-XO-Tyb" id="HKU-zW-MeA"/>
+                        <outlet property="mapView" destination="oJV-S0-BGs" id="wRi-00-RuH"/>
+                        <outlet property="searchBar" destination="59y-zo-FOu" id="uGG-Xa-drI"/>
                         <outlet property="userRoleSwitch" destination="Rdr-zL-fPI" id="7WY-5B-YzG"/>
                         <outlet property="userRoleText" destination="CXy-qf-Pv7" id="pMK-NY-FfE"/>
                     </connections>

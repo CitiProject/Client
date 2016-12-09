@@ -15,11 +15,12 @@ import AWSDynamoDB
 
 class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var userRoleSwitch: UISwitch!
     @IBOutlet weak var userRoleText: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var addressSearch: UISearchBar!
+    @IBOutlet weak var advancedSearch: TourGuideControlPaneView!
     
     var userMarker: GMSMarker?
     var userView: UIImageView?
