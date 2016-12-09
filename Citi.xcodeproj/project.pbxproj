@@ -44,6 +44,9 @@
 		85E3412E1DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E341221DE0D61C00AE7FD8 /* GMUGridBasedClusterAlgorithm.m */; };
 		85E341311DE0DB0500AE7FD8 /* POIItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E341301DE0DB0500AE7FD8 /* POIItem.swift */; };
 		C97E3FB31DF9F12B0008FA5F /* CurrentTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E3FB21DF9F12B0008FA5F /* CurrentTourViewController.swift */; };
+		C97E3FB71DFA2A3D0008FA5F /* PayNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E3FB61DFA2A3D0008FA5F /* PayNowViewController.swift */; };
+		C97E3FB91DFA43410008FA5F /* CurrentTouristViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E3FB81DFA43410008FA5F /* CurrentTouristViewController.swift */; };
+		C97E3FBB1DFA43AB0008FA5F /* TourDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97E3FBA1DFA43AB0008FA5F /* TourDetailsViewController.swift */; };
 		D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D655EFAB1DA728CC002C9D91 /* MapViewController.swift */; };
 		D67360F01DF79B7D002060B2 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D67360EF1DF79B7D002060B2 /* Requests.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +116,9 @@
 		85E341241DE0D61C00AE7FD8 /* GMUClusterAlgorithm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GMUClusterAlgorithm.h; path = "google-maps-ios-utils-master/src/Clustering/Algo/GMUClusterAlgorithm.h"; sourceTree = "<group>"; };
 		85E341301DE0DB0500AE7FD8 /* POIItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = POIItem.swift; sourceTree = "<group>"; };
 		C97E3FB21DF9F12B0008FA5F /* CurrentTourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTourViewController.swift; sourceTree = "<group>"; };
+		C97E3FB61DFA2A3D0008FA5F /* PayNowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayNowViewController.swift; sourceTree = "<group>"; };
+		C97E3FB81DFA43410008FA5F /* CurrentTouristViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentTouristViewController.swift; sourceTree = "<group>"; };
+		C97E3FBA1DFA43AB0008FA5F /* TourDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourDetailsViewController.swift; sourceTree = "<group>"; };
 		D655EFAB1DA728CC002C9D91 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D67360EF1DF79B7D002060B2 /* Requests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,6 +224,9 @@
 				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
 				5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */,
 				C97E3FB21DF9F12B0008FA5F /* CurrentTourViewController.swift */,
+				C97E3FB61DFA2A3D0008FA5F /* PayNowViewController.swift */,
+				C97E3FB81DFA43410008FA5F /* CurrentTouristViewController.swift */,
+				C97E3FBA1DFA43AB0008FA5F /* TourDetailsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -428,6 +437,7 @@
 				85E3412A1DE0D61C00AE7FD8 /* GMUClusterManager.m in Sources */,
 				5BCFE2251DFA1D2200446AFC /* Tours.swift in Sources */,
 				85E3412B1DE0D61C00AE7FD8 /* GMUWrappingDictionaryKey.m in Sources */,
+				C97E3FBB1DFA43AB0008FA5F /* TourDetailsViewController.swift in Sources */,
 				85E340D81DE00BB100AE7FD8 /* UIView Ext.swift in Sources */,
 				5BD1D3811DCAE3A2003AD47C /* TourGuideMapViewController.swift in Sources */,
 				85E341281DE0D61C00AE7FD8 /* GMUDefaultClusterIconGenerator.m in Sources */,
@@ -445,9 +455,11 @@
 				5B3119C41DA3F42300DCF408 /* SignupOptionViewController.swift in Sources */,
 				85E341271DE0D61C00AE7FD8 /* GMUDefaultClusterRenderer.m in Sources */,
 				5B3119C21DA3F3F900DCF408 /* SignupNameViewController.swift in Sources */,
+				C97E3FB71DFA2A3D0008FA5F /* PayNowViewController.swift in Sources */,
 				5BF7DE681DCBBF52004F9B0C /* TourGuide.swift in Sources */,
 				D655EFAC1DA728CC002C9D91 /* MapViewController.swift in Sources */,
 				5B03A8391DA9366600928141 /* SignupEmailVerificationViewController.swift in Sources */,
+				C97E3FB91DFA43410008FA5F /* CurrentTouristViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

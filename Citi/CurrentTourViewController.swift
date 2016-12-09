@@ -66,9 +66,9 @@ class CurrentTourViewController: UIViewController {
     func updateTimer(){
         counter += 1
         
-        var hours = counter / 3600
-        var minutes = counter / 60
-        var seconds = counter % 60
+        let hours = counter / 3600
+        let minutes = counter / 60
+        let seconds = counter % 60
         
         if(hours < 10){
             timerLabel.text = "0" + String(hours) + ":"
@@ -91,9 +91,17 @@ class CurrentTourViewController: UIViewController {
     }
     
     @IBAction func endTourNow(_ sender: Any) {
-
+        tour?.duration = timerLabel.text
+        tour?.saveTour()
+        
+        performSegue(withIdentifier: "toPayNow", sender: self)
     }
     
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let view = segue.destination as! PayNowViewController
+        view.user = user
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

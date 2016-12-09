@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="a90-r3-hvN">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,110 +8,280 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tour Guide Map View Controller-->
-        <scene sceneID="CU3-jj-8bD">
-            <objects>
-                <viewController id="a90-r3-hvN" customClass="TourGuideMapViewController" customModule="Citi" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="6tb-1i-1Vr"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mcr-Fo-Fve"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qfd-Dr-D0C">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XJj-Ew-CgF">
-                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <color key="barTintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O3W-KS-uLa" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view hidden="YES" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQT-34-IQ5" customClass="TourGuideControlPaneView" customModule="Citi" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="108" width="375" height="505"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bGp-GH-TAS">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="CITI" id="I6a-fw-LnU">
-                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="IBI-1z-JTA">
-                                            <color key="tintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="8Ig-SF-E8S">
-                                            <color key="tintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <segue destination="pQ8-40-yHt" kind="show" id="yue-6n-ysF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SAM-GX-CXr">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <items>
-                                    <barButtonItem style="plain" id="yAY-D1-BYw">
-                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Dcg-CD-5Hc">
-                                            <rect key="frame" x="16" y="7" width="51" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="onTintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </switch>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5c-ev-6cr">
-                                <rect key="frame" x="72" y="631" width="92" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" label="Role: "/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tourist" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dKP-iC-AFu">
-                                <rect key="frame" x="72" y="635" width="160" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="O3W-KS-uLa" firstAttribute="leading" secondItem="qfd-Dr-D0C" secondAttribute="leading" id="0OW-zm-5MA"/>
-                            <constraint firstItem="O3W-KS-uLa" firstAttribute="top" secondItem="bGp-GH-TAS" secondAttribute="bottom" constant="44" id="19r-Qc-yFV"/>
-                            <constraint firstItem="Mcr-Fo-Fve" firstAttribute="top" secondItem="SAM-GX-CXr" secondAttribute="bottom" id="NnG-jB-WG2"/>
-                            <constraint firstItem="SAM-GX-CXr" firstAttribute="leading" secondItem="qfd-Dr-D0C" secondAttribute="leading" id="Ovl-vf-Uln"/>
-                            <constraint firstAttribute="trailing" secondItem="O3W-KS-uLa" secondAttribute="trailing" id="PTi-C3-I8I"/>
-                            <constraint firstItem="SAM-GX-CXr" firstAttribute="top" secondItem="O3W-KS-uLa" secondAttribute="bottom" id="T96-5n-rYL"/>
-                            <constraint firstAttribute="trailing" secondItem="SAM-GX-CXr" secondAttribute="trailing" id="aMX-TE-jmZ"/>
-                            <constraint firstAttribute="trailing" secondItem="bGp-GH-TAS" secondAttribute="trailing" id="dBw-YH-Scb"/>
-                            <constraint firstItem="bGp-GH-TAS" firstAttribute="top" secondItem="6tb-1i-1Vr" secondAttribute="bottom" id="i1Y-RM-Pe7"/>
-                            <constraint firstItem="bGp-GH-TAS" firstAttribute="leading" secondItem="qfd-Dr-D0C" secondAttribute="leading" id="zQA-3Q-GPZ"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="addressSearch" destination="XJj-Ew-CgF" id="ZYG-IK-7vt"/>
-                        <outlet property="mapView" destination="O3W-KS-uLa" id="btO-aX-dGm"/>
-                        <outlet property="tourGuideControlPaneView" destination="kQT-34-IQ5" id="Kud-Xf-rlp"/>
-                        <outlet property="userRoleSwitch" destination="Dcg-CD-5Hc" id="wxN-wC-Z2N"/>
-                        <outlet property="userRoleText" destination="dKP-iC-AFu" id="tb7-Nw-CaF"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HgK-7Z-FZY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="333.60000000000002" y="-240.62968515742131"/>
-        </scene>
         <!--Main-->
         <scene sceneID="mRr-tQ-9LB">
             <objects>
                 <viewControllerPlaceholder storyboardName="Main" id="pQ8-40-yHt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jn8-lC-67x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="921" y="-234"/>
+            <point key="canvasLocation" x="357" y="198"/>
+        </scene>
+        <!--Tour Guide Map View Controller-->
+        <scene sceneID="BFz-eQ-41A">
+            <objects>
+                <viewController id="aKc-D0-NE3" customClass="TourGuideMapViewController" customModule="Citi" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3w-KS-Bfs"/>
+                        <viewControllerLayoutGuide type="bottom" id="lyG-xu-DIj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CKa-jS-BWZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O7O-XO-Tyb" customClass="TourGuideControlPaneView" customModule="Citi" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="363" width="375" height="260"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <searchBar contentMode="redraw" fixedFrame="YES" placeholder="Search Location" translatesAutoresizingMaskIntoConstraints="NO" id="59y-zo-FOu">
+                                <rect key="frame" x="0.0" y="64" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" enablesReturnKeyAutomatically="YES"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oJV-S0-BGs" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="108" width="375" height="515"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCp-ko-Z7U">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="CITI" id="vOq-d6-bJq">
+                                        <barButtonItem key="leftBarButtonItem" title="Menu" id="al8-rW-HdM">
+                                            <connections>
+                                                <segue destination="YfM-OF-pez" kind="show" identifier="" id="YaV-hj-WgF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Log Out" id="wKK-Pg-QXy"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1vr-fo-i7r">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" id="EdE-Oo-2v2">
+                                        <switch key="customView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Rdr-zL-fPI">
+                                            <rect key="frame" x="16" y="7" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="onTintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </switch>
+                                    </barButtonItem>
+                                    <barButtonItem width="202" style="plain" systemItem="fixedSpace" id="pHg-At-iDZ"/>
+                                    <barButtonItem style="plain" id="aOC-t1-Sel">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="51A-bG-V0i">
+                                            <rect key="frame" x="279" y="7" width="87" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Search Filter"/>
+                                            <connections>
+                                                <action selector="onSearchAndUpdateMap:" destination="aKc-D0-NE3" eventType="touchUpInside" id="bAw-DR-grC"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUh-hz-ekr">
+                                <rect key="frame" x="72" y="631" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="Role: "/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Role: Tourist" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CXy-qf-Pv7">
+                                <rect key="frame" x="72" y="635" width="201" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lyG-xu-DIj" firstAttribute="top" secondItem="1vr-fo-i7r" secondAttribute="bottom" id="1bx-ev-n6o"/>
+                            <constraint firstItem="1vr-fo-i7r" firstAttribute="leading" secondItem="CKa-jS-BWZ" secondAttribute="leading" id="2hm-Md-bBB"/>
+                            <constraint firstItem="oJV-S0-BGs" firstAttribute="leading" secondItem="CKa-jS-BWZ" secondAttribute="leading" id="Ees-Wg-E5Z"/>
+                            <constraint firstItem="aCp-ko-Z7U" firstAttribute="top" secondItem="y3w-KS-Bfs" secondAttribute="bottom" id="GqF-Ng-do8"/>
+                            <constraint firstItem="oJV-S0-BGs" firstAttribute="top" secondItem="aCp-ko-Z7U" secondAttribute="bottom" constant="44" id="L04-5u-BdN"/>
+                            <constraint firstItem="1vr-fo-i7r" firstAttribute="top" secondItem="oJV-S0-BGs" secondAttribute="bottom" id="NM4-v1-IVD"/>
+                            <constraint firstAttribute="trailing" secondItem="oJV-S0-BGs" secondAttribute="trailing" id="Pk1-bp-i5d"/>
+                            <constraint firstAttribute="trailing" secondItem="1vr-fo-i7r" secondAttribute="trailing" id="UOS-PN-LOk"/>
+                            <constraint firstAttribute="trailing" secondItem="aCp-ko-Z7U" secondAttribute="trailing" id="caB-zy-TPz"/>
+                            <constraint firstItem="aCp-ko-Z7U" firstAttribute="leading" secondItem="CKa-jS-BWZ" secondAttribute="leading" id="szN-4f-Sqj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressSearch" destination="59y-zo-FOu" id="tEv-dw-v2X"/>
+                        <outlet property="advancedSearch" destination="O7O-XO-Tyb" id="75s-3h-dwl"/>
+                        <outlet property="mapView" destination="oJV-S0-BGs" id="K1d-zn-bnb"/>
+                        <outlet property="userRoleSwitch" destination="Rdr-zL-fPI" id="7WY-5B-YzG"/>
+                        <outlet property="userRoleText" destination="CXy-qf-Pv7" id="pMK-NY-FfE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9RX-04-xRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="-242"/>
+        </scene>
+        <!--Current Tour View Controller-->
+        <scene sceneID="Hen-bs-aBn">
+            <objects>
+                <viewController id="YfM-OF-pez" customClass="CurrentTourViewController" customModule="Citi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I4m-OM-zK9"/>
+                        <viewControllerLayoutGuide type="bottom" id="3Nm-VJ-T5A"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gJF-4r-ME7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gO-d8-yAx">
+                                <rect key="frame" x="51" y="463" width="277" height="112"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <state key="normal" title="End Tour">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="endTourNow:" destination="YfM-OF-pez" eventType="touchUpInside" id="Ik0-bE-94n"/>
+                                    <segue destination="jbz-0B-83N" kind="show" identifier="toPayNow" id="X6P-s1-vsP"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Tourist: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCI-Fb-mE2">
+                                <rect key="frame" x="0.0" y="87" width="375" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D4N-WY-y72">
+                                <rect key="frame" x="0.0" y="255" width="375" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TOURIST NAME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0y-KT-ylQ">
+                                <rect key="frame" x="0.0" y="134" width="375" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnn-34-Drd">
+                                <rect key="frame" x="0.0" y="316" width="375" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="endTourButton" destination="3gO-d8-yAx" id="F1j-2A-QMW"/>
+                        <outlet property="timerLabel" destination="Bnn-34-Drd" id="IEB-jA-9GH"/>
+                        <outlet property="touristNameLabel" destination="g0y-KT-ylQ" id="eON-yh-flc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oEq-Qk-zEk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1322" y="-241"/>
+        </scene>
+        <!--Tour Details View Controller-->
+        <scene sceneID="iMM-nV-tna">
+            <objects>
+                <viewController id="jbz-0B-83N" customClass="TourDetailsViewController" customModule="Citi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Cax-PU-0j0"/>
+                        <viewControllerLayoutGuide type="bottom" id="hM5-c8-EgW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cdO-sk-9Kq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tour Guide: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tuo-Xx-Ivx">
+                                <rect key="frame" x="39" y="47" width="336" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tourist:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SQ5-MR-bjg">
+                                <rect key="frame" x="39" y="98" width="336" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFm-Aj-0J5">
+                                <rect key="frame" x="39" y="156" width="44" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tour Length" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTS-bO-Sd9">
+                                <rect key="frame" x="227" y="156" width="112" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vd-cP-N8e">
+                                <rect key="frame" x="125" y="300" width="125" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pay Now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cb-24-GPf">
+                                <rect key="frame" x="101" y="488" width="173" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$$$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdG-hx-1jo">
+                                <rect key="frame" x="20" y="205" width="83" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=":::::" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGr-f6-se1">
+                                <rect key="frame" x="245" y="214" width="77" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$$$$$$$$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Y1-NO-ZNH">
+                                <rect key="frame" x="127" y="363" width="124" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="payNowLabel" destination="8cb-24-GPf" id="qOT-Tf-OrB"/>
+                        <outlet property="rateLabel" destination="HdG-hx-1jo" id="BXt-Gz-JT7"/>
+                        <outlet property="totalLabel" destination="7Y1-NO-ZNH" id="uJq-uE-FHh"/>
+                        <outlet property="tourGuideName" destination="Tuo-Xx-Ivx" id="cGD-bB-nlR"/>
+                        <outlet property="tourLengthLabel" destination="aGr-f6-se1" id="OIr-n7-ePF"/>
+                        <outlet property="touristName" destination="SQ5-MR-bjg" id="6Mi-vM-pUv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hhb-sc-Gyf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2265" y="-242"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
