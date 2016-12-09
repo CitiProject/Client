@@ -601,7 +601,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! CurrentTourViewController
+        let view = segue.destination as! CurrentTouristViewController
         view.user = user
     }
     

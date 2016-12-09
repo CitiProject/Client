@@ -14,11 +14,10 @@ import AWSCognito
 
 class CurrentTouristViewController: UIViewController {
     
-    @IBOutlet weak var touristNameLabel: UILabel!
+    @IBOutlet weak var tourGuideNameLabel: UILabel!
     
     @IBOutlet weak var timerLabel: UILabel!
     
-    @IBOutlet weak var endTourButton: UIButton!
     
     var user: User?
     var tour: Tours?
@@ -32,8 +31,8 @@ class CurrentTouristViewController: UIViewController {
         //start timer immediately
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(CurrentTouristViewController.updateTimer), userInfo: nil, repeats: true)
         
-        //display tour row associated with user
-        self.tour?.checkTours(hash: (tour_guide?.email)!).continue(successBlock: { (task:
+        //get tour row associated with user
+        self.tour?.checkTours(hash: (user?.email)!).continue(successBlock: { (task:
             AWSTask!) -> AWSTask<AnyObject>! in
             NSLog("Load one value - success")
             self.tour = task.result as? Tours
@@ -41,8 +40,18 @@ class CurrentTouristViewController: UIViewController {
             return nil
         })
         
-        //set label
-        touristNameLabel.text = tour_guide?.name
+        self.tour_guide?.loadUser(hash: (self.tour?.tour_guide)!).continue(successBlock: { (task:
+            AWSTask!) -> AWSTask<AnyObject>! in
+            NSLog("Load one user - success")
+            self.tour_guide = task.result as? User
+            
+            //set label
+            self.tourGuideNameLabel.text = self.tour_guide?.name
+            
+            print(self.tour_guide! as Any)
+            return nil
+        })
+
     }
     
     func updateTimer(){
@@ -74,8 +83,10 @@ class CurrentTouristViewController: UIViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! ToursDetailsViewController
+        let view = segue.destination as! PayNowViewController
         view.user = user
+        view.tour = tour
+        view.tour_guide = tour_guide
     }
     
     override func didReceiveMemoryWarning() {
