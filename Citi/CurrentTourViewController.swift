@@ -89,9 +89,9 @@ class CurrentTourViewController: UIViewController {
         performSegue(withIdentifier: "toPayNow", sender: self)
     }
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do a little preparation before navigationn
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! PayNowViewController
+        let view = segue.destination as! ToursDetailsViewController
         view.user = user
         view.tour = tour
     }
