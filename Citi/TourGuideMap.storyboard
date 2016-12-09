@@ -45,7 +45,7 @@
                                     <navigationItem title="CITI" id="vOq-d6-bJq">
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="al8-rW-HdM">
                                             <connections>
-                                                <segue destination="YfM-OF-pez" kind="show" identifier="" id="YaV-hj-WgF"/>
+                                                <segue destination="YfM-OF-pez" kind="show" identifier="CurrentTourViewController" id="YaV-hj-WgF"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="wKK-Pg-QXy"/>

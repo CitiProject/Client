@@ -26,7 +26,7 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     var userView: UIImageView?
     
     var user: User?
-    var user2:Requests?
+    var user2 = Requests()
     
     var locationManager = CLLocationManager()
     var didFindMyLocation = false
@@ -41,37 +41,15 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         timer!.setEventHandler { [weak self] in
             // do whatever you want here
             print("loop");
-            //self?.user2?.tourguide_id = "darrellshi@yahoo.com"
-            self?.user2?.checkRequest(hash: (self?.user?.email)!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
+            self?.user2?.tourguide_id = self?.user?.email//"darrellshi@yahoo.com"
+            self?.user2?.checkRequest(hash: (self?.user2?.tourguide_id)!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
                 NSLog("Load one value - success")
                 self?.user2 = task.result as? Requests
-                
-                var tourist: User?
-                //load tourist
-                self?.user?.loadUser(hash: (self?.user2?.tourist_id)!).continue(successBlock: { (task:
-                    AWSTask!) -> AWSTask<AnyObject>! in
-                    NSLog("Load one user - success")
-                    tourist = task.result as? User
-                  
-                    return nil
-                })
-                
-                if self?.user2?.tourguide_id == self?.user?.userId {
-                    let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour request from \(tourist?.name)!", preferredStyle: UIAlertControllerStyle.alert)
-                    
-                    requestSuccessAlert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (action: UIAlertAction!) in
-                        print("Handle Ok logic here")
-                        
-                        
-                    }))
-                    
-                    requestSuccessAlert.addAction(UIAlertAction(title: "Reject", style: .default, handler: { (action: UIAlertAction!) in
-                        print("Handle Reject logic here")
-                        
-                        
-                    }))
-                    self?.present(requestSuccessAlert, animated: true, completion: nil)
+                if(!(self?.user2?.accepted==1) && !(self?.user2?.rejected==1)) {
+                self?.request()
                 }
+                
+                
                 //print(self?.user2! as Any)
                 return nil
             })
@@ -92,21 +70,53 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     func request() {
         //Handle request from UI
         print("Request: Launch UI")
+        var tourist =  User()
+        //load tourist
+        tourist?.loadUser(hash: (self.user2?.tourist_id)!).continue(successBlock: { (task:
+            AWSTask!) -> AWSTask<AnyObject>! in
+            NSLog("Load one user - success")
+            tourist = task.result as? User
+            
+            return nil
+        })
+        if self.user2?.tourguide_id == self.user?.userId {
+            let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour request from \(tourist?.name)!", preferredStyle: UIAlertControllerStyle.alert)
+            
+            requestSuccessAlert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (action: UIAlertAction!) in
+                self.accept()
+                
+                
+            }))
+            
+            requestSuccessAlert.addAction(UIAlertAction(title: "Reject", style: .default, handler: { (action: UIAlertAction!) in
+                self.decline()
+                
+                
+            }))
+            self.present(requestSuccessAlert, animated: true, completion: nil)
+        }
         
     }
     
     func accept() {
         //Do stuff here
         //Change status to accepted
-        
-        user2?.accepted = true
+        print("Accepted")
+        stopTimer()
+        user2?.accepted = 1
+        user2?.saveRequest()
+        self.performSegue(withIdentifier: "CurrentTourViewController", sender: nil)
+        //user2?.accepted = true
         
     }
     func decline() {
-        user2?.accepted = true
-        //Do stuff here
-        startTimer()
+        print("Rejected")
+        user2?.rejected = 1
         user2?.saveRequest()
+        //user2?.accepted = true
+        //Do stuff here
+       // startTimer()
+        //user2?.saveRequest()
     }
     @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
     
