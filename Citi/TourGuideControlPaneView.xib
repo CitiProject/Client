@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,7 +17,6 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-
             <rect key="frame" x="0.0" y="0.0" width="377" height="221"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -29,13 +28,12 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W8I-XA-oXK">
-                            <rect key="frame" x="71" y="155" width="224" height="46"/>
-                            <color key="backgroundColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <rect key="frame" x="71" y="166" width="224" height="40"/>
+                            <color key="backgroundColor" red="0.13333333333333333" green="0.52549019607843139" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="224" id="5Ht-bW-7vX"/>
                                 <constraint firstAttribute="height" constant="40" id="oP8-Ho-58W"/>
                             </constraints>
-
                             <state key="normal" title="Search">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -44,7 +42,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qqz-g5-7Hj">
-                            <rect key="frame" x="8" y="52" width="361" height="95"/>
+                            <rect key="frame" x="8" y="63" width="361" height="92"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search for a Tour Guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvu-wY-TCm">
                                     <rect key="frame" x="90" y="8" width="181" height="21"/>
@@ -80,21 +78,21 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="AnE-Pt-TUq" firstAttribute="centerY" secondItem="qqz-g5-7Hj" secondAttribute="centerY" constant="11.5" id="Dyk-dn-Z1d"/>
+                                <constraint firstItem="AnE-Pt-TUq" firstAttribute="centerY" secondItem="qqz-g5-7Hj" secondAttribute="centerY" constant="13" id="Dyk-dn-Z1d"/>
                                 <constraint firstItem="AnE-Pt-TUq" firstAttribute="centerX" secondItem="qqz-g5-7Hj" secondAttribute="centerX" constant="2.5" id="Nhb-0X-EUt"/>
-                                <constraint firstAttribute="height" constant="95" id="mcg-Br-08R"/>
+                                <constraint firstAttribute="height" constant="92" id="mcg-Br-08R"/>
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.86313957249999995" green="0.0" blue="0.068528127539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.95294117649999999" green="0.2784313725" blue="0.16078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="7xF-PB-79B" firstAttribute="leading" secondItem="WOW-9o-Qlg" secondAttribute="leading" id="3kF-6B-n38"/>
                         <constraint firstItem="qqz-g5-7Hj" firstAttribute="leading" secondItem="WOW-9o-Qlg" secondAttribute="leading" constant="8" id="6bT-yr-xvl"/>
-                        <constraint firstItem="W8I-XA-oXK" firstAttribute="top" secondItem="qqz-g5-7Hj" secondAttribute="bottom" constant="8" id="8x4-7l-vwI"/>
+                        <constraint firstItem="W8I-XA-oXK" firstAttribute="top" secondItem="qqz-g5-7Hj" secondAttribute="bottom" constant="11" id="8x4-7l-vwI"/>
                         <constraint firstAttribute="trailing" secondItem="7xF-PB-79B" secondAttribute="trailing" id="AqH-04-qcT"/>
                         <constraint firstAttribute="trailing" secondItem="qqz-g5-7Hj" secondAttribute="trailing" constant="8" id="Awe-8d-xRf"/>
                         <constraint firstItem="7xF-PB-79B" firstAttribute="top" secondItem="WOW-9o-Qlg" secondAttribute="top" constant="8" id="IYi-Ju-ZRP"/>
-                        <constraint firstItem="qqz-g5-7Hj" firstAttribute="centerY" secondItem="WOW-9o-Qlg" secondAttribute="centerY" constant="-11" id="MTc-VC-KFR"/>
+                        <constraint firstItem="qqz-g5-7Hj" firstAttribute="centerY" secondItem="WOW-9o-Qlg" secondAttribute="centerY" constant="-1.5" id="MTc-VC-KFR"/>
                         <constraint firstItem="W8I-XA-oXK" firstAttribute="centerX" secondItem="WOW-9o-Qlg" secondAttribute="centerX" constant="-5.5" id="cFk-qp-aUp"/>
                         <constraint firstItem="qqz-g5-7Hj" firstAttribute="centerX" secondItem="WOW-9o-Qlg" secondAttribute="centerX" id="zoO-ZN-3Vi"/>
                     </constraints>
@@ -111,7 +109,6 @@
                 <constraint firstItem="WOW-9o-Qlg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yQd-fY-JbC"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-
             <point key="canvasLocation" x="-18.5" y="-137.5"/>
         </view>
     </objects>

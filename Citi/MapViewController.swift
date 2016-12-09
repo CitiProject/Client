@@ -115,7 +115,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        UINavigationBar.appearance().barTintColor = UIColor(red:0.95, green:0.28, blue:0.16, alpha:1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red:243/256, green:71/256, blue:41/256, alpha:1.0)
             
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
@@ -212,7 +212,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             }
         }
         print("------onUpdateMap(notification: NSNotification): BEFORE CALLS -----")
-        loadTagTourGuides(tag: tag as NSString)
+        //loadTagTourGuides(tag: tag as NSString)
+        findCloseDriversWithDistance(distance: distance)
         print("------onUpdateMap(notification: NSNotification): AFTER CALLS -----")
     }
     
@@ -610,8 +611,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! CurrentTouristViewController
-        view.user = user
+        if segue.identifier == "BackToMainScreen" {
+            
+        } else {
+            let view = segue.destination as! CurrentTouristViewController
+            view.user = user
+        }
+        
     }
     
     func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {

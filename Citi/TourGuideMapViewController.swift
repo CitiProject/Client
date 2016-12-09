@@ -170,7 +170,7 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
             userRoleText.text = "Tourist"
         }
         
-        UINavigationBar.appearance().barTintColor = UIColor(red:0.95, green:0.28, blue:0.16, alpha:1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red:243/256, green:71/256, blue:41/256, alpha:1.0)
         
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
@@ -246,8 +246,12 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let view = segue.destination as! CurrentTourViewController
-        view.user = user
+        if segue.identifier == "BackToMainScreen" {
+            
+        } else {
+            let view = segue.destination as! CurrentTourViewController
+            view.user = user
+        }
     }
     
     override func didReceiveMemoryWarning() {
