@@ -18,6 +18,7 @@ enum UserType {
 
 class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userId: String?
+    var userDP: UIImage?
     var name: String?
     var email: String?
     var phoneNumber: String?
@@ -25,9 +26,11 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userType: String?
     var bio: String?
     var tags:String?
-    var ratings: Int?
+    var ratings = 1
     var gpsLocation: String?
     var rate: NSNumber?
+    
+    var tripHistory: String?
     
     
     
