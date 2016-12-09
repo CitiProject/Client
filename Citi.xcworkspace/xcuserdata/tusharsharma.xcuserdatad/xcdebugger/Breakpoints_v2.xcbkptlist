@@ -49,6 +49,101 @@
             endingLineNumber = "45"
             landmarkName = "startTimer()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Citi.TourGuideMapViewController.(startTimer () -&gt; ()).(closure #1)"
+                  moduleName = "Citi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tusharsharma/Documents/Citi/Citi/TourGuideMapViewController.swift"
+                  timestampString = "503002635.165562"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "978">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Citi.TourGuideMapViewController.(startTimer () -&gt; ()).(closure #1).(closure #1)"
+                  moduleName = "Citi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tusharsharma/Documents/Citi/Citi/TourGuideMapViewController.swift"
+                  timestampString = "503002635.170604"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Citi/TourGuideMapViewController.swift"
+            timestampString = "503003394.585201"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "request()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Citi.TourGuideMapViewController.request () -&gt; ()"
+                  moduleName = "Citi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tusharsharma/Documents/Citi/Citi/TourGuideMapViewController.swift"
+                  timestampString = "503003394.607174"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "275">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Citi.TourGuideMapViewController.request () -&gt; ()"
+                  moduleName = "Citi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tusharsharma/Documents/Citi/Citi/TourGuideMapViewController.swift"
+                  timestampString = "503003394.60926"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "4042">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Citi.TourGuideMapViewController.(request () -&gt; ()).(closure #1)"
+                  moduleName = "Citi"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tusharsharma/Documents/Citi/Citi/TourGuideMapViewController.swift"
+                  timestampString = "503003394.610614"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "15">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
