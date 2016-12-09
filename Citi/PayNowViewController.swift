@@ -29,13 +29,13 @@ class PayNowViewController: UIViewController {
         super.viewDidLoad()
 
         //display tour row associated with user
-        self.tour?.checkTours(hash: (self.user?.email)!).continue(successBlock: { (task:
+        /*self.tour?.checkTours(hash: (self.user?.email)!).continue(successBlock: { (task:
             AWSTask!) -> AWSTask<AnyObject>! in
             NSLog("Load one value - success")
             self.tour = task.result as? Tours
             print(self.tour! as Any)
             return nil
-        })
+        })*/
         
         //load tourist
         self.tourist?.loadUser(hash: (self.tour?.tourist)!).continue(successBlock: { (task:
@@ -83,6 +83,4 @@ class PayNowViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
 }

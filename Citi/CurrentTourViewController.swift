@@ -19,11 +19,7 @@ class CurrentTourViewController: UIViewController {
     @IBOutlet weak var timerLabel: UILabel!
     
     @IBOutlet weak var endTourButton: UIButton!
-    
-    
-    
-    
-    
+
     var user: User?
     var tour: Tours?
     var tourist: User?
@@ -57,10 +53,6 @@ class CurrentTourViewController: UIViewController {
         
         //set label
         touristNameLabel.text = tourist?.name
-        
-        
-        
-
     }
     
     func updateTimer(){
@@ -101,6 +93,7 @@ class CurrentTourViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let view = segue.destination as! PayNowViewController
         view.user = user
+        view.tour = tour
     }
     
     override func didReceiveMemoryWarning() {
