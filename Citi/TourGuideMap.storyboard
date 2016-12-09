@@ -41,6 +41,7 @@
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCp-ko-Z7U">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.99887555837631226" green="0.28427350521087646" blue="0.10376318544149399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem title="CITI" id="vOq-d6-bJq">
                                         <barButtonItem key="leftBarButtonItem" title="Menu" id="al8-rW-HdM">

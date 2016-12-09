@@ -225,10 +225,10 @@
 				5B1B3DB91DA3F49300B7ECAF /* SignupViewControllers */,
 				D655EFAB1DA728CC002C9D91 /* MapViewController.swift */,
 				5B6044E21D8B389400D7EAE9 /* LoginViewController.swift */,
-				5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */,
 				C97E3FB21DF9F12B0008FA5F /* CurrentTourViewController.swift */,
 				C97E3FB61DFA2A3D0008FA5F /* PayNowViewController.swift */,
 				C97E3FB81DFA43410008FA5F /* CurrentTouristViewController.swift */,
+				5BD1D37D1DCAE3A2003AD47C /* TourGuideMapViewController.swift */,
 				C97E3FBA1DFA43AB0008FA5F /* TourDetailsViewController.swift */,
 			);
 			name = ViewControllers;
@@ -527,9 +527,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 5ZD762S758;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -579,9 +581,11 @@
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 5ZD762S758;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -609,6 +613,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";
@@ -631,6 +636,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
 				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/../IntermediateBuildFilesPath/Headers";

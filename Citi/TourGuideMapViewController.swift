@@ -70,17 +70,17 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     func request() {
         //Handle request from UI
         print("Request: Launch UI")
-        var tourist =  User()
+      //  var tourist =  User()
         //load tourist
-        tourist?.loadUser(hash: (self.user2?.tourist_id)!).continue(successBlock: { (task:
+      /*  tourist?.loadUser(hash: (self.user2?.tourist_id)!).continue(successBlock: { (task:
             AWSTask!) -> AWSTask<AnyObject>! in
             NSLog("Load one user - success")
             tourist = task.result as? User
             
             return nil
-        })
+        })*/
         if self.user2?.tourguide_id == self.user?.userId {
-            let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour request from \(tourist?.name)!", preferredStyle: UIAlertControllerStyle.alert)
+            let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour request from \(user2?.tourguide_id!)", preferredStyle: UIAlertControllerStyle.alert)
             
             requestSuccessAlert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (action: UIAlertAction!) in
                 self.accept()
@@ -147,6 +147,10 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        UINavigationBar.appearance().barTintColor = UIColor(red:0.95, green:0.28, blue:0.16, alpha:1.0)
+        
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         if user?.userType == "tour_guide" {
             userRoleText.text = "Tour Guide"
