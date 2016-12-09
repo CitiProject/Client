@@ -35,14 +35,19 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     func startTimer() {
         let queue = DispatchQueue(label: "com.domain.app.timer")  // you can also use `DispatchQueue.main`, if you want
         timer = DispatchSource.makeTimerSource(queue: queue)
-        timer!.scheduleRepeating(deadline: .now(), interval: .seconds(60))
+        timer!.scheduleRepeating(deadline: .now(), interval: .seconds(5))
         
         timer!.setEventHandler { [weak self] in
             // do whatever you want here
+            print("loop");
+            self?.user2?.tourguide_id = "darrellshi@yahoo.com"
             self?.user2?.checkRequest(hash: (self?.user?.email)!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
                 NSLog("Load one value - success")
                 self?.user2 = task.result as? Requests
-                print(self?.user2! as Any)
+                if(!(self?.user2?.accepted == true) && !(self?.user2?.rejected == true) ) {
+                    self?.request()
+                }
+                //print(self?.user2! as Any)
                 return nil
             })
         }
@@ -58,7 +63,25 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     deinit {
         self.stopTimer()
     }
+    func request() {
+        //Handle request from UI
+        print("Request: Launch UI")
+        
+    }
     
+    func accept() {
+        //Do stuff here
+        //Change status to accepted
+        
+        user2?.accepted = true
+        
+    }
+    func decline() {
+        user2?.accepted = true
+        //Do stuff here
+        startTimer()
+        user2?.saveRequest()
+    }
     @IBOutlet weak var tourGuideControlPaneView: TourGuideControlPaneView!
     
     

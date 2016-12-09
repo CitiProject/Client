@@ -32,8 +32,6 @@
 		85AB1D041DFA296D009E88EB /* CustomMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AB1D021DFA296D009E88EB /* CustomMarker.swift */; };
 		85AB1D051DFA296D009E88EB /* CustomMarker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB1D031DFA296D009E88EB /* CustomMarker.xib */; };
 		85AB1D071DFA29B0009E88EB /* DPManipulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AB1D061DFA29B0009E88EB /* DPManipulator.swift */; };
-		85AE77521DDF853B003E1EF2 /* CustomMarker1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AE77511DDF853B003E1EF2 /* CustomMarker1.swift */; };
-		85C940271DDBF2A0003D657F /* CustomMarker1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85C940261DDBF2A0003D657F /* CustomMarker1.xib */; };
 		85E340D81DE00BB100AE7FD8 /* UIView Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E340D71DE00BB100AE7FD8 /* UIView Ext.swift */; };
 		85E341251DE0D61C00AE7FD8 /* GQTPointQuadTreeChild.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E341061DE0D61C00AE7FD8 /* GQTPointQuadTreeChild.m */; };
 		85E341261DE0D61C00AE7FD8 /* GQTPointQuadTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E341081DE0D61C00AE7FD8 /* GQTPointQuadTree.m */; };
@@ -81,8 +79,6 @@
 		85AB1D021DFA296D009E88EB /* CustomMarker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMarker.swift; sourceTree = "<group>"; };
 		85AB1D031DFA296D009E88EB /* CustomMarker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMarker.xib; sourceTree = "<group>"; };
 		85AB1D061DFA29B0009E88EB /* DPManipulator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DPManipulator.swift; sourceTree = "<group>"; };
-		85AE77511DDF853B003E1EF2 /* CustomMarker1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMarker1.swift; sourceTree = "<group>"; };
-		85C940261DDBF2A0003D657F /* CustomMarker1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomMarker1.xib; sourceTree = "<group>"; };
 		85E340D71DE00BB100AE7FD8 /* UIView Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView Ext.swift"; sourceTree = "<group>"; };
 		85E341041DE0D61C00AE7FD8 /* Citi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Citi-Bridging-Header.h"; sourceTree = "<group>"; };
 		85E341051DE0D61C00AE7FD8 /* GQTPointQuadTreeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GQTPointQuadTreeItem.h; path = "google-maps-ios-utils-master/src/QuadTree/GQTPointQuadTreeItem.h"; sourceTree = "<group>"; };
@@ -232,8 +228,6 @@
 		85C940251DDBF1AB003D657F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				85AE77511DDF853B003E1EF2 /* CustomMarker1.swift */,
-				85C940261DDBF2A0003D657F /* CustomMarker1.xib */,
 				5B87816A1DB066B500F61246 /* TourGuideControlPaneView.xib */,
 				5B87816C1DB066FD00F61246 /* TourGuideControlPaneView.swift */,
 				85AB1D021DFA296D009E88EB /* CustomMarker.swift */,
@@ -367,7 +361,6 @@
 				5BE0E32F1DF8B2720096F928 /* Map.storyboard in Resources */,
 				5B87816B1DB066B500F61246 /* TourGuideControlPaneView.xib in Resources */,
 				5B3119BB1DA3E96F00DCF408 /* Signup.storyboard in Resources */,
-				85C940271DDBF2A0003D657F /* CustomMarker1.xib in Resources */,
 				5BD1D3821DCAE3A2003AD47C /* DriverMap.storyboard in Resources */,
 				5BD1D3801DCAE3A2003AD47C /* TourGuideMap.storyboard in Resources */,
 				5B6044E61D8B389400D7EAE9 /* Main.storyboard in Resources */,
@@ -450,7 +443,6 @@
 				85E341251DE0D61C00AE7FD8 /* GQTPointQuadTreeChild.m in Sources */,
 				85E3412C1DE0D61C00AE7FD8 /* GMUSimpleClusterAlgorithm.m in Sources */,
 				5B6044E11D8B389400D7EAE9 /* AppDelegate.swift in Sources */,
-				85AE77521DDF853B003E1EF2 /* CustomMarker1.swift in Sources */,
 				85AB1D041DFA296D009E88EB /* CustomMarker.swift in Sources */,
 				5B1B3DBD1DA7481C00B7ECAF /* User.swift in Sources */,
 				5B3119C41DA3F42300DCF408 /* SignupOptionViewController.swift in Sources */,
