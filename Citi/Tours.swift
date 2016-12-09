@@ -15,6 +15,7 @@ class Tours : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var Active: Bool?
     var tour_guide: String?
     var tourist: String?
+    var duration : String?
 
     //    static var users: [User] = []
     

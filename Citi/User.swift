@@ -28,6 +28,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var tags:String?
     var ratings = 1
     var gpsLocation: String?
+    var rate: NSNumber?
     
     var tripHistory: String?
     
