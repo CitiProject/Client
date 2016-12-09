@@ -21,12 +21,12 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var userDP: UIImage?
     var name: String?
     var email: String?
-    var phoneNumber: String?
+    var phoneNumber = "7654323321"
     var profilePicture: UIImage?
     var userType: String?
     var bio: String?
     var tags:String?
-    var ratings = 1
+    var ratings = 3
     var gpsLocation: String?
     var rate: NSNumber?
     

@@ -68,6 +68,9 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                             <state key="normal" title="Contact"/>
+                            <connections>
+                                <action selector="Contact:" destination="iN0-l3-epB" eventType="touchUpInside" id="KQO-fw-bO1"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jHh-P8-bGT">
                             <rect key="frame" x="92" y="-53" width="150" height="150"/>

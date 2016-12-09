@@ -39,6 +39,19 @@ class CustomMarker: UIView {
         
     }
     
+    @IBAction func Contact(_ sender: UIButton) {
+        
+        let contactAlert = UIAlertController(title: "Contact", message: "Contact me at: \(tourGuide?.phoneNumber)", preferredStyle: UIAlertControllerStyle.alert)
+        
+        contactAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+            print("Handle Ok logic here")
+        }))
+        
+        mapVC!.present(contactAlert, animated: true, completion: nil)
+        
+
+        
+    }
     @IBAction func execRequest(_ sender: UIButton) {
         
         
