@@ -40,13 +40,10 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         timer!.setEventHandler { [weak self] in
             // do whatever you want here
             print("loop");
-            self?.user2?.tourguide_id = "darrellshi@yahoo.com"
+            //self?.user2?.tourguide_id = "darrellshi@yahoo.com"
             self?.user2?.checkRequest(hash: (self?.user?.email)!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
                 NSLog("Load one value - success")
                 self?.user2 = task.result as? Requests
-                if(!(self?.user2?.accepted == true) && !(self?.user2?.rejected == true) ) {
-                    self?.request()
-                }
                 //print(self?.user2! as Any)
                 return nil
             })
@@ -63,6 +60,7 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     deinit {
         self.stopTimer()
     }
+    
     func request() {
         //Handle request from UI
         print("Request: Launch UI")
