@@ -53,9 +53,12 @@ class CustomMarker: UIView {
         
         
         user2?.tourguide_id = tourGuide?.email// Assign the clicked tourguides id
-        user2?.tourist_id = tourist?.email//(user?.email)!
-        user2?.accepted = false
-        user2?.rejected = false
+        
+        user2?.tourist_id = tourist?.userId//(user?.email)!
+        print("TOURIST EMAIL: ", user2!)
+        user2?.accepted = 0
+        user2?.rejected = 0
+        print(user2!)
         print("Request started")
         user2?.saveRequest()
         

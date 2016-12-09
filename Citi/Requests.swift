@@ -12,8 +12,8 @@ import CoreLocation
 
 class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var tourguide_id: String?
-    var accepted: Bool?
-    var rejected: Bool?
+    var accepted: NSNumber?
+    var rejected: NSNumber?
     var tourist_id: String?
 
     
@@ -38,13 +38,15 @@ class Requests : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
         return "tourguide_id"
     }
     
-    // class func ignoreAttributes() -> [String] {
-    //   return ["password", "tags", "gpsLocation", "tripHistory"]
-    //}
+    class func ignoreAttributes() -> [String] {
+       return []
+    }
     
     //    var tags:[String]?
     
     func saveRequest() {
+        print("In saveRequest")
+        
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
         
