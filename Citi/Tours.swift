@@ -11,31 +11,18 @@ import UIKit
 import CoreLocation
 
 class Tours : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
-    var tour_id: String?
-    var Active: Bool?
-    var tour_guide: String?
-    var tourist: String?
-    var duration : String?
-
-    //    static var users: [User] = []
     
-    //    override init!() { super.init() }
-    //
-    //    required init!(coder: NSCoder!) {
-    //        super.init(coder: coder)
-    //        //fatalError("init(coder:) has not been implemented")
-    //    }
-    //
-    //    override init(dictionary dictionaryValue: [AnyHashable : Any]!, error: ()) throws {
-    //        try super.init(dictionary: dictionaryValue, error: error)
-    //    }
+    var active: NSNumber?
+    var tourguide_id: String?
+    var tour_id: String?
+    var duration: String?
     
     class func dynamoDBTableName() -> String {
         return "Tours"
     }
     
     class func hashKeyAttribute() -> String {
-        return "tourist"
+        return "tour_id"
     }
     
     // class func ignoreAttributes() -> [String] {
@@ -72,33 +59,4 @@ class Tours : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     }
 
     
-    //    static func loadAllUsers() {
-    //        let scanExpression = AWSDynamoDBScanExpression();
-    //        scanExpression.limit = 10
-    //
-    //        let dynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
-    //        dynamoDBObjectMapper.scan(User.self, expression: scanExpression).continue({ (task) -> Any? in
-    //            if task.error == nil {
-    //                print("Sucess loading all users")
-    //                if let exception = task.exception {
-    //                    print("exception")
-    //                    print(exception.reason ?? "")
-    //                }
-    //
-    //                if let result = task.result {
-    //                    for item in result.items {
-    //                        users.append(item as! User)
-    //                    }
-    //                    print(result.items)
-    //                } else {
-    //                    print("no result")
-    //                }
-    //            } else {
-    //                print("Failed to load users")
-    //                print(task.error.debugDescription)
-    //            }
-    //
-    //            return nil
-    //        })
-    //    }
 }

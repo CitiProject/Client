@@ -22,7 +22,7 @@ class CurrentTourViewController: UIViewController {
 
     var user: User?
     var tour: Tours?
-    var tourist: User?
+    var tourist = User()
     var timer: Timer?
     var counter = 0
     
@@ -47,7 +47,7 @@ class CurrentTourViewController: UIViewController {
         })
         
         //load tourist
-        self.tourist?.loadUser(hash: (self.tour?.tourist)!).continue(successBlock: { (task:
+        self.tourist?.loadUser(hash: (self.user?.email)!).continue(successBlock: { (task:
             AWSTask!) -> AWSTask<AnyObject>! in
             NSLog("Load one user - success")
             self.tourist = task.result as? User

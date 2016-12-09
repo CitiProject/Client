@@ -40,7 +40,7 @@ class CurrentTouristViewController: UIViewController {
             return nil
         })
         
-        self.tour_guide?.loadUser(hash: (self.tour?.tour_guide)!).continue(successBlock: { (task:
+        self.tour_guide?.loadUser(hash: (self.tour?.tourguide_id)!).continue(successBlock: { (task:
             AWSTask!) -> AWSTask<AnyObject>! in
             NSLog("Load one user - success")
             self.tour_guide = task.result as? User

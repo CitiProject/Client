@@ -105,6 +105,21 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         stopTimer()
         user2?.accepted = 1
         user2?.saveRequest()
+        
+        /*
+        var active: NSNumber?
+        var tourguide_id: String?
+        var tourist_id: String?
+        var duration: String?
+         */
+        
+        var newTour = Tours()
+        
+        newTour?.active = 1
+        newTour?.tourguide_id = user2?.tourguide_id
+        newTour?.tour_id = user2?.tourist_id
+        newTour?.duration = "0"
+        newTour?.saveTour()
         self.performSegue(withIdentifier: "CurrentTourViewController", sender: nil)
         //user2?.accepted = true
         
