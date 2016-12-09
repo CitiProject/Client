@@ -337,9 +337,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
                 
                 
-                let name = eachTourGuide.name ?? " "
+            //    let name = eachTourGuide.name ?? " "
                 let item =
-                    POIItem(position: position, name: name)
+                    POIItem(position: position, tourGuide: eachTourGuide)
                 clusterManager.add(item)
                 markers.append(item)
             }
@@ -365,9 +365,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
                 
                 
-                let name = eachTourGuide.name ?? " "
+              //  let name = eachTourGuide.name ?? " "
                 let item =
-                    POIItem(position: position, name: name)
+                    POIItem(position: position, tourGuide: eachTourGuide)
                 print("MARKER: ", item)
                 clusterManager.add(item)
                 markers.append(item)
@@ -445,9 +445,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
                 
                 
-                let name = eachTourGuide.name ?? " "
+          //      let name = eachTourGuide.name ?? " "
                 let item =
-                    POIItem(position: position, name: name)
+                    POIItem(position: position, tourGuide: eachTourGuide)
                 clusterManager.add(item)
                 markers.append(item)
             }
@@ -473,9 +473,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 let position = CLLocationCoordinate2D(latitude: tempLatitude, longitude: tempLongitude)
                 
                 
-                let name = eachTourGuide.name ?? " "
+           //     let name = eachTourGuide.name ?? " "
                 let item =
-                    POIItem(position: position, name: name)
+                    POIItem(position: position, tourGuide: eachTourGuide)
                 clusterManager.add(item)
                 markers.append(item)
             }
@@ -562,17 +562,27 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             
             if(self.markerTapped && !self.cameraMoving) {
                 //create custom info window
+                let userPOIItem = currentlyTappedMarker?.userData as! POIItem
+                let tGName = userPOIItem.tourGuide.name!
+                let userImageView = DPManipulator.getMagicalDP(userImage: userPOIItem.tourGuide.userDP, userImageView: customMarker.userImageView)
+                print(tGName)
+                print(userImageView.image!)
+                
+                customMarker.userNameLabel.text=tGName
+                customMarker.userImageView = userImageView
+                customMarker.showRatings(ratingNumber: userPOIItem.tourGuide.ratings)
+                customMarker.userTag.text = "Expertise: "
                 
                 self.displayedInfoWindow = customMarker
-                
+                //displayedInfoWindow.userNameLabel.text=tGName
                 self.displayedInfoWindow?.frame.origin.x = 0
                 self.displayedInfoWindow?.frame.origin.y = 0
                 
                 self.displayedInfoWindow?.frame.origin.x += 25
-                self.displayedInfoWindow?.frame.origin.y += 80
+                self.displayedInfoWindow?.frame.origin.y += 120
                 self.view.addSubview(self.displayedInfoWindow!)
-               // self.displayedInfoWindow?.frame.origin.x -= 25
-               // self.displayedInfoWindow?.frame.origin.y -= 80
+                // self.displayedInfoWindow?.frame.origin.x -= 25
+                // self.displayedInfoWindow?.frame.origin.y -= 80
             }
 
         } else {
@@ -592,7 +602,37 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         view.user = user
     }
     
+    func mapView(_ mapView: GMSMapView, idleAt position: GMSCameraPosition) {
+        /* if we got here and a marker was tapped and our animate method was called, then it means we're ready
+         to show our custom info window */
+        if(self.markerTapped && self.cameraMoving) {
+            //reset our state
+            self.cameraMoving = false
+            self.markerTapped = false
+            self.idleAfterMovement = true
+            
+            //create custom info window
+            self.displayedInfoWindow = customMarker
+            
+            //displayedInfoWindow.center = mapView.projection.pointForCoordinate(poiItem.position)
+            // activePoint = poiItem
+            
+            self.view.addSubview(self.displayedInfoWindow!)
+            
+        }
+    }
     
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        if((self.currentlyTappedMarker) != nil) {
+            self.currentlyTappedMarker = nil
+        }
+        
+        if((self.displayedInfoWindow != nil ) && (self.displayedInfoWindow?.isDescendant(of: self.view))!) {
+            self.displayedInfoWindow?.removeFromSuperview()
+            self.displayedInfoWindow = nil
+        }
+    }
+
 /*    func mapView(_ mapView: GMSMapView, didChange cameraPosition: GMSCameraPosition){
         /* if we got here after we've previously been idle and displayed our custom info window,
          then remove that custom info window and nil out the object */
