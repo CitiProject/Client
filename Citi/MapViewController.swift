@@ -568,17 +568,19 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 print(tGName)
                 print(userImageView.image!)
                 
+                customMarker.initUserPair(tourGuideFromMapViewController: userPOIItem.tourGuide, touristFromMapViewController: user, mapViewCntrlr: self)
+                
                 customMarker.userNameLabel.text=tGName
                 customMarker.userImageView = userImageView
                 customMarker.showRatings(ratingNumber: userPOIItem.tourGuide.ratings)
-                customMarker.userTag.text = "Expertise: "
+                customMarker.userTag.text = "Expertise: Hiking Trails"
                 
                 self.displayedInfoWindow = customMarker
                 //displayedInfoWindow.userNameLabel.text=tGName
                 self.displayedInfoWindow?.frame.origin.x = 0
                 self.displayedInfoWindow?.frame.origin.y = 0
                 
-                self.displayedInfoWindow?.frame.origin.x += 25
+                self.displayedInfoWindow?.frame.origin.x += 21
                 self.displayedInfoWindow?.frame.origin.y += 120
                 self.view.addSubview(self.displayedInfoWindow!)
                 // self.displayedInfoWindow?.frame.origin.x -= 25
