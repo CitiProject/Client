@@ -112,7 +112,7 @@ func saveUser(_ user: User)  {
     precondition(user.userId != nil, "You should provide a user object with a userId when saving a user")
     precondition(user.name != nil, "You should provide a user object with a name when saving a user")
     precondition(user.email != nil, "You should provide a user object with a email when saving a user")
-    precondition(user.phoneNumber != nil, "You should provide a user object with a phoneNumber when saving a user")
+//    precondition(user.phoneNumber != nil, "You should provide a user object with a phoneNumber when saving a user")
     precondition(user.userType != nil, "You should provide a user object with a userType when saving a user")
     precondition(user.bio != nil, "You should provide a user object with a bio when saving a user")
     precondition(user.tags != nil, "You should provide a user object with a tags when saving a user")

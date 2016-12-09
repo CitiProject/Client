@@ -76,7 +76,11 @@ class LoginViewController: UIViewController {
         session.continue(with: AWSExecutor.mainThread(), with: { (task) -> Any? in
             self.processIndicator.stopAnimating()
             if task.error != nil {
-                let alert = UIAlertController.init(title: "Error", message: task.error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
+                var errorMessage = "Unknown error found"
+                if let error = (task.error as! NSError).userInfo["message"] as? String {
+                    errorMessage = error
+                }
+                let alert = UIAlertController.init(title: "Error", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
                 let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil)
                 alert.addAction(action)
                 self.present(alert, animated: true, completion: nil)
@@ -86,7 +90,7 @@ class LoginViewController: UIViewController {
                     if task.error == nil {
                         NSLog("Load one value - success")
                         self.dynamoDBUser = task.result as? User
-                        print(self.dynamoDBUser!)
+//                        print(self.dynamoDBUser!)
                         
                         currUser = pool.getUser(self.userinfoTextField.text!)
                         

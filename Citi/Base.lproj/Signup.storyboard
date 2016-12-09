@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r2b-OH-Xhh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="r2b-OH-Xhh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -442,7 +442,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.2329651975" blue="0.144316997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-Em-dhO">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzY-Em-dhO">
                                 <rect key="frame" x="162" y="292" width="52" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Verify">
@@ -453,7 +453,7 @@
                                     <action selector="onVerify:" destination="ObF-Be-NAL" eventType="touchUpInside" id="I1H-3N-dg2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHW-ba-Bv8">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SHW-ba-Bv8">
                                 <rect key="frame" x="165" y="336" width="45" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Back">
@@ -488,18 +488,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-Cb-dZc">
-                                <rect key="frame" x="145" y="380" width="86" height="36"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Do it later">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onDoItLater:" destination="ObF-Be-NAL" eventType="touchUpInside" id="qeU-iJ-kaP"/>
-                                    <action selector="onRegister:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="PoW-Vk-xmN"/>
-                                    <action selector="onVerify:" destination="ObF-Be-NAL" eventType="touchUpInside" id="WGl-EL-KtX"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="airport-2" translatesAutoresizingMaskIntoConstraints="NO" id="cpd-mm-EMt">
                                 <rect key="frame" x="10" y="531" width="118" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -516,6 +504,18 @@
                                 <rect key="frame" x="103" y="414" width="171" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Vf-Cb-dZc">
+                                <rect key="frame" x="145" y="380" width="86" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Do it later">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDoItLater:" destination="ObF-Be-NAL" eventType="touchUpInside" id="qeU-iJ-kaP"/>
+                                    <action selector="onRegister:" destination="r2b-OH-Xhh" eventType="touchUpInside" id="PoW-Vk-xmN"/>
+                                    <action selector="onVerify:" destination="ObF-Be-NAL" eventType="touchUpInside" id="WGl-EL-KtX"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93548285961151123" green="0.26502180099487305" blue="0.10274124890565872" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -523,7 +523,7 @@
                             <constraint firstItem="xqE-7b-N0R" firstAttribute="top" secondItem="d9T-hh-fmz" secondAttribute="bottom" constant="3" id="4Du-bV-K80"/>
                             <constraint firstItem="9Vf-Cb-dZc" firstAttribute="top" secondItem="SHW-ba-Bv8" secondAttribute="bottom" constant="8" id="AQJ-VA-Hav"/>
                             <constraint firstItem="xqE-7b-N0R" firstAttribute="top" secondItem="d9T-hh-fmz" secondAttribute="bottom" constant="3" id="EHl-01-eZA"/>
-                            <constraint firstItem="CzY-Em-dhO" firstAttribute="top" secondItem="enr-2P-S5w" secondAttribute="bottom" constant="86" id="Gv9-8k-5RD"/>
+                            <constraint firstItem="CzY-Em-dhO" firstAttribute="top" secondItem="enr-2P-S5w" secondAttribute="bottom" constant="22" id="Gv9-8k-5RD"/>
                             <constraint firstItem="d9T-hh-fmz" firstAttribute="top" secondItem="AJG-Z0-01D" secondAttribute="bottom" constant="70" id="Lkj-Wc-NEB"/>
                             <constraint firstItem="enr-2P-S5w" firstAttribute="top" secondItem="xqE-7b-N0R" secondAttribute="bottom" constant="91" id="NfM-7O-YZN"/>
                             <constraint firstItem="SHW-ba-Bv8" firstAttribute="top" secondItem="CzY-Em-dhO" secondAttribute="bottom" constant="8" id="Stz-Jq-W93"/>

@@ -70,31 +70,31 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     func request() {
         //Handle request from UI
         print("Request: Launch UI")
-        var tourist =  User()
-        //load tourist
-        tourist?.loadUser(hash: (self.user2?.tourist_id)!).continue(successBlock: { (task:
-            AWSTask!) -> AWSTask<AnyObject>! in
-            NSLog("Load one user - success")
-            tourist = task.result as? User
-            
-            return nil
-        })
-        if self.user2?.tourguide_id == self.user?.userId {
-            let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour request from \(tourist?.name)!", preferredStyle: UIAlertControllerStyle.alert)
-            
-            requestSuccessAlert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (action: UIAlertAction!) in
-                self.accept()
-                
-                
-            }))
-            
-            requestSuccessAlert.addAction(UIAlertAction(title: "Reject", style: .default, handler: { (action: UIAlertAction!) in
-                self.decline()
-                
-                
-            }))
-            self.present(requestSuccessAlert, animated: true, completion: nil)
-        }
+//        var tourist =  User()
+//        //load tourist
+//        tourist?.loadUser(hash: (self.user2?.tourist_id)!).continue(successBlock: { (task:
+//            AWSTask!) -> AWSTask<AnyObject>! in
+//            NSLog("Load one user - success")
+//            tourist = task.result as? User
+//            
+//            return nil
+//        })
+//        if self.user2?.tourguide_id == self.user?.userId {
+//            let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour request from \(tourist?.name)!", preferredStyle: UIAlertControllerStyle.alert)
+//            
+//            requestSuccessAlert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (action: UIAlertAction!) in
+//                self.accept()
+//                
+//                
+//            }))
+//            
+//            requestSuccessAlert.addAction(UIAlertAction(title: "Reject", style: .default, handler: { (action: UIAlertAction!) in
+//                self.decline()
+//                
+//                
+//            }))
+//            self.present(requestSuccessAlert, animated: true, completion: nil)
+//        }
         
     }
     
@@ -154,6 +154,11 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         } else {
             userRoleText.text = "Tourist"
         }
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red:0.95, green:0.28, blue:0.16, alpha:1.0)
+        
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         userRoleSwitch.addTarget(self, action: #selector(self.stateChanged), for: UIControlEvents.valueChanged)
         startTimer() //Start timer to poll for requests

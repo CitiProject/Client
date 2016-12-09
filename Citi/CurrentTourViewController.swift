@@ -29,6 +29,10 @@ class CurrentTourViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UINavigationBar.appearance().barTintColor = UIColor(red:0.95, green:0.28, blue:0.16, alpha:1.0)
+        
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
         //start timer immediately
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(CurrentTourViewController.updateTimer), userInfo: nil, repeats: true)
