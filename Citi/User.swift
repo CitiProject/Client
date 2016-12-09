@@ -56,7 +56,7 @@ class User : AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     }
     
     class func ignoreAttributes() -> [String] {
-        return ["password", "profilePicture", "ratings", "gpsLocation"]
+        return ["password", "profilePicture", "ratings"]
     }
     
     func saveUser() {

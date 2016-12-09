@@ -115,7 +115,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        UINavigationBar.appearance().barTintColor = UIColor(red: 185.0/255.0, green: 0.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().barTintColor = UIColor(red:0.95, green:0.28, blue:0.16, alpha:1.0)
+            
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         
@@ -224,6 +225,11 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
 
         mapView.camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
                                                   longitude: userLocation!.coordinate.longitude, zoom: 15)
+        user?.gpsLocation = "\(userLocation?.coordinate.latitude)"
+        user?.gpsLocation?.append(" \(userLocation?.coordinate.longitude)")
+        user?.saveUser()
+        findCloseDrivers()
+        
         mapView.isMyLocationEnabled = true
         mapView.settings.compassButton = true
         mapView.settings.myLocationButton = true
@@ -375,7 +381,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
             
         }
         
-        locationManager.stopUpdatingLocation()
+       // locationManager.stopUpdatingLocation()
         
         print("cluster manager before")
         clusterManager.cluster()
@@ -386,6 +392,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
     func findCloseDrivers() {
         print("------findCloseDrivers without value-----")
         
+        TourGuide.loadTourGuides()
+        
         print("TOUR GUIDE COUNT: ", TourGuide.tourGuides.count)
         if TourGuide.tourGuides.count == 0 {
             return
@@ -394,6 +402,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
         /*if drawnTourGuides {
           //  return
         //}*/
+        
         let distance = 0.0
         let tg = TourGuide.tourGuides
         var filtered_tg: [TourGuide] = []
