@@ -568,6 +568,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMUCluster
                 print(tGName)
                 print(userImageView.image!)
                 
+                print("USER BEFORE PASSING: ", user!)
                 customMarker.initUserPair(tourGuideFromMapViewController: userPOIItem.tourGuide, touristFromMapViewController: user, mapViewCntrlr: self)
                 
                 customMarker.userNameLabel.text=tGName

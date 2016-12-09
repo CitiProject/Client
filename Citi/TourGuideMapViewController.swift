@@ -40,12 +40,25 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
         timer!.setEventHandler { [weak self] in
             // do whatever you want here
             print("loop");
-            self?.user2?.tourguide_id = "darrellshi@yahoo.com"
+            //self?.user2?.tourguide_id = "darrellshi@yahoo.com"
             self?.user2?.checkRequest(hash: (self?.user?.email)!).continue(successBlock: { (task: AWSTask!) -> AWSTask<AnyObject>! in
                 NSLog("Load one value - success")
                 self?.user2 = task.result as? Requests
-                if(!(self?.user2?.accepted == true) && !(self?.user2?.rejected == true) ) {
-                    self?.request()
+                if self?.user2?.tourguide_id == self?.user?.userId {
+                    let requestSuccessAlert = UIAlertController(title: "Request", message: "You've got a tour Request!", preferredStyle: UIAlertControllerStyle.alert)
+                    
+                    requestSuccessAlert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { (action: UIAlertAction!) in
+                        print("Handle Ok logic here")
+                        
+                        
+                    }))
+                    
+                    requestSuccessAlert.addAction(UIAlertAction(title: "Reject", style: .default, handler: { (action: UIAlertAction!) in
+                        print("Handle Reject logic here")
+                        
+                        
+                    }))
+                    self?.present(requestSuccessAlert, animated: true, completion: nil)
                 }
                 //print(self?.user2! as Any)
                 return nil
@@ -63,6 +76,7 @@ class TourGuideMapViewController: UIViewController, CLLocationManagerDelegate {
     deinit {
         self.stopTimer()
     }
+    
     func request() {
         //Handle request from UI
         print("Request: Launch UI")
